@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name" >Bombas Mejorada Preview
+    </string>
+    <string name="action_settings" >No hay opciones
+    </string>
+    <string name="hello_world" >Hello world!
+    </string>
+    <string name="bombas_centrifugas_title" >Bombas centrifugas
+    </string>
+    <string name="btn_pressed_toast" >El boton Aceptar ha sido presionado
+    </string>
+    <string name="label_accept" >   Aceptar
+    </string>
+    <string name="label_siguiente" >   Siguiente
+    </string>
+    <string name="press_accept_bombas">Presione Aceptar para realizar búsqueda de bombas</string>
+    <string name="press_accept_hidros">Presione Aceptar para realizar búsqueda de equipos</string>
+    <string name="press_accept_incendios">Presione Aceptar para realizar búsqueda de equipos contra incendios</string>
+    <string name="hidros_bar_title">Equipos presurizadores</string>
+    <string name="incendios_bar_title">Incendios</string>
+    <string name="calculadora_tab_title">Conversiones</string>
+    <string name="button_clean">Limpiar</string>
+    <string name="tab_otros_title">Información</string>
+
+</resources>

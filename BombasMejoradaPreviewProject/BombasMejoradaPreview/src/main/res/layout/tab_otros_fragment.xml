@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="180dp"
+            android:id="@+id/imageView"
+            android:adjustViewBounds="false"
+            android:src="@drawable/bombas_mejorada_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="50dp"/>
+
+    <!--<Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Datos de contacto"
+            android:id="@+id/btn_contact"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_vertical|left"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"/>
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Servicio y Garantia al Producto"
+            android:id="@+id/btn_warranty"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_vertical|left"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"/>
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Ayuda"
+            android:id="@+id/btn_help"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_vertical|left"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"/>
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Acerca de la App"
+            android:id="@+id/btn_about"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_vertical|left"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"/>-->
+
+    <ListView android:id="@+id/list"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:divider="?android:dividerVertical"
+              android:showDividers="middle"
+              android:dividerPadding="10dp"
+              android:baselineAligned="false"
+              android:background="@drawable/custom_button_green"
+              android:layout_margin="14dp"
+              android:isScrollContainer="false"
+            />
+
+</LinearLayout>

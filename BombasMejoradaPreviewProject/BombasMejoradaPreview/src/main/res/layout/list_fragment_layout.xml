@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:id="@+id/scrollView"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="fill_parent"
+                  android:showDividers="middle"
+                  android:divider="?android:dividerVertical"
+                  android:baselineAligned="false"
+                  android:background="@drawable/background">
+
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="8dp"
+                android:text="1. Seleccionar la fuente de energía de la bomba:"
+                android:id="@+id/textView"
+                android:fontFamily="light"
+                android:textSize="20dp"/>
+
+        <ListView android:id="@+id/list"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:divider="?android:dividerVertical"
+                  android:showDividers="middle"
+                  android:dividerPadding="10dp"
+                  android:baselineAligned="false"
+                  android:background="@drawable/custom_button_green"
+                  android:layout_margin="14dp"
+                  android:isScrollContainer="false"
+                />
+
+
+
+    </LinearLayout>
+</ScrollView>
