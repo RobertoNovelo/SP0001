@@ -1,4 +1,4 @@
-package com.smartplace.bombasmejoradapreview;
+package com.smartplace.bombasmejorada.tabs.otros;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.graphics.Color;
@@ -16,6 +16,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.smartplace.bombasmejorada.R;
+import com.smartplace.bombasmejorada.tabs.bombas.SearchFragment;
 
 import java.util.ArrayList;
 import java.util.List;

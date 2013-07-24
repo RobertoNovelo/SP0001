@@ -76,7 +76,7 @@
               android:showDividers="middle"
               android:dividerPadding="10dp"
               android:baselineAligned="false"
-              android:background="@drawable/custom_button_green"
+              android:background="@drawable/custom_button_gray"
               android:layout_margin="14dp"
               android:isScrollContainer="false"
             />

@@ -1,34 +1,35 @@
-package com.smartplace.bombasmejoradapreview;
+package com.smartplace.bombasmejorada.tabs.hidros;
 
-import android.os.Bundle;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.NumberPicker;
 
+import com.smartplace.bombasmejorada.R;
+
 /**
- * Created by ROBERTO on 17/06/13.
+ * Created by BEBETO on 28/06/13.
  */
-public class SearchFragment extends Fragment {
+public class HidrosSearchFragment extends Fragment {
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setHasOptionsMenu(true);
 
 
-        return inflater.inflate(R.layout.search_pump_fragment, container, false);
+        return inflater.inflate(R.layout.search_hidros_fragment1, container, false);
 
     }
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
@@ -36,14 +37,12 @@ public class SearchFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.tab_bombas_2, menu);
     }
-
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.btn_siguiente:
 
                 // Create new fragment and transaction
-                ResultsFound newFragment = new ResultsFound();
-                FragmentManager manager         =   getActivity().getFragmentManager();
+                HidrosSearchFragment2 newFragment = new HidrosSearchFragment2();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 // Replace whatever is in the fragment_container view with this fragment,
@@ -88,5 +87,6 @@ public class SearchFragment extends Fragment {
         numberPicker2.setDisplayedValues(nums);
 
     }
+
 
 }

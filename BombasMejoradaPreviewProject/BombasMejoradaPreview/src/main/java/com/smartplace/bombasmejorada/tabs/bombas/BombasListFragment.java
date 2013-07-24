@@ -1,4 +1,4 @@
-package com.smartplace.bombasmejoradapreview;
+package com.smartplace.bombasmejorada.tabs.bombas;
 
 import android.os.Bundle;
 import android.app.Fragment;
@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.smartplace.bombasmejorada.R;
 
 import java.util.ArrayList;
 import java.util.List;

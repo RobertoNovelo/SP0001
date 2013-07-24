@@ -1,4 +1,4 @@
-package com.smartplace.bombasmejoradapreview;
+package com.smartplace.bombasmejorada.tabs.convertidor;
 
 import android.app.ActionBar;
 import android.graphics.Color;
@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.smartplace.bombasmejorada.R;
 import com.smartplace.kankan.wheel.widget.OnWheelChangedListener;
 import com.smartplace.kankan.wheel.widget.OnWheelScrollListener;
 import com.smartplace.kankan.wheel.widget.WheelView;

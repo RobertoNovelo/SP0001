@@ -1,13 +1,11 @@
-
-package com.smartplace.bombasmejoradapreview;
-
+package com.smartplace.bombasmejorada.tabs.hidros;
 import android.app.ActionBar;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -18,9 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.smartplace.bombasmejorada.R;
 
-public class TabBombasFragment extends Fragment {
-
+public class TabHidrosFragment extends Fragment {
     ViewPager vp;
     private vpAdapter myAdapter;
     @Override
@@ -28,13 +26,12 @@ public class TabBombasFragment extends Fragment {
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         ActionBar abar = getActivity().getActionBar();
-        abar.setTitle(R.string.bombas_centrifugas_title);
-        abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0F4A51")));
+        abar.setTitle(R.string.hidros_bar_title);
+        abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#141443")));
         setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.tab_bombas_fragment, container, false);
+        View view = inflater.inflate(R.layout.tab_hidros_fragment, container, false);
         vp = (ViewPager)view.findViewById(R.id.pager);
         myAdapter = new vpAdapter();
-        int novelo =1;
         vp.setAdapter(myAdapter);
         return view;
     }
@@ -42,13 +39,14 @@ public class TabBombasFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.tab_bombas, menu);
+        inflater.inflate(R.menu.tab_hidros, menu);
     }
+
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.btn_accept:
                 // Create new fragment and transaction
-                BombasListFragment newFragment = new BombasListFragment();
+                HidrosListFragment newFragment = new HidrosListFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 // Replace whatever is in the fragment_container view with this fragment,
@@ -60,6 +58,7 @@ public class TabBombasFragment extends Fragment {
 
                 // Commit the transaction
                 transaction.commit();
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -69,7 +68,7 @@ public class TabBombasFragment extends Fragment {
 
         @Override
         public int getCount() {
-            return 4;
+            return 7;
         }
 
         @Override
@@ -89,16 +88,25 @@ public class TabBombasFragment extends Fragment {
             switch (position)            {
 
                 case 0:
-                    v= inflater.inflate(R.layout.page_bomba_1,null);
+                    v= inflater.inflate(R.layout.page_hidros_1,null);
                     break;
                 case 1:
-                    v= inflater.inflate(R.layout.page_bomba_2,null);
+                    v= inflater.inflate(R.layout.page_hidros_2,null);
                     break;
                 case 2:
-                    v= inflater.inflate(R.layout.page_bomba_3,null);
+                    v= inflater.inflate(R.layout.page_hidros_3,null);
                     break;
                 case 3:
-                    v= inflater.inflate(R.layout.page_bomba_4,null);
+                    v= inflater.inflate(R.layout.page_hidros_4,null);
+                    break;
+                case 4:
+                    v= inflater.inflate(R.layout.page_hidros_5,null);
+                    break;
+                case 5:
+                    v= inflater.inflate(R.layout.page_hidros_6,null);
+                    break;
+                case 6:
+                    v= inflater.inflate(R.layout.page_hidros_7,null);
                     break;
             }
             ((ViewPager)container).addView(v,0);
@@ -113,4 +121,3 @@ public class TabBombasFragment extends Fragment {
         }
     }
 }
-

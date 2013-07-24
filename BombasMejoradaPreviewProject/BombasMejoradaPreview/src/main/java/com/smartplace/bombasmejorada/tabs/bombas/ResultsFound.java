@@ -1,4 +1,4 @@
-package com.smartplace.bombasmejoradapreview;
+package com.smartplace.bombasmejorada.tabs.bombas;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.app.Fragment;
+
+import com.smartplace.bombasmejorada.R;
 
 /**
  * Created by ROBERTO on 26/06/13.

@@ -1,4 +1,4 @@
-package com.smartplace.bombasmejoradapreview;
+package com.smartplace.bombasmejorada.tabs.hidros;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -9,27 +9,28 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.NumberPicker;
 
+import com.smartplace.bombasmejorada.R;
+
 /**
- * Created by BEBETO on 28/06/13.
+ * Created by ROBERTO on 28/06/13.
  */
-public class HidrosSearchFragment extends Fragment {
+public class HidrosSearchFragment2 extends Fragment {
+
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setHasOptionsMenu(true);
 
-
-        return inflater.inflate(R.layout.search_hidros_fragment1, container, false);
+        return inflater.inflate(R.layout.search_hidros_fragment2, container, false);
 
     }
-
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
@@ -41,7 +42,7 @@ public class HidrosSearchFragment extends Fragment {
             case R.id.btn_siguiente:
 
                 // Create new fragment and transaction
-                HidrosSearchFragment2 newFragment = new HidrosSearchFragment2();
+                HidrosResults newFragment = new HidrosResults();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 // Replace whatever is in the fragment_container view with this fragment,
@@ -74,7 +75,7 @@ public class HidrosSearchFragment extends Fragment {
         NumberPicker numberPicker2 =  (NumberPicker) getView().findViewById(R.id.numberPicker2);
 
         numberPicker.setMaxValue(nums.length-1);
-        numberPicker2.setMaxValue(nums.length-1);
+        numberPicker2.setMaxValue(nums.length - 1);
 
         numberPicker.setMinValue(0);
         numberPicker2.setMinValue(0);
@@ -84,6 +85,9 @@ public class HidrosSearchFragment extends Fragment {
 
         numberPicker.setDisplayedValues(nums);
         numberPicker2.setDisplayedValues(nums);
+
+
+
 
     }
 

@@ -1,6 +1,5 @@
-package com.smartplace.bombasmejoradapreview;
+package com.smartplace.bombasmejorada.tabs.incendios;
 import android.app.ActionBar;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -17,7 +16,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-public class TabHidrosFragment extends Fragment {
+import com.smartplace.bombasmejorada.R;
+
+public class TabIncendiosFragment extends Fragment {
     ViewPager vp;
     private vpAdapter myAdapter;
     @Override
@@ -25,10 +26,10 @@ public class TabHidrosFragment extends Fragment {
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         ActionBar abar = getActivity().getActionBar();
-        abar.setTitle(R.string.hidros_bar_title);
-        abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#141443")));
+        abar.setTitle(R.string.incendios_bar_title);
+        abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#591819")));
         setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.tab_hidros_fragment, container, false);
+        View view = inflater.inflate(R.layout.tab_incendios_fragment, container, false);
         vp = (ViewPager)view.findViewById(R.id.pager);
         myAdapter = new vpAdapter();
         vp.setAdapter(myAdapter);
@@ -38,26 +39,12 @@ public class TabHidrosFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.tab_hidros, menu);
+        inflater.inflate(R.menu.tab_incendios, menu);
     }
-
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.btn_accept:
-                // Create new fragment and transaction
-                HidrosListFragment newFragment = new HidrosListFragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
-                transaction.replace(android.R.id.tabcontent, newFragment);
-                transaction.addToBackStack(null);
-
-                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-
-                // Commit the transaction
-                transaction.commit();
-
+                Toast.makeText(getActivity().getBaseContext(),"Aceptar de tab de incendios presionado",Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -67,7 +54,7 @@ public class TabHidrosFragment extends Fragment {
 
         @Override
         public int getCount() {
-            return 7;
+            return 3;
         }
 
         @Override
@@ -87,26 +74,15 @@ public class TabHidrosFragment extends Fragment {
             switch (position)            {
 
                 case 0:
-                    v= inflater.inflate(R.layout.page_hidros_1,null);
+                    v= inflater.inflate(R.layout.page_incendios_1,null);
                     break;
                 case 1:
-                    v= inflater.inflate(R.layout.page_hidros_2,null);
+                    v= inflater.inflate(R.layout.page_incendios_2,null);
                     break;
                 case 2:
-                    v= inflater.inflate(R.layout.page_hidros_3,null);
+                    v= inflater.inflate(R.layout.page_incendios_3,null);
                     break;
-                case 3:
-                    v= inflater.inflate(R.layout.page_hidros_4,null);
-                    break;
-                case 4:
-                    v= inflater.inflate(R.layout.page_hidros_5,null);
-                    break;
-                case 5:
-                    v= inflater.inflate(R.layout.page_hidros_6,null);
-                    break;
-                case 6:
-                    v= inflater.inflate(R.layout.page_hidros_7,null);
-                    break;
+
             }
             ((ViewPager)container).addView(v,0);
             return v;

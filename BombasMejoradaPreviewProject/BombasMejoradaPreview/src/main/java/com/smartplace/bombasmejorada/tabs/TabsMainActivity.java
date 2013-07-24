@@ -1,4 +1,4 @@
-package com.smartplace.bombasmejoradapreview;
+package com.smartplace.bombasmejorada.tabs;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -11,6 +11,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
+
+import com.smartplace.bombasmejorada.R;
+import com.smartplace.bombasmejorada.tabs.bombas.TabBombasFragment;
+import com.smartplace.bombasmejorada.tabs.convertidor.TabCalculadoraFragment;
+import com.smartplace.bombasmejorada.tabs.hidros.TabHidrosFragment;
+import com.smartplace.bombasmejorada.tabs.incendios.TabIncendiosFragment;
+import com.smartplace.bombasmejorada.tabs.otros.TabOtrosFragment;
 
 public class TabsMainActivity extends Activity {
 

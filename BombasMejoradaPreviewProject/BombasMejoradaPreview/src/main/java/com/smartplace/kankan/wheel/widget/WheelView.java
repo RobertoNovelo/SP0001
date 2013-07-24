@@ -32,7 +32,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
 
-import com.smartplace.bombasmejoradapreview.R;
+import com.smartplace.bombasmejorada.R;
 import com.smartplace.kankan.wheel.widget.adapters.WheelViewAdapter;
 
 import java.util.LinkedList;

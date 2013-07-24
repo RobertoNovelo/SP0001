@@ -1,4 +1,4 @@
-package com.smartplace.bombasmejoradapreview;
+package com.smartplace.bombasmejorada.tabs.hidros;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -9,8 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.smartplace.bombasmejorada.R;
 
 /**
  * Created by ROBERTO on 28/06/13.

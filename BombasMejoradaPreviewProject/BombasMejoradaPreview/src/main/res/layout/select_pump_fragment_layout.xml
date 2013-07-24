@@ -5,7 +5,7 @@
         android:layout_height="fill_parent"
         android:background="#ff26afb1"
         >
-<com.smartplace.bombasmejoradapreview.BounceScrollView
+<com.smartplace.bombasmejorada.BounceScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:fillViewport="true"
@@ -213,5 +213,5 @@
 
     </LinearLayout>
 
-</com.smartplace.bombasmejoradapreview.BounceScrollView>
+</com.smartplace.bombasmejorada.BounceScrollView>
 </LinearLayout>

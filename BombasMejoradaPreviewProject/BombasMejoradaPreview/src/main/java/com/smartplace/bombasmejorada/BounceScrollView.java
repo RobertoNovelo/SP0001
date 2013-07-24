@@ -1,4 +1,4 @@
-package com.smartplace.bombasmejoradapreview;
+package com.smartplace.bombasmejorada;
 
 import android.content.Context;
 import android.util.AttributeSet;
