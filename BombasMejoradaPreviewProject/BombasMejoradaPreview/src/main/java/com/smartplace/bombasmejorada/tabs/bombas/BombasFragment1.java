@@ -1,5 +1,6 @@
 package com.smartplace.bombasmejorada.tabs.bombas;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 
 import com.smartplace.bombasmejorada.R;
+import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,7 @@ import java.util.List;
 /**
  * Created by ROBERTO on 15/06/13.
  */
-public class BombasListFragment extends Fragment {
+public class BombasFragment1 extends Fragment {
 
     //LIST OF ARRAY STRINGS WHICH WILL SERVE AS LIST ITEMS
     List<String> listItems=new ArrayList<String>();
@@ -36,6 +38,13 @@ public class BombasListFragment extends Fragment {
     //DEFINING STRING ADAPTER WHICH WILL HANDLE DATA OF LISTVIEW
     ArrayAdapter<String> adapter;
 
+    //Interface instance used to pass data on to the holder activity
+    onBombasFragment1Change mCallback;
+
+    public interface onBombasFragment1Change
+    {
+        public void onFragmentChange( TabsMainActivity.Identifiers TabIdentifier,String Param1,int Param2, int Param3);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +55,21 @@ public class BombasListFragment extends Fragment {
         return view;
 
     }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        // This makes sure that the container activity has implemented
+        // the callback interface. If not, it throws an exception
+        try {
+            mCallback = (onBombasFragment1Change) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnHeadlineSelectedListener");
+        }
+    }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
@@ -79,10 +103,12 @@ public class BombasListFragment extends Fragment {
 
                 String item = ((TextView)view).getText().toString();
 
-                Toast.makeText(getActivity(),item,Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(),item,Toast.LENGTH_LONG).show();
+
+                mCallback.onFragmentChange(TabsMainActivity.Identifiers.BombasFragment1, (String) ((TextView) view).getText(), 1, 1);
 
                 // Create new fragment and transaction
-                SearchFragment newFragment = new SearchFragment();
+                BombasFragment2 newFragment = new BombasFragment2();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 // Replace whatever is in the fragment_container view with this fragment,

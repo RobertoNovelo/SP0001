@@ -17,12 +17,16 @@ import com.smartplace.bombasmejorada.R;
 /**
  * Created by ROBERTO on 26/06/13.
  */
-public class ResultsFound extends Fragment {
+public class BombasFragment3 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle extras = getArguments();
+
+        Toast.makeText(getActivity(), extras.getString("EnergySource") , Toast.LENGTH_SHORT).show();
 
         return inflater.inflate(R.layout.tab_bombas_3, container, false);
 

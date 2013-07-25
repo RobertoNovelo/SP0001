@@ -1,5 +1,6 @@
 package com.smartplace.bombasmejorada.tabs.bombas;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -13,11 +14,20 @@ import android.view.ViewGroup;
 import android.widget.NumberPicker;
 
 import com.smartplace.bombasmejorada.R;
+import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
 
 /**
  * Created by ROBERTO on 17/06/13.
  */
-public class SearchFragment extends Fragment {
+public class BombasFragment2 extends Fragment {
+
+    //Interface instance used to pass data on to the holder activity
+    onBombasFragment2Change mCallback;
+
+    public interface onBombasFragment2Change
+    {
+        public void onFragmentChange( TabsMainActivity.Identifiers TabIdentifier,String Param1,int Param2, int Param3);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,6 +42,20 @@ public class SearchFragment extends Fragment {
     }
 
     @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        // This makes sure that the container activity has implemented
+        // the callback interface. If not, it throws an exception
+        try {
+            mCallback = (onBombasFragment2Change) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnHeadlineSelectedListener");
+        }
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
@@ -42,10 +66,18 @@ public class SearchFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.btn_siguiente:
 
+                mCallback.onFragmentChange(TabsMainActivity.Identifiers.BombasFragment2,"Test2",1,1);
+
                 // Create new fragment and transaction
-                ResultsFound newFragment = new ResultsFound();
+                BombasFragment3 newFragment = new BombasFragment3();
                 FragmentManager manager         =   getActivity().getFragmentManager();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                BombasFragmentDataManager tempDataManager = ((TabsMainActivity)getActivity()).getBFDataManager();
+
+                Bundle args = new Bundle();
+                args.putString("EnergySource", tempDataManager.EnergySource);
+                newFragment.setArguments(args);
 
                 // Replace whatever is in the fragment_container view with this fragment,
                 // and add the transaction to the back stack

@@ -32,12 +32,6 @@ public class HidrosResults extends Fragment {
     {
         super.onResume();
 
-
-
-        Log.d("NOVELO", "TEST");
-
-
-
         Button btnEnviar = (Button) getActivity().findViewById(R.id.enviarbutton);
 
         btnEnviar.setOnClickListener(new View.OnClickListener() {

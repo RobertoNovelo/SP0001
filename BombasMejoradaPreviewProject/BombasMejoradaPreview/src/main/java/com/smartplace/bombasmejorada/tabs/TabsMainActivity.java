@@ -11,19 +11,23 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.smartplace.bombasmejorada.R;
+import com.smartplace.bombasmejorada.tabs.bombas.BombasFragment1;
+import com.smartplace.bombasmejorada.tabs.bombas.BombasFragment2;
+import com.smartplace.bombasmejorada.tabs.bombas.BombasFragmentDataManager;
 import com.smartplace.bombasmejorada.tabs.bombas.TabBombasFragment;
 import com.smartplace.bombasmejorada.tabs.convertidor.TabCalculadoraFragment;
 import com.smartplace.bombasmejorada.tabs.hidros.TabHidrosFragment;
 import com.smartplace.bombasmejorada.tabs.incendios.TabIncendiosFragment;
 import com.smartplace.bombasmejorada.tabs.otros.TabOtrosFragment;
 
-public class TabsMainActivity extends Activity {
+public class TabsMainActivity extends Activity implements
+        BombasFragment1.onBombasFragment1Change,
+        BombasFragment2.onBombasFragment2Change{
 
     /* Tab identifiers */
-
-
     static String TAB_A = "Bombas";
     static String TAB_B = "Hidros";
     static String TAB_C = "Incendios";
@@ -36,6 +40,35 @@ public class TabsMainActivity extends Activity {
     TabIncendiosFragment        tab_incendios;
     TabCalculadoraFragment      tab_calculadora;
     TabOtrosFragment            tab_otros;
+
+    public enum Identifiers
+    {
+        BombasFragment1,
+        BombasFragment2,
+        BombasFragment3
+    }
+
+    public BombasFragmentDataManager BFDataManager = new BombasFragmentDataManager();
+
+    public void onFragmentChange( Identifiers TabIdentifier,String Param1, int Param2,int Param3)
+    {
+        switch (TabIdentifier)
+        {
+            case BombasFragment1:
+                BFDataManager.EnergySource = Param1;
+                break;
+            case BombasFragment2:
+                BFDataManager.lpm = Param2;
+                BFDataManager.psi = Param3;
+                break;
+        }
+    }
+
+    public BombasFragmentDataManager getBFDataManager()
+    {
+        return (BFDataManager);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
