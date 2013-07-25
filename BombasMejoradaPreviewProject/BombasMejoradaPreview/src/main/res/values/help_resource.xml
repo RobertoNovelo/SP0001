@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_text">
+        <![CDATA[
+    <html>
+    <head></head>
+    <body></body><br>
+    <body style="text-align:justify;">
+ <font color=\"#195259\">Bombas Mejorada </font> es una empresa mexicana
+especializada en la fabricaci&oacute;n de bombas
+para uso comercial, industrial y agr&iacute;cola;
+equipos de bombeo de velocidad variable; y
+equipos de bombeo para sistemas contra
+incendio y rociadores.
+    </body><br><br>
+    <body style="text-align:justify;">
+Esta aplicaci&oacute;n m&oacute;vil permite al usuario
+encontrar la bomba o equipo ideal de acuerdo
+a las caracter&iacute;sticas que necesita. Para
+utilizarla, s&oacute;lo es necesario contestar las
+preguntas que se le presentan y la aplicaci&oacute;n
+llevara a cabo un c&aacute;lculo de los par&aacute;metros
+relevantes autom&aacute;ticamente realizando una
+b&uacute;squeda en nuestra base de datos para as&iacute;
+presentarle los dispositivos disponibles que
+cumplen con sus necesidades.
+</body><br><br>
+<body style="text-align:justify;">
+Adem&aacute;s, puede visualizar las hojas de datos
+de cada equipo y compartirlas mediante un
+correo electr&oacute;nico. Si tiene dudas sobre como
+utilizar nuestra aplicaci&oacute;n, presione el bot&oacute;n
+de Enviar y env&iacute;enos sus dudas, con gusto le
+responderemos y aclararemos sus dudas.
+</body><br><br>
+    </html>
+    ]]>
+    </string>
+</resources>

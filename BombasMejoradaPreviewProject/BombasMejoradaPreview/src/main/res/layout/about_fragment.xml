@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView">
+<LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#fffffc">
+        <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="148dp"
+                android:id="@+id/aboutImage"
+                android:src="@drawable/smartplace_logo"
+                android:layout_margin="20dp"/>
+
+    <WebView
+                android:layout_width="fill_parent"
+                android:layout_height="169dp"
+                android:id="@+id/about_webView"
+                android:layout_gravity="center"
+                android:background="#fffffc"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="www.smartplace.mx"
+            android:id="@+id/btn_web_smartplace"
+            android:background="#fffffc"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:textSize="30dp"
+            android:textColor="#eb6f29"/>
+
+</LinearLayout>
+</ScrollView>
+
