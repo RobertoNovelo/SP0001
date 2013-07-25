@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.smartplace.bombasmejorada.R;
-import com.smartplace.bombasmejorada.tabs.bombas.SearchFragment;
 
 import java.util.ArrayList;
 import java.util.List;

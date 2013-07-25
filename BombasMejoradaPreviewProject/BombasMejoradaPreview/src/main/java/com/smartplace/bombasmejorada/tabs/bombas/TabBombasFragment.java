@@ -50,7 +50,7 @@ public class TabBombasFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.btn_accept:
                 // Create new fragment and transaction
-                BombasListFragment newFragment = new BombasListFragment();
+                BombasFragment1 newFragment = new BombasFragment1();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 // Replace whatever is in the fragment_container view with this fragment,
