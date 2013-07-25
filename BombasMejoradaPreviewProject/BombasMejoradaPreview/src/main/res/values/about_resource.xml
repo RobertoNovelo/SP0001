@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_text">
+        <![CDATA[
+    <html>
+    <head></head>
+    <body style="text-align:justify;">
+    <font size=3>
+Esta aplicaci&oacute;n ha sido desarrollada por
+<font color=\"#EB6F29\">SmartPlace </font>. Si tiene algun comentario o idea
+sobre como mejorarla, presione el bot&oacute;n
+Enviar y h&aacute;ganos saber sus observaciones,
+con gusto le responderemos y aclararemos
+todas sus inquietudes.
+</font>
+</body><br><br>
+    </html>
+    ]]>
+    </string>
+</resources>

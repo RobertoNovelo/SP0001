@@ -73,21 +73,69 @@ public class TabOtrosFragment extends Fragment {
 
                 String item = ((TextView)view).getText().toString();
 
-                Toast.makeText(getActivity(),item,Toast.LENGTH_LONG).show();
+                if(item == "Datos de Contacto")
+                {
+                    // Create new fragment and transaction
+                    ContactInfoFragment newFragment = new ContactInfoFragment();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.addToBackStack(null);
 
-                // Create new fragment and transaction
-                SearchFragment newFragment = new SearchFragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
-                transaction.replace(android.R.id.tabcontent, newFragment);
-                transaction.addToBackStack(null);
+                    // Commit the transaction
+                    transaction.commit();
+                }
+                else if(item== "Servicio de Garantia al Producto")
+                {
+                    ContactInfoFragment newFragment = new ContactInfoFragment();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.addToBackStack(null);
 
-                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 
-                // Commit the transaction
-                transaction.commit();
+                    // Commit the transaction
+                    transaction.commit();
+                }
+                else if(item == "Ayuda")
+                {
+                    HelpFragment newFragment = new HelpFragment();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.addToBackStack(null);
+
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                    // Commit the transaction
+                    transaction.commit();
+                }
+                else if(item == "Acerca de la App")
+                {
+                    AboutFragment newFragment = new AboutFragment();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.addToBackStack(null);
+
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                    // Commit the transaction
+                    transaction.commit();
+                }
+                else
+                {
+                    /*Do nothing*/
+                }
+
+
 
             }
         });

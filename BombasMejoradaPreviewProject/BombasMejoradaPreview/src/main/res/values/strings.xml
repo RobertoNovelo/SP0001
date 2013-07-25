@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="address">Direccion:\nBombas Mejorada SA de CV\nCalle 4, No.2368, Col. Zona Industrial\nGuadalajara, Jalisco, México</string>
     <string name="app_name" >Bombas Mejorada
     </string>
     <string name="action_settings" >No hay opciones
