@@ -24,7 +24,7 @@ public class ResultsFound extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        return inflater.inflate(R.layout.results_found_fragment, container, false);
+        return inflater.inflate(R.layout.tab_bombas_3, container, false);
 
     }
 

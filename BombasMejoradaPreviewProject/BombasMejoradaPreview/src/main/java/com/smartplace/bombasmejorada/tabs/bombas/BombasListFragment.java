@@ -30,6 +30,9 @@ public class BombasListFragment extends Fragment {
     //LIST OF ARRAY STRINGS WHICH WILL SERVE AS LIST ITEMS
     List<String> listItems=new ArrayList<String>();
 
+    //Test
+    int test=1;
+
     //DEFINING STRING ADAPTER WHICH WILL HANDLE DATA OF LISTVIEW
     ArrayAdapter<String> adapter;
 
@@ -39,7 +42,7 @@ public class BombasListFragment extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        View view = inflater.inflate(R.layout.list_fragment_layout, container, false);
+        View view = inflater.inflate(R.layout.tab_bombas_1, container, false);
         return view;
 
     }

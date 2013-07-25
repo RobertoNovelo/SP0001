@@ -20,7 +20,7 @@ public class HidrosListFragment extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        return inflater.inflate(R.layout.hidros_list_fragment, container, false);
+        return inflater.inflate(R.layout.tab_hidros_1, container, false);
     }
 
 

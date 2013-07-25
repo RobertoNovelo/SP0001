@@ -27,7 +27,7 @@ public class SearchFragment extends Fragment {
         setHasOptionsMenu(true);
 
 
-        return inflater.inflate(R.layout.search_pump_fragment, container, false);
+        return inflater.inflate(R.layout.tab_bombas_2, container, false);
 
     }
 

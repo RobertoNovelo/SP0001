@@ -33,7 +33,7 @@ public class TabBombasFragment extends Fragment {
         abar.setTitle(R.string.bombas_centrifugas_title);
         abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0F4A51")));
         setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.tab_bombas_fragment, container, false);
+        View view = inflater.inflate(R.layout.tab_footer_bombas, container, false);
         vp = (ViewPager)view.findViewById(R.id.pager);
         myAdapter = new vpAdapter();
         int novelo =1;

@@ -26,7 +26,7 @@ public class HidrosSearchFragment extends Fragment {
         setHasOptionsMenu(true);
 
 
-        return inflater.inflate(R.layout.search_hidros_fragment1, container, false);
+        return inflater.inflate(R.layout.tab_hidros_2, container, false);
 
     }
 

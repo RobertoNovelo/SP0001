@@ -29,7 +29,7 @@ public class TabIncendiosFragment extends Fragment {
         abar.setTitle(R.string.incendios_bar_title);
         abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#591819")));
         setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.tab_incendios_fragment, container, false);
+        View view = inflater.inflate(R.layout.tab_footer_incendios, container, false);
         vp = (ViewPager)view.findViewById(R.id.pager);
         myAdapter = new vpAdapter();
         vp.setAdapter(myAdapter);

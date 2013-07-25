@@ -31,16 +31,16 @@ public class TabsMainActivity extends Activity {
     static String TAB_E = "Otros";
     TabHost mTabHost;
 
-    TabBombasFragment tab_bombas;
-    TabHidrosFragment tab_hidros;
-    TabIncendiosFragment tab_incendios;
-    TabCalculadoraFragment tab_calculadora;
-    TabOtrosFragment tab_otros;
+    TabBombasFragment           tab_bombas;
+    TabHidrosFragment           tab_hidros;
+    TabIncendiosFragment        tab_incendios;
+    TabCalculadoraFragment      tab_calculadora;
+    TabOtrosFragment            tab_otros;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_tab);
+        setContentView(R.layout.activity_main_tabhost);
 
         tab_bombas = new TabBombasFragment();
         tab_hidros = new TabHidrosFragment();

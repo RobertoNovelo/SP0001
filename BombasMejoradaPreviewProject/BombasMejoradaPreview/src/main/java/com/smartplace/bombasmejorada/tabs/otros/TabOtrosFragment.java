@@ -39,7 +39,7 @@ public class TabOtrosFragment extends Fragment {
         abar.setTitle(R.string.tab_otros_title);
         abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#195259")));
         setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.tab_otros_fragment, container, false);
+        View view = inflater.inflate(R.layout.tab_otros_1, container, false);
         return view;
     }
     @Override

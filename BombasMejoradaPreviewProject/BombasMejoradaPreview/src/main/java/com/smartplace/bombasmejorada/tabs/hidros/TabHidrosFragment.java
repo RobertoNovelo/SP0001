@@ -29,7 +29,7 @@ public class TabHidrosFragment extends Fragment {
         abar.setTitle(R.string.hidros_bar_title);
         abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#141443")));
         setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.tab_hidros_fragment, container, false);
+        View view = inflater.inflate(R.layout.tab_footer_hidros, container, false);
         vp = (ViewPager)view.findViewById(R.id.pager);
         myAdapter = new vpAdapter();
         vp.setAdapter(myAdapter);
