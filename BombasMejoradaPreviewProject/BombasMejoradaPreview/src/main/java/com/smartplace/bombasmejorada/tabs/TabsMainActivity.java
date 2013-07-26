@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.smartplace.assets.AssetsHandler;
 import com.smartplace.bombasmejorada.R;
 import com.smartplace.bombasmejorada.tabs.bombas.BombasFragment1;
 import com.smartplace.bombasmejorada.tabs.bombas.BombasFragment2;
@@ -86,7 +88,7 @@ public class TabsMainActivity extends Activity implements
         mTabHost.setup();
 
         initializeTab();
-
+        AssetsHandler.Operations.CopyAssetsToPhone(getBaseContext(),Environment.getExternalStorageDirectory() + "/BombasMejorada/","PDFs");
     }
 
     @Override

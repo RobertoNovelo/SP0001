@@ -1,4 +1,4 @@
-package com.smartplace.bombasmejorada;
+package com.smartplace.effects;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -2,6 +2,7 @@ package com.smartplace.bombasmejorada.tabs.bombas;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.app.Fragment;
 
+import com.smartplace.assets.PDFHandler;
 import com.smartplace.bombasmejorada.R;
 
 /**
@@ -48,7 +50,8 @@ public class BombasFragment3 extends Fragment {
 
 
                 RelativeLayout modelo3 = (RelativeLayout) getActivity().findViewById(R.id.modelo3);
-
+                PDFHandler pdfs = new PDFHandler(Environment.getExternalStorageDirectory() + "/BombasMejorada/");
+                pdfs.OpenPDF(getActivity(),"Modelo3P.pdf");
                 modelo3.setPressed(true);
 
                 Toast.makeText(getActivity(),"modelo 3", Toast.LENGTH_SHORT).show();
@@ -75,12 +78,13 @@ public class BombasFragment3 extends Fragment {
         });
         RelativeLayout modelo4 = (RelativeLayout) getActivity().findViewById(R.id.modelo4);
 
-        modelo3.setOnClickListener(new View.OnClickListener() {
+        modelo4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 RelativeLayout modelo4 = (RelativeLayout) getActivity().findViewById(R.id.modelo4);
-
+                PDFHandler pdfs = new PDFHandler(Environment.getExternalStorageDirectory() + "/BombasMejorada/");
+                pdfs.OpenPDF(getActivity(),"Modelo4P.pdf");
                 if ( getActivity().getResources().getDrawable(R.drawable.custom_button_green)== modelo4.getBackground())
                 {
 
