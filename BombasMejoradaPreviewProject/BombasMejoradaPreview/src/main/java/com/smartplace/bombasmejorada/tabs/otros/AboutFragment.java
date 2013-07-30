@@ -32,7 +32,7 @@ import com.smartplace.bombasmejorada.R;
 /*
 *   INTEGRATION HINTS:
 *
-*   layout: about_fragment.xml
+*   layout: tab_otros_about.xmll
 *   menu: menu_about_fragment.xml
 *   values: about.xml
 *
@@ -50,7 +50,7 @@ public class AboutFragment extends Fragment {
         abar.setTitle("SmartPlace");
         abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#195259")));
         setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.about_fragment, container, false);
+        View view = inflater.inflate(R.layout.tab_otros_about, container, false);
         helpWebView = (WebView) view.findViewById(R.id.about_webView);
         helpWebView.setVerticalScrollBarEnabled(true);
         helpWebView.loadData(getString(R.string.about_text), "text/html", "utf-8");

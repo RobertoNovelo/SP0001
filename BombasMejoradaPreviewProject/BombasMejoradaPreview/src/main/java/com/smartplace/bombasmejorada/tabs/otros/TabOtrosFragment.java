@@ -38,7 +38,7 @@ public class TabOtrosFragment extends Fragment {
         abar.setTitle(R.string.tab_otros_title);
         abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#195259")));
         setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.tab_otros_1, container, false);
+        View view = inflater.inflate(R.layout.tab_otros_main, container, false);
         return view;
     }
     @Override
@@ -89,7 +89,7 @@ public class TabOtrosFragment extends Fragment {
                 }
                 else if(item== "Servicio de Garantia al Producto")
                 {
-                    ContactInfoFragment newFragment = new ContactInfoFragment();
+                    ServiceFragment1 newFragment = new ServiceFragment1();
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     // Replace whatever is in the fragment_container view with this fragment,
                     // and add the transaction to the back stack

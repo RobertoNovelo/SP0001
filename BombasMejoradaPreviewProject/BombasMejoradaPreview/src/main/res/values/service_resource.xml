@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="terms_text">
+        <![CDATA[
+    <html>
+    <head></head>
+    <body></body><br>
+<body style="text-align:justify;">
+<font color=\"#FF4040\">Condiciones de servicio: </font>
+
+<ul>
+<body></body><br>
+<body style="text-align:justify;">
+<font size=2>
+<li>Estoy de acuerdo que el t&eacute;cnico EN NINGUN CASO
+determinar&aacute; si el problema se cubre por garant&iacute;a. Primero har&aacute;
+una revisi&oacute;n y reporte, para que posteriormente planta
+diagnostique la falla, y corrobore si est&aacute; cubierta por la
+garant&iacute;a correspondiente del producto.</li>
+</body><br><br>
+
+<body style="text-align:justify;">
+<font size=2>
+<li>El t&eacute;cnico en ning&uacute;n caso le dar&aacute; un diagnostico al usuario
+durante la visita.</li>
+</body><br><br>
+
+<body style="text-align:justify;">
+<font size=2>
+<li>De ser posible, el t&eacute;cnico corregir&aacute; la falla. En caso contrario,
+desinstalar&aacute; las partes descompuestas para que se revisen y
+de ser posible se reparen en Planta, lo que implica que se
+tendr&aacute; que hacer otra visita para instalar las partes reparadas
+o nuevas y corregir el problema definitivamente.</li>
+</body><br><br>
+
+
+<body style="text-align:justify;">
+<font size=2>
+<li>Si la falla es debido a causas ajenas al equipo, una vez que
+regrese el t&eacute;cnico se entregar&aacute; al cliente el reporte y la
+recomendaci&oacute;n para corregir el problema.</li>
+</body><br><br>
+
+<body style="text-align:justify;">
+<font size=2>
+<li>En todo caso, el t&eacute;cnico tratar&aacute; de dejar el equipo funcionando
+aunque sea parcial o provisionalmente.</li>
+</body><br><br>
+
+<body style="text-align:justify;">
+<font size=2>
+<li>Estoy enterado y acepto que independientemente a la garant&iacute;a
+los gastos de vi&aacute;ticos corren por mi cuenta. En caso de que
+cuente con cr&eacute;dito de BM, los cargos por vi&aacute;ticos ser&aacute;n
+cargados a mi cr&eacute;dito vigente. En caso de no contar con l&iacute;nea
+de cr&eacute;dito de BM, pagar&eacute; los vi&aacute;ticos por adelantado de
+acuerdo a los t&eacute;rminos de la garant&iacute;a de BM.</li>
+</body><br><br>
+</ul>
+    </html>
+    ]]>
+    </string>
+</resources>

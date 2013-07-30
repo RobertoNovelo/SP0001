@@ -64,7 +64,7 @@ public class TabCalculadoraFragment extends Fragment {
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         /*Load calculadora fragment*/
-        view = inflater.inflate(R.layout.tab_calculadora_fragment, container, false);
+        view = inflater.inflate(R.layout.tab_convertidor_main, container, false);
 
         /*Change action bar title and color according to requirement*/
         ActionBar abar = getActivity().getActionBar();
@@ -99,7 +99,7 @@ public class TabCalculadoraFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
 
         /*Set fragment Menu*/
-        inflater.inflate(R.menu.tab_calculadora, menu);
+        inflater.inflate(R.menu.tab_convertidor, menu);
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

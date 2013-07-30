@@ -2,13 +2,9 @@ package com.smartplace.bombasmejorada.tabs.otros;
 
 import android.app.ActionBar;
 import android.app.Fragment;
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,9 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.smartplace.bombasmejorada.R;
 
@@ -37,7 +30,7 @@ import com.smartplace.bombasmejorada.R;
 *   DON´T FORGET TO ADD PERMISSION INTO ANDROID MANIFEST
 *   <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
 *   <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-*   layout: help_fragment.xml
+*   layout: tab_otros_help.xmll
 *   menu:
 *   values: help.xml
 *
@@ -54,7 +47,7 @@ public class HelpFragment extends Fragment {
         abar.setTitle("Ayuda");
         abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#195259")));
         setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.help_fragment, container, false);
+        View view = inflater.inflate(R.layout.tab_otros_help, container, false);
         helpWebView = (WebView) view.findViewById(R.id.help_webview);
         helpWebView.setVerticalScrollBarEnabled(false);
         helpWebView.loadData(getString(R.string.help_text), "text/html", "utf-8");

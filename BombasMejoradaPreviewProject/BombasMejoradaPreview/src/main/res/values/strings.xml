@@ -23,5 +23,16 @@
     <string name="calculadora_tab_title">Conversiones</string>
     <string name="button_clean">Limpiar</string>
     <string name="tab_otros_title">Información</string>
+    <string name="service_intro">LLene TODOS los conceptos descritos a continuacion y presione el boton Aceptar para que su solicitud sea recibida por el departamento de servicio de Bombas Mejorada, S.A de C.V.</string>
+    <string name="service_1">1.- Equipo Modelo:</string>
+    <string name="service_2">2.- No. de Serie:</string>
+    <string name="service_3">3.- Presenta la siguiente falla:</string>
+    <string name="label_service_4">4.- Domicilio donde esta instalado:</string>
+    <string name="service_7">7.- Nombre:</string>
+    <string name="service_8">8.- Empresa:</string>
+    <string name="service_9">9.-Puesto:</string>
+    <string name="service_10">10.- Télefono:</string>
+    <string name="service_11">11.- Celular:</string>
+    <string name="service_12">12.- Correo:</string>
 
 </resources>

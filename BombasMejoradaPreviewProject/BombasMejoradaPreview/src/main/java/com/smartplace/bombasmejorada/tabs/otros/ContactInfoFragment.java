@@ -5,10 +5,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.telephony.PhoneStateListener;
-import android.telephony.TelephonyManager;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 
 /**
@@ -54,7 +51,7 @@ public class ContactInfoFragment extends Fragment {
         abar.setTitle("Contacto");
         abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#195259")));
         setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.contact_info_fragment, container, false);
+        View view = inflater.inflate(R.layout.tab_otros_contact_info, container, false);
         btnViewMap = (Button) view.findViewById(R.id.btnViewMap);
         btnLocalTel = (Button) view.findViewById(R.id.btnLocalTel);
         btnCountryTel = (Button) view.findViewById(R.id.btnCountryTel);
