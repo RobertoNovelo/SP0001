@@ -39,7 +39,7 @@ import com.smartplace.bombasmejorada.R;
 * */
 public class AboutFragment extends Fragment {
 
-    WebView helpWebView;
+    WebView aboutWebView;
     Button btnWebSmartPlace;
 
     @Override
@@ -51,9 +51,9 @@ public class AboutFragment extends Fragment {
         abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#195259")));
         setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.tab_otros_about, container, false);
-        helpWebView = (WebView) view.findViewById(R.id.about_webView);
-        helpWebView.setVerticalScrollBarEnabled(true);
-        helpWebView.loadData(getString(R.string.about_text), "text/html", "utf-8");
+        aboutWebView = (WebView) view.findViewById(R.id.about_webView);
+        aboutWebView.setVerticalScrollBarEnabled(false);
+        aboutWebView.loadData(getString(R.string.about_text), "text/html", "utf-8");
         btnWebSmartPlace = (Button) view.findViewById(R.id.btn_web_smartplace);
         btnWebSmartPlace.setOnClickListener(new View.OnClickListener() {
             @Override

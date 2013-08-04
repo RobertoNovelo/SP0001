@@ -6,15 +6,16 @@
                 android:orientation="vertical">
 
     <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="180dp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:id="@+id/imageView"
-            android:adjustViewBounds="false"
+            android:adjustViewBounds="true"
             android:src="@drawable/bombas_mejorada_logo"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="50dp"/>
+            android:layout_marginRight="50dp"
+            android:layout_weight="1"/>
 
     <!--<Button
             android:layout_width="fill_parent"
@@ -69,16 +70,25 @@
             android:paddingTop="15dp"
             android:paddingBottom="15dp"/>-->
 
-    <ListView android:id="@+id/list"
-              android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
-              android:divider="?android:dividerVertical"
-              android:showDividers="middle"
-              android:dividerPadding="10dp"
-              android:baselineAligned="false"
-              android:background="@drawable/custom_button_gray"
-              android:layout_margin="14dp"
-              android:isScrollContainer="false"
-            />
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal">
+
+        <ListView android:id="@+id/list"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:divider="?android:dividerVertical"
+                  android:showDividers="middle"
+                  android:dividerPadding="10dp"
+                  android:baselineAligned="false"
+                  android:background="@drawable/custom_button_gray"
+                  android:isScrollContainer="false"
+                  android:layout_marginLeft="14dp"
+                  android:layout_marginRight="14dp"
+                  android:layout_marginBottom="14dp"/>
+    </LinearLayout>
 
 </LinearLayout>

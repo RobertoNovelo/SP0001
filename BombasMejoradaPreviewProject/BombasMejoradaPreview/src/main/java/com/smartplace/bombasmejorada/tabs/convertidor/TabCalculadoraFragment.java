@@ -107,8 +107,9 @@ public class TabCalculadoraFragment extends Fragment {
         /*Act according to Menu Option selected*/
         switch (item.getItemId()) {
             case R.id.btn_clean:
-                Toast.makeText(getActivity().getBaseContext(), "Limpiar del tab calculadora ha sido presionado", Toast.LENGTH_SHORT).show();
-                return true;
+                    txt_valueToConvert.setText("");
+                    txt_valueConverted.setText("");
+                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -29,6 +29,8 @@ public class TabsMainActivity extends Activity implements
         BombasFragment1.onBombasFragment1Change,
         BombasFragment2.onBombasFragment2Change{
 
+    public String EquipoModelo;
+
     /* Tab identifiers */
     static String TAB_A = "Bombas";
     static String TAB_B = "Hidros";

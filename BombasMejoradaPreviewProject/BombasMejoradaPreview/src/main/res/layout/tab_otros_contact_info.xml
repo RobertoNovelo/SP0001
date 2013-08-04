@@ -15,67 +15,80 @@
             android:id="@+id/btnViewMap"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/contact_info_buttons"
-            android:shadowColor="#d1d6db"/>
+            android:shadowColor="#d1d6db"
+            android:layout_weight="1"
+            android:layout_marginBottom="5dp"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:text="@string/address"
             android:id="@+id/address"
             android:textColor="#040404"
             android:autoText="false"
             android:textSize="19dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center_vertical"/>
 
     <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:text="Tel: (33)38118517"
             android:id="@+id/btnLocalTel"
-            android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/contact_info_buttons"/>
+            android:background="@drawable/contact_info_buttons"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
     <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:text="Tel: 01800 2266236"
             android:id="@+id/btnCountryTel"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/contact_info_buttons"/>
+            android:background="@drawable/contact_info_buttons"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
     <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:text="enlinea@bombasmejorada.com"
             android:id="@+id/btnSendMail"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/contact_info_buttons"/>
+            android:background="@drawable/contact_info_buttons"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
     <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:text="www.bombasmejorada.com"
             android:id="@+id/btnWebBombas"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/contact_info_buttons"/>
+            android:background="@drawable/contact_info_buttons"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
     <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:text="www.sistemasdebombeo.com"
             android:id="@+id/btnWebSistemas"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/contact_info_buttons"/>
+            android:background="@drawable/contact_info_buttons"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"/>
 
 </LinearLayout>
