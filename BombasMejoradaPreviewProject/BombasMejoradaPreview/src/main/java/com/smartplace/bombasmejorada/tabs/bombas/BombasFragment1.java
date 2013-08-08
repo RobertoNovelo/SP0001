@@ -12,12 +12,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.smartplace.bombasmejorada.R;
 import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
+import com.smartplace.bombasmejorada.tabs.hidros.HidrosSearchFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,78 +78,116 @@ public class BombasFragment1 extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.tab_bombas_2, menu);
     }
-
     @Override
     public void onResume ()
     {
         super.onResume();
 
-        listItems.add("Monofasica 110 V");
-        listItems.add("Monofasica 220 V");
-        listItems.add("Trifasica 220 V");
-        listItems.add("Trifasica 440 V");
-        listItems.add("Gasolina");
-        listItems.add("Diesel");
+        RelativeLayout relLayout = (RelativeLayout) getActivity().findViewById(R.id.monofasica110);
 
-        adapter=new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1,
-                listItems);
-
-        ListView productList= (ListView) getActivity().findViewById(R.id.list);
-
-        productList.setAdapter(adapter);
-
-        productList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        relLayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                String item = ((TextView)view).getText().toString();
-
-//                Toast.makeText(getActivity(),item,Toast.LENGTH_LONG).show();
-
-                mCallback.onFragmentChange(TabsMainActivity.Identifiers.BombasFragment1, (String) ((TextView) view).getText(), 1, 1);
-
-                // Create new fragment and transaction
-                BombasFragment2 newFragment = new BombasFragment2();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
-                transaction.replace(android.R.id.tabcontent, newFragment);
-                transaction.addToBackStack(null);
-
-                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-
-                // Commit the transaction
-                transaction.commit();
+            public void onClick(View view) {
+                setPressed(view);
+                mCallback.onFragmentChange(TabsMainActivity.Identifiers.BombasFragment1, "Monofasica 110 V", 1, 1);
+                switchFragment();
 
             }
         });
 
+        relLayout = (RelativeLayout) getActivity().findViewById(R.id.monofasica220);
+
+        relLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setPressed(view);
+                mCallback.onFragmentChange(TabsMainActivity.Identifiers.BombasFragment1, "Monofasica 220 V", 1, 1);
+                switchFragment();
+
+            }
+        });
+
+        relLayout = (RelativeLayout) getActivity().findViewById(R.id.trifasica220);
+
+        relLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setPressed(view);
+                mCallback.onFragmentChange(TabsMainActivity.Identifiers.BombasFragment1, "Trifasica 220 V", 1, 1);
+                switchFragment();
+
+            }
+        });
+
+        relLayout = (RelativeLayout) getActivity().findViewById(R.id.trifasica440);
+
+        relLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setPressed(view);
+                mCallback.onFragmentChange(TabsMainActivity.Identifiers.BombasFragment1,"Trifasica 440 V", 1, 1);
+                switchFragment();
+
+            }
+        });
+
+        relLayout = (RelativeLayout) getActivity().findViewById(R.id.gasolina);
+
+        relLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setPressed(view);
+                mCallback.onFragmentChange(TabsMainActivity.Identifiers.BombasFragment1,"Gasolina", 1, 1);
+                switchFragment();
+
+            }
+        });
+
+        relLayout = (RelativeLayout) getActivity().findViewById(R.id.diesel);
+
+        relLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setPressed(view);
+                mCallback.onFragmentChange(TabsMainActivity.Identifiers.BombasFragment1,"Diesel", 1, 1);
+                switchFragment();
+
+            }
+        });
+
+
+
     }
 
-    @Override
 
-    public  void onPause ()
+    private void setPressed(View view)
     {
-        super.onPause();
+        ViewGroup viewGroup = (ViewGroup) view;
+        for (int i = 0; i < viewGroup .getChildCount(); i++) {
 
-        listItems.clear();
+            View viewChild = viewGroup .getChildAt(i);
+            viewChild.setPressed(true);
+
+        }
 
     }
 
-   /* @Override
-
-    public void onClick(View view)
+    private void switchFragment ()
     {
+        // Create new fragment and transaction
+        BombasFragment2 newFragment = new BombasFragment2();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-        super.onClick(view);
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack
+        transaction.replace(android.R.id.tabcontent, newFragment);
+        transaction.addToBackStack(null);
 
-        String item = ((TextView)view).getText().toString();
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 
-        Toast.makeText(getActivity(),item,Toast.LENGTH_LONG).show();
+        // Commit the transaction
+        transaction.commit();
 
-    }*/
-
+    }
 
 }

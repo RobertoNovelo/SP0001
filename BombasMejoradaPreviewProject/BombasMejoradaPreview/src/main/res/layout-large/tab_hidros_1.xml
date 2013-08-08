@@ -36,7 +36,7 @@
                     android:textStyle="bold"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="1. Uso que tiene la edificacion (o similar) que se va a abastecer de agua"
-                    android:textSize="18sp"/>
+                    android:textSize="26sp"/>
 
             <ImageView
                     android:layout_width="fill_parent"
@@ -71,7 +71,7 @@
                             android:textColor="#ffffff"
                             android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
-                            android:textSize="18sp"/>
+                            android:textSize="26sp"/>
 
                     <ImageView
                             android:layout_width="wrap_content"
@@ -98,7 +98,7 @@
                             android:textColor="#ffffff"
                             android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
-                            android:textSize="18sp"/>
+                            android:textSize="26sp"/>
 
                     <ImageView
                             android:layout_width="wrap_content"
@@ -125,7 +125,7 @@
                             android:textColor="#ffffff"
                             android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
-                            android:textSize="18sp"/>
+                            android:textSize="26sp"/>
 
                     <ImageView
                             android:layout_width="wrap_content"
@@ -152,7 +152,7 @@
                             android:textColor="#ffffff"
                             android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
-                            android:textSize="18sp"/>
+                            android:textSize="26sp"/>
 
                     <ImageView
                             android:layout_width="wrap_content"
@@ -179,7 +179,7 @@
                             android:textColor="#ffffff"
                             android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
-                            android:textSize="18sp"/>
+                            android:textSize="26sp"/>
 
                     <ImageView
                             android:layout_width="wrap_content"
@@ -206,7 +206,7 @@
                             android:textColor="#ffffff"
                             android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
-                            android:textSize="18sp"/>
+                            android:textSize="26sp"/>
 
                     <ImageView
                             android:layout_width="wrap_content"
@@ -233,7 +233,7 @@
                             android:textColor="#ffffff"
                             android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
-                            android:textSize="18sp"/>
+                            android:textSize="26sp"/>
 
                     <ImageView
                             android:layout_width="wrap_content"

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ffffff"
-                android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#ffffff"
+              android:orientation="vertical">
 
     <ImageView
             android:layout_width="fill_parent"
@@ -104,7 +104,7 @@
                         android:text="Datos de contacto"
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"
-                        android:textSize="20sp"/>
+                        android:textSize="26sp"/>
 
                 <ImageView
                         android:layout_width="wrap_content"
@@ -130,7 +130,7 @@
                         android:text="Servicio de Garantía al Producto"
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"
-                        android:textSize="20sp"/>
+                        android:textSize="30sp"/>
 
                 <ImageView
                         android:layout_width="wrap_content"
@@ -156,7 +156,7 @@
                         android:text="Ayuda"
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"
-                        android:textSize="20sp"/>
+                        android:textSize="30sp"/>
 
                 <ImageView
                         android:layout_width="wrap_content"
@@ -182,7 +182,7 @@
                         android:text="Acerca de la App"
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"
-                        android:textSize="20sp"/>
+                        android:textSize="30sp"/>
 
                 <ImageView
                         android:layout_width="wrap_content"

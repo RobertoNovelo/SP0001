@@ -16,14 +16,15 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="250dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/white_rounded_corners">
+                android:background="@drawable/white_rounded_corners"
+                android:gravity="center_vertical">
 
             <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
+                    android:layout_height="wrap_content">
 
                 <LinearLayout
                         android:layout_width="fill_parent"
@@ -39,7 +40,8 @@
                             android:text="2. Gasto Requerido (lpm):"
                             android:layout_weight=".5"
                             android:layout_alignParentLeft="true"
-                            android:gravity="center_vertical"/>
+                            android:gravity="center_vertical"
+                            android:textSize="26sp"/>
 
                     <NumberPicker
                             android:layout_width="wrap_content"
@@ -62,10 +64,11 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="250dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/white_rounded_corners">
+                android:background="@drawable/white_rounded_corners"
+                android:gravity="center_vertical">
 
             <RelativeLayout
                     android:layout_width="wrap_content"
@@ -79,6 +82,7 @@
                         android:textStyle="bold"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="3. Presion requerida (psi):"
+                        android:textSize="26sp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"/>
 

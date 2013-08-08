@@ -23,7 +23,7 @@
 
                 <LinearLayout
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="250dp">
 
                     <TextView
                             android:layout_width="wrap_content"
@@ -35,16 +35,19 @@
                             android:text="2. Salidas de agua conectadas a la red:"
                             android:layout_weight=".5"
                             android:gravity="center_vertical"
-                            android:layout_alignParentLeft="true"/>
+                            android:layout_alignParentLeft="true"
+                            android:textSize="24sp"/>
 
                     <NumberPicker
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/numberPicker"
-                            android:layout_alignParentRight="true"/>
+                            android:layout_alignParentRight="true"
+                            android:layout_gravity="center_vertical"/>
                 </LinearLayout>
             </RelativeLayout>
     </LinearLayout>
+
 
     <LinearLayout
             android:orientation="vertical"
@@ -62,7 +65,7 @@
 
                 <LinearLayout
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="240dp">
 
                     <TextView
                             android:layout_width="wrap_content"
@@ -74,13 +77,15 @@
                             android:text="3. Distancia vertical entre el fondo de la reserva hasta la maxima altura (metros):"
                             android:layout_weight=".5"
                             android:gravity="center_vertical"
-                            android:layout_alignParentLeft="true"/>
+                            android:layout_alignParentLeft="true"
+                            android:textSize="24sp"/>
 
                     <NumberPicker
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/numberPicker2"
-                            android:layout_alignParentRight="true"/>
+                            android:layout_alignParentRight="true"
+                            android:layout_gravity="center_vertical"/>
                 </LinearLayout>
             </RelativeLayout>
     </LinearLayout>

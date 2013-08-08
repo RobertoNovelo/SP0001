@@ -4,7 +4,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="#26AFB1"
-        android:baselineAligned="false">
+        >
     <com.smartplace.effects.BounceScrollView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -16,7 +16,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:padding="10dp"
-                android:background="#26afb1"
+                android:background="#ff26afb1"
                 android:paddingTop="10dp">
 
             <LinearLayout android:orientation="vertical"
@@ -35,7 +35,7 @@
                         android:textStyle="bold"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="1. Seleccionar la fuente de energía de la bomba:"
-                        android:textSize="18sp"/>
+                        android:textSize="40sp"/>
 
                 <ImageView
                         android:layout_width="fill_parent"
@@ -69,7 +69,7 @@
                                 android:text="Monofásica 110 V"
                                 android:layout_centerVertical="true"
                                 android:layout_alignParentLeft="true"
-                                android:textSize="18sp"/>
+                                android:textSize="40sp"/>
 
                         <ImageView
                                 android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
                                 android:text="Monofásica 220 V"
                                 android:layout_centerVertical="true"
                                 android:layout_alignParentLeft="true"
-                                android:textSize="18sp"/>
+                                android:textSize="40sp"/>
 
                         <ImageView
                                 android:layout_width="wrap_content"
@@ -121,7 +121,7 @@
                                 android:text="Trifásica 220 V"
                                 android:layout_centerVertical="true"
                                 android:layout_alignParentLeft="true"
-                                android:textSize="18sp"/>
+                                android:textSize="40sp"/>
 
                         <ImageView
                                 android:layout_width="wrap_content"
@@ -147,7 +147,7 @@
                                 android:text="Trifásica 440 V"
                                 android:layout_centerVertical="true"
                                 android:layout_alignParentLeft="true"
-                                android:textSize="18sp"/>
+                                android:textSize="40sp"/>
 
                         <ImageView
                                 android:layout_width="wrap_content"
@@ -173,7 +173,7 @@
                                 android:text="Gasolina"
                                 android:layout_centerVertical="true"
                                 android:layout_alignParentLeft="true"
-                                android:textSize="18sp"/>
+                                android:textSize="40sp"/>
 
                         <ImageView
                                 android:layout_width="wrap_content"
@@ -199,7 +199,7 @@
                                 android:text="Diesel"
                                 android:layout_centerVertical="true"
                                 android:layout_alignParentLeft="true"
-                                android:textSize="18sp"/>
+                                android:textSize="40sp"/>
 
                         <ImageView
                                 android:layout_width="wrap_content"

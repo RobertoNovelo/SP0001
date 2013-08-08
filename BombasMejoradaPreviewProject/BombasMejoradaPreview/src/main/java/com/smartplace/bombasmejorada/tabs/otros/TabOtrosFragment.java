@@ -14,21 +14,18 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.smartplace.bombasmejorada.R;
+import com.smartplace.bombasmejorada.tabs.hidros.HidrosSearchFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TabOtrosFragment extends Fragment {
 
-    //LIST OF ARRAY STRINGS WHICH WILL SERVE AS LIST ITEMS
-    List<String> listItems=new ArrayList<String>();
-
-    //DEFINING STRING ADAPTER WHICH WILL HANDLE DATA OF LISTVIEW
-    ArrayAdapter<String> adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,106 +45,122 @@ public class TabOtrosFragment extends Fragment {
         inflater.inflate(R.menu.tab_otros, menu);
     }
 
+
+
     @Override
     public void onResume ()
     {
         super.onResume();
 
-        listItems.add("Datos de Contacto");
-        listItems.add("Servicio de Garantia al Producto");
-        listItems.add("Ayuda");
-        listItems.add("Acerca de la App");
+        RelativeLayout relLayout = (RelativeLayout) getActivity().findViewById(R.id.contactinfo);
 
-        adapter=new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1,
-                listItems);
-
-        ListView productList= (ListView) getActivity().findViewById(R.id.list);
-
-        productList.setAdapter(adapter);
-
-        productList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        relLayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onClick(View view) {
+                setPressed(view);
 
-                String item = ((TextView)view).getText().toString();
+                // Create new fragment and transaction
+                ContactInfoFragment newFragment = new ContactInfoFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                if(item == "Datos de Contacto")
-                {
-                    // Create new fragment and transaction
-                    ContactInfoFragment newFragment = new ContactInfoFragment();
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    // Replace whatever is in the fragment_container view with this fragment,
-                    // and add the transaction to the back stack
-                    transaction.replace(android.R.id.tabcontent, newFragment);
-                    transaction.addToBackStack(null);
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(android.R.id.tabcontent, newFragment);
+                transaction.addToBackStack(null);
 
-                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 
-                    // Commit the transaction
-                    transaction.commit();
-                }
-                else if(item== "Servicio de Garantia al Producto")
-                {
-                    ServiceFragment1 newFragment = new ServiceFragment1();
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    // Replace whatever is in the fragment_container view with this fragment,
-                    // and add the transaction to the back stack
-                    transaction.replace(android.R.id.tabcontent, newFragment);
-                    transaction.addToBackStack(null);
-
-                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-
-                    // Commit the transaction
-                    transaction.commit();
-                }
-                else if(item == "Ayuda")
-                {
-                    HelpFragment newFragment = new HelpFragment();
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    // Replace whatever is in the fragment_container view with this fragment,
-                    // and add the transaction to the back stack
-                    transaction.replace(android.R.id.tabcontent, newFragment);
-                    transaction.addToBackStack(null);
-
-                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-
-                    // Commit the transaction
-                    transaction.commit();
-                }
-                else if(item == "Acerca de la App")
-                {
-                    AboutFragment newFragment = new AboutFragment();
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    // Replace whatever is in the fragment_container view with this fragment,
-                    // and add the transaction to the back stack
-                    transaction.replace(android.R.id.tabcontent, newFragment);
-                    transaction.addToBackStack(null);
-
-                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-
-                    // Commit the transaction
-                    transaction.commit();
-                }
-                else
-                {
-                    /*Do nothing*/
-                }
-
-
+                // Commit the transaction
+                transaction.commit();
 
             }
         });
 
+        relLayout = (RelativeLayout) getActivity().findViewById(R.id.service);
+
+        relLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setPressed(view);
+
+                // Create new fragment and transaction
+                ServiceFragment1 newFragment = new ServiceFragment1();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(android.R.id.tabcontent, newFragment);
+                transaction.addToBackStack(null);
+
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                // Commit the transaction
+                transaction.commit();
+
+            }
+        });
+
+        relLayout = (RelativeLayout) getActivity().findViewById(R.id.help);
+
+        relLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setPressed(view);
+
+                // Create new fragment and transaction
+                HelpFragment newFragment = new HelpFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(android.R.id.tabcontent, newFragment);
+                transaction.addToBackStack(null);
+
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                // Commit the transaction
+                transaction.commit();
+
+            }
+        });
+
+        relLayout = (RelativeLayout) getActivity().findViewById(R.id.about);
+
+        relLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setPressed(view);
+
+                // Create new fragment and transaction
+                AboutFragment newFragment = new AboutFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(android.R.id.tabcontent, newFragment);
+                transaction.addToBackStack(null);
+
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                // Commit the transaction
+                transaction.commit();
+
+            }
+        });
+
+
     }
 
-    @Override
 
-    public  void onPause ()
+    private void setPressed(View view)
     {
-        super.onPause();
+        ViewGroup viewGroup = (ViewGroup) view;
+        for (int i = 0; i < viewGroup .getChildCount(); i++) {
 
-        listItems.clear();
+            View viewChild = viewGroup .getChildAt(i);
+            viewChild.setPressed(true);
+
+        }
 
     }
 

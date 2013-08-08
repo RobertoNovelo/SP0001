@@ -11,19 +11,23 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="2"
-            android:gravity="center_vertical|center_horizontal">
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_gravity="center_vertical">
 
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="250dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/white_rounded_corners">
+                android:background="@drawable/white_rounded_corners"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical">
 
             <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
 
                 <LinearLayout
                         android:layout_width="fill_parent"
@@ -39,7 +43,9 @@
                             android:text="2. Gasto Requerido (lpm):"
                             android:layout_weight=".5"
                             android:layout_alignParentLeft="true"
-                            android:gravity="center_vertical"/>
+                            android:gravity="center_vertical"
+                            android:textSize="40sp"
+                            android:layout_gravity="center_vertical"/>
 
                     <NumberPicker
                             android:layout_width="wrap_content"
@@ -62,14 +68,17 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="250dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/white_rounded_corners">
+                android:background="@drawable/white_rounded_corners"
+                android:gravity="center_vertical">
 
             <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    >
 
                 <TextView
                         android:layout_width="wrap_content"
@@ -80,7 +89,8 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="3. Presion requerida (psi):"
                         android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"/>
+                        android:layout_alignParentLeft="true"
+                        android:textSize="40sp"/>
 
                 <NumberPicker
                         android:layout_width="wrap_content"

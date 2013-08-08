@@ -23,7 +23,7 @@
 
             <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="240dp">
 
                 <TextView
                         android:layout_width="wrap_content"
@@ -35,13 +35,15 @@
                         android:text="4. Longitud entre el equipo de mombeo y la salida mas distante (metros)"
                         android:layout_weight=".5"
                         android:gravity="center_vertical"
-                        android:layout_alignParentLeft="true"/>
+                        android:layout_alignParentLeft="true"
+                        android:textSize="26sp"/>
 
                 <NumberPicker
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/numberPicker"
-                        android:layout_alignParentRight="true"/>
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="center_vertical"/>
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
@@ -63,7 +65,7 @@
 
             <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="250dp">
 
                 <TextView
                         android:layout_width="wrap_content"
@@ -75,13 +77,15 @@
                         android:text="5. Presion deseada en salidas (psi):"
                         android:layout_weight=".5"
                         android:gravity="center_vertical"
-                        android:layout_alignParentLeft="true"/>
+                        android:layout_alignParentLeft="true"
+                        android:textSize="26sp"/>
 
                 <NumberPicker
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/numberPicker2"
-                        android:layout_alignParentRight="true"/>
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="center_vertical"/>
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
