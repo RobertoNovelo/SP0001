@@ -26,6 +26,7 @@ public class BombasFragment2 extends Fragment {
     private Bundle savedState = null;
     private NumberPicker np1;
     private NumberPicker np2;
+    private NumberPicker np3;
 
     public interface onBombasFragment2Change
     {
