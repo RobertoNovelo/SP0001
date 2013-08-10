@@ -35,11 +35,11 @@ public class HidrosSearchFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.tab_bombas_2, menu);
+        inflater.inflate(R.menu.tab_hidros, menu);
     }
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.btn_siguiente:
+            case R.id.btn_accept:
 
                 // Create new fragment and transaction
                 HidrosSearchFragment2 newFragment = new HidrosSearchFragment2();

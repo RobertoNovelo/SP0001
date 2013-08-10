@@ -64,6 +64,7 @@ public class ServiceFragment1 extends Fragment {
             case R.id.btn_next:
                 ServiceFragment2 newFragment = new ServiceFragment2();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                //getFragmentManager().saveFragmentInstanceState(this);
                 // Replace whatever is in the fragment_container view with this fragment,
                 // and add the transaction to the back stack
                 transaction.replace(android.R.id.tabcontent, newFragment);

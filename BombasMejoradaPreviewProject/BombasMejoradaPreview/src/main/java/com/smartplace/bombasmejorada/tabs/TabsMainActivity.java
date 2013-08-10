@@ -180,6 +180,7 @@ public class TabsMainActivity extends Activity implements
     public void pushFragments(String tag, Fragment fragment){
 
         FragmentManager manager         =   getFragmentManager();
+        manager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         FragmentTransaction ft            =   manager.beginTransaction();
 
         ft.replace(android.R.id.tabcontent, fragment);

@@ -52,7 +52,7 @@ public class BombasFragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.tab_bombas_1, container, false);
         return view;
 

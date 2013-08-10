@@ -6,6 +6,8 @@ import android.os.Environment;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -27,13 +29,17 @@ public class BombasFragment3 extends Fragment {
         super.onCreate(savedInstanceState);
 
         Bundle extras = getArguments();
-
+        setHasOptionsMenu(true);
         Toast.makeText(getActivity(), extras.getString("EnergySource") , Toast.LENGTH_SHORT).show();
 
         return inflater.inflate(R.layout.tab_bombas_3, container, false);
 
     }
-
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
+    {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.tab_bombas_2, menu);
+    }
     @Override
     public void onResume ()
     {

@@ -59,6 +59,7 @@ public class TabCalculadoraFragment extends Fragment {
     private Button btn_Convert;
     private EditText txt_valueToConvert;
     private EditText txt_valueConverted;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
