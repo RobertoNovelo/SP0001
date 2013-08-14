@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#c20f14"
+        android:baselineAligned="false">
+    <com.smartplace.effects.BounceScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true"
+            android:overScrollMode="always">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp"
+                android:background="#c20f14"
+                android:paddingTop="10dp">
+
+            <LinearLayout android:orientation="vertical"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:dividerPadding="10dp"
+                          android:baselineAligned="false"
+                          android:padding="10dp"
+                          android:background="@drawable/background"
+                          android:paddingTop="10dp">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textStyle="bold"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="1. Uso que tiene la edificación (o similar) donde se instalará el sistema contra incendio:"
+                        android:textColor="#c20f14"
+                        android:textSize="18sp"/>
+
+                <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/strong_divider_red"/>
+
+                <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:clickable="true">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Riesgo Ligero"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:textSize="20sp"/>
+                </RelativeLayout>
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_button_red"
+                        android:showDividers="middle"
+                        android:divider="?android:dividerVertical"
+                        android:dividerPadding="10dp"
+                        android:baselineAligned="false"
+                        android:padding="10dp">
+
+
+                    <RelativeLayout
+                            android:id="@+id/asilo"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:clickable="true">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Asilo"
+                                android:textColor="#ffffff"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"
+                                android:textSize="18sp"/>
+
+                        <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/arrow"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                            android:id="@+id/auditorio"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:clickable="true">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Auditorio"
+                                android:textColor="#ffffff"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"
+                                android:textSize="18sp"/>
+
+                        <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/arrow"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                            android:id="@+id/carcel"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:clickable="true">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Cárcel"
+                                android:textColor="#ffffff"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"
+                                android:textSize="18sp"/>
+
+                        <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/arrow"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                            android:id="@+id/club"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:clickable="true">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Club"
+                                android:textColor="#ffffff"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"
+                                android:textSize="18sp"/>
+
+                        <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/arrow"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                            android:id="@+id/escuela"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:clickable="true">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Escuela"
+                                android:textColor="#ffffff"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"
+                                android:textSize="18sp"/>
+
+                        <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/arrow"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                            android:id="@+id/hospital"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:clickable="true">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Hopital"
+                                android:textColor="#ffffff"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"
+                                android:textSize="18sp"/>
+
+                        <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/arrow"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.smartplace.effects.BounceScrollView>
+</LinearLayout>

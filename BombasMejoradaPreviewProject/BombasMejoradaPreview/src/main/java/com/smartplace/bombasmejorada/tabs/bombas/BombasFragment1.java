@@ -72,12 +72,12 @@ public class BombasFragment1 extends Fragment {
         }
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
-    {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.tab_bombas_2, menu);
-    }
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
+//    {
+//        super.onCreateOptionsMenu(menu, inflater);
+//        inflater.inflate(R.menu.tab_bombas_2, menu);
+//    }
     @Override
     public void onResume ()
     {
