@@ -7,18 +7,15 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.smartplace.assets.AssetsHandler;
 import com.smartplace.bombasmejorada.R;
 import com.smartplace.bombasmejorada.tabs.bombas.BombasFragment1;
 import com.smartplace.bombasmejorada.tabs.bombas.BombasFragment2;
-import com.smartplace.bombasmejorada.tabs.bombas.BombasFragmentDataManager;
 import com.smartplace.bombasmejorada.tabs.bombas.TabBombasFragment;
 import com.smartplace.bombasmejorada.tabs.convertidor.TabCalculadoraFragment;
 import com.smartplace.bombasmejorada.tabs.hidros.TabHidrosFragment;
@@ -49,28 +46,45 @@ public class TabsMainActivity extends Activity implements
     {
         BombasFragment1,
         BombasFragment2,
-        BombasFragment3
+        BombasFragment3,
+        HidrosFragment1,
+        HidrosFragment2,
+        HidrosFragment3,
+        HidrosFragment4,
+        IncendiosFragment1,
+        IncendiosFragment2,
+        IncendiosFragment3,
+        IncendiosFragment4,
     }
 
-    public BombasFragmentDataManager BFDataManager = new BombasFragmentDataManager();
+    public DataManager DataManager = new DataManager();
 
-    public void onFragmentChange( Identifiers TabIdentifier,String Param1, int Param2,int Param3)
+    public void onFragmentChange( Identifiers TabIdentifier,DataManager fragmentDataManager)
     {
         switch (TabIdentifier)
         {
             case BombasFragment1:
-                BFDataManager.EnergySource = Param1;
+                DataManager.EnergySource = fragmentDataManager.EnergySource;
                 break;
             case BombasFragment2:
-                BFDataManager.lpm = Param2;
-                BFDataManager.psi = Param3;
+                DataManager.lpm = fragmentDataManager.lpm;
+                DataManager.psi = fragmentDataManager.psi;
+                break;
+            case HidrosFragment1:
+                DataManager.EnergySource = fragmentDataManager.EnergySource;
+                break;
+            case HidrosFragment2:
+                DataManager.EnergySource = fragmentDataManager.EnergySource;
+                break;
+            case HidrosFragment3:
+                DataManager.EnergySource = fragmentDataManager.EnergySource;
                 break;
         }
     }
 
-    public BombasFragmentDataManager getBFDataManager()
+    public DataManager getDataManager()
     {
-        return (BFDataManager);
+        return (DataManager);
     }
 
 
@@ -93,12 +107,7 @@ public class TabsMainActivity extends Activity implements
         AssetsHandler.Operations.CopyAssetsToPhone(getBaseContext(),Environment.getExternalStorageDirectory() + "/BombasMejorada/","PDFs");
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.tabs_main, menu);
-        return true;
-    }
+
 
     /*
      * Initialize the tabs and set views and identifiers for the tabs

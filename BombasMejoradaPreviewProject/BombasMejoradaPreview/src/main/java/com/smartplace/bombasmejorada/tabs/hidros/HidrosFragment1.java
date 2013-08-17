@@ -15,7 +15,7 @@ import com.smartplace.bombasmejorada.R;
 /**
  * Created by ROBERTO on 28/06/13.
  */
-public class HidrosListFragment extends Fragment {
+public class HidrosFragment1 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -139,7 +139,7 @@ public class HidrosListFragment extends Fragment {
     private void switchFragment ()
     {
         // Create new fragment and transaction
-        HidrosSearchFragment newFragment = new HidrosSearchFragment();
+        HidrosFragment2 newFragment = new HidrosFragment2();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
         // Replace whatever is in the fragment_container view with this fragment,

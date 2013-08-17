@@ -16,7 +16,7 @@ import com.smartplace.bombasmejorada.R;
 /**
  * Created by ROBERTO on 28/06/13.
  */
-public class HidrosSearchFragment2 extends Fragment {
+public class HidrosFragment3 extends Fragment {
 
 
 
@@ -42,7 +42,7 @@ public class HidrosSearchFragment2 extends Fragment {
             case R.id.btn_accept:
 
                 // Create new fragment and transaction
-                HidrosResults newFragment = new HidrosResults();
+                HidrosFragment4 newFragment = new HidrosFragment4();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 // Replace whatever is in the fragment_container view with this fragment,

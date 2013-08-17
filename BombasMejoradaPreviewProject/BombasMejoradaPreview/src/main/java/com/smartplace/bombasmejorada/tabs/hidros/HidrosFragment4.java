@@ -18,7 +18,7 @@ import com.smartplace.bombasmejorada.R;
 /**
  * Created by ROBERTO on 28/06/13.
  */
-public class HidrosResults extends Fragment {
+public class HidrosFragment4 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

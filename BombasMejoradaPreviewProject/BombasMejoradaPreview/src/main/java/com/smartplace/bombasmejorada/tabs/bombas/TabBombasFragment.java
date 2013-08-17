@@ -1,6 +1,4 @@
-
 package com.smartplace.bombasmejorada.tabs.bombas;
-
 import android.app.ActionBar;
 import android.content.Context;
 import android.graphics.Color;
@@ -20,7 +18,6 @@ import android.widget.LinearLayout;
 
 import com.smartplace.bombasmejorada.R;
 
-
 public class TabBombasFragment extends Fragment {
 
     ViewPager vp;
@@ -36,7 +33,6 @@ public class TabBombasFragment extends Fragment {
         View view = inflater.inflate(R.layout.tab_bombas_main, container, false);
         vp = (ViewPager)view.findViewById(R.id.pager);
         myAdapter = new vpAdapter();
-        int novelo =1;
         vp.setAdapter(myAdapter);
         return view;
     }
@@ -49,6 +45,7 @@ public class TabBombasFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.btn_accept:
+
                 // Create new fragment and transaction
                 BombasFragment1 newFragment = new BombasFragment1();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -62,6 +59,7 @@ public class TabBombasFragment extends Fragment {
 
                 // Commit the transaction
                 transaction.commit();
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

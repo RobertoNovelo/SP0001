@@ -1,5 +1,6 @@
 package com.smartplace.bombasmejorada.tabs.incendios;
 import android.app.ActionBar;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import com.smartplace.bombasmejorada.R;
 
 public class TabIncendiosFragment extends Fragment {
+
     ViewPager vp;
     private vpAdapter myAdapter;
     @Override
@@ -44,7 +46,21 @@ public class TabIncendiosFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.btn_accept:
-                Toast.makeText(getActivity().getBaseContext(),"Aceptar de tab de incendios presionado",Toast.LENGTH_SHORT).show();
+
+                // Create new fragment and transaction
+                IncendiosFragment1 newFragment = new IncendiosFragment1();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(android.R.id.tabcontent, newFragment);
+                transaction.addToBackStack(null);
+
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                // Commit the transaction
+                transaction.commit();
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

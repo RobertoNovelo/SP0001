@@ -46,7 +46,7 @@ public class TabHidrosFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.btn_accept:
                 // Create new fragment and transaction
-                HidrosListFragment newFragment = new HidrosListFragment();
+                HidrosFragment1 newFragment = new HidrosFragment1();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 // Replace whatever is in the fragment_container view with this fragment,
