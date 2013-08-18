@@ -96,7 +96,26 @@ public class BombasFragment3 extends Fragment {
 
                         alertDialog.setButton("Enviar", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                // here you can add functions
+
+
+                                DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+                                Intent i = new Intent(Intent.ACTION_SEND);
+                                i.setType("message/rfc822");
+                                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"robertod.novelo@gmail.com"});
+                                i.putExtra(Intent.EXTRA_SUBJECT, Html.fromHtml("Solicito Informaci&oacute;n v&iacute;a Android").toString());
+                                i.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(
+                                        "Bombas - Hoja de c&aacute;lculo: <br/>" +
+                                        "<br/>1.Fuente de energ&iacute;a: <br/>" + dataManager.EnergySource +
+                                        "<br/><br/>2.Gasto pico m&aacute;ximo: <br/>" + dataManager.lpm +
+                                        " lpm<br/><br/>3.Presi&oacute;n:           <br/>" + dataManager.psi +
+                                        " psi<br/><br/>" +
+                                        "Enviado desde mi Android").toString());
+                                try {
+                                    startActivity(Intent.createChooser(i, "Send mail..."));
+                                } catch (android.content.ActivityNotFoundException ex) {
+                                    Toast.makeText(getActivity(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                                }
+
                             }
                         });
                         alertDialog.setButton2("Ver", new DialogInterface.OnClickListener() {
