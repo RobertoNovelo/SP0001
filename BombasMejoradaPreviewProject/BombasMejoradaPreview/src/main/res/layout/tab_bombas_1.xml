@@ -3,13 +3,9 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#26AFB1"
-        android:baselineAligned="false">
-    <com.smartplace.effects.BounceScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:fillViewport="true"
-            android:overScrollMode="always">
+        android:background="#26AFB1">
+
+
 
         <LinearLayout
                 android:orientation="vertical"
@@ -44,7 +40,21 @@
                         android:layout_marginBottom="12dp"
                         android:background="@drawable/strong_divider_green"/>
 
-                <LinearLayout
+
+                <com.smartplace.effects.BounceScrollView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:fillViewport="true"
+                        android:isScrollContainer="true"
+                        android:overScrollMode="always"
+                        android:scrollbars="none">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -52,7 +62,7 @@
                         android:showDividers="middle"
                         android:divider="?android:dividerVertical"
                         android:dividerPadding="10dp"
-                        android:baselineAligned="false"
+                        android:overScrollMode="always"
                         android:padding="10dp">
 
                     <RelativeLayout
@@ -60,6 +70,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
+                            android:overScrollMode="always"
                             android:clickable="true">
 
                         <TextView
@@ -81,11 +92,13 @@
 
                     </RelativeLayout>
 
+
                     <RelativeLayout
                             android:id="@+id/monofasica220"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
+                            android:overScrollMode="always"
                             android:clickable="true">
 
                         <TextView
@@ -112,6 +125,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
+                            android:overScrollMode="always"
                             android:clickable="true">
 
                         <TextView
@@ -138,6 +152,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
+                            android:overScrollMode="always"
                             android:clickable="true">
 
                         <TextView
@@ -164,6 +179,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
+                            android:overScrollMode="always"
                             android:clickable="true">
 
                         <TextView
@@ -190,6 +206,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
+                            android:overScrollMode="always"
                             android:clickable="true">
 
                         <TextView
@@ -211,11 +228,21 @@
 
                     </RelativeLayout>
 
+
+
                 </LinearLayout>
+
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:padding="10dp"/>
+
+                    </LinearLayout>
+
+                </com.smartplace.effects.BounceScrollView>
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </com.smartplace.effects.BounceScrollView>
 </LinearLayout>

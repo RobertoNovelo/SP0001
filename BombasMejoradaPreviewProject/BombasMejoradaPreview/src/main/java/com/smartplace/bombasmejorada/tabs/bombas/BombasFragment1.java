@@ -5,47 +5,26 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
-
 import com.smartplace.bombasmejorada.R;
+import com.smartplace.bombasmejorada.tabs.DataManager;
 import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
-import com.smartplace.bombasmejorada.tabs.hidros.HidrosSearchFragment;
-
-import java.util.ArrayList;
-import java.util.List;
-
-
 
 /**
  * Created by ROBERTO on 15/06/13.
  */
 public class BombasFragment1 extends Fragment {
 
-    //LIST OF ARRAY STRINGS WHICH WILL SERVE AS LIST ITEMS
-    List<String> listItems=new ArrayList<String>();
-
-    //Test
-    int test=1;
-
-    //DEFINING STRING ADAPTER WHICH WILL HANDLE DATA OF LISTVIEW
-    ArrayAdapter<String> adapter;
-
     //Interface instance used to pass data on to the holder activity
-    onBombasFragment1Change mCallback;
+    onSaveData mCallback;
+    // Used to reference current state data to the activity.
+    DataManager dataManager = new DataManager();
 
-    public interface onBombasFragment1Change
+    public interface onSaveData
     {
-        public void onFragmentChange( TabsMainActivity.Identifiers TabIdentifier,String Param1,int Param2, int Param3);
+        public void saveData(  TabsMainActivity.Identifiers TabIdentifier, DataManager fragmentDataManager);
     }
 
     @Override
@@ -65,19 +44,13 @@ public class BombasFragment1 extends Fragment {
         // This makes sure that the container activity has implemented
         // the callback interface. If not, it throws an exception
         try {
-            mCallback = (onBombasFragment1Change) activity;
+            mCallback = (onSaveData) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnHeadlineSelectedListener");
         }
     }
 
-//    @Override
-//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
-//    {
-//        super.onCreateOptionsMenu(menu, inflater);
-//        inflater.inflate(R.menu.tab_bombas_2, menu);
-//    }
     @Override
     public void onResume ()
     {
@@ -85,11 +58,14 @@ public class BombasFragment1 extends Fragment {
 
         RelativeLayout relLayout = (RelativeLayout) getActivity().findViewById(R.id.monofasica110);
 
+
         relLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setPressed(view);
-                mCallback.onFragmentChange(TabsMainActivity.Identifiers.BombasFragment1, "Monofasica 110 V", 1, 1);
+                /* Pass current Fragment Arguments to next Fragment */
+                dataManager.EnergySource = "Monofasica 110 V";
+                mCallback.saveData(TabsMainActivity.Identifiers.BombasFragment1, dataManager);
                 switchFragment();
 
             }
@@ -101,7 +77,9 @@ public class BombasFragment1 extends Fragment {
             @Override
             public void onClick(View view) {
                 setPressed(view);
-                mCallback.onFragmentChange(TabsMainActivity.Identifiers.BombasFragment1, "Monofasica 220 V", 1, 1);
+                /* Pass current Fragment Arguments to next Fragment */
+                dataManager.EnergySource = "Monofasica 220 V";
+                mCallback.saveData(TabsMainActivity.Identifiers.BombasFragment1, dataManager);
                 switchFragment();
 
             }
@@ -113,7 +91,9 @@ public class BombasFragment1 extends Fragment {
             @Override
             public void onClick(View view) {
                 setPressed(view);
-                mCallback.onFragmentChange(TabsMainActivity.Identifiers.BombasFragment1, "Trifasica 220 V", 1, 1);
+                /* Pass current Fragment Arguments to next Fragment */
+                dataManager.EnergySource = "Trifasica 220 V";
+                mCallback.saveData(TabsMainActivity.Identifiers.BombasFragment1, dataManager);
                 switchFragment();
 
             }
@@ -125,7 +105,9 @@ public class BombasFragment1 extends Fragment {
             @Override
             public void onClick(View view) {
                 setPressed(view);
-                mCallback.onFragmentChange(TabsMainActivity.Identifiers.BombasFragment1,"Trifasica 440 V", 1, 1);
+                /* Pass current Fragment Arguments to next Fragment */
+                dataManager.EnergySource = "Trifasica 440 V";
+                mCallback.saveData(TabsMainActivity.Identifiers.BombasFragment1, dataManager);
                 switchFragment();
 
             }
@@ -137,7 +119,9 @@ public class BombasFragment1 extends Fragment {
             @Override
             public void onClick(View view) {
                 setPressed(view);
-                mCallback.onFragmentChange(TabsMainActivity.Identifiers.BombasFragment1,"Gasolina", 1, 1);
+                /* Pass current Fragment Arguments to next Fragment */
+                dataManager.EnergySource = "Gasolina";
+                mCallback.saveData(TabsMainActivity.Identifiers.BombasFragment1, dataManager);
                 switchFragment();
 
             }
@@ -149,7 +133,9 @@ public class BombasFragment1 extends Fragment {
             @Override
             public void onClick(View view) {
                 setPressed(view);
-                mCallback.onFragmentChange(TabsMainActivity.Identifiers.BombasFragment1,"Diesel", 1, 1);
+                /* Pass current Fragment Arguments to next Fragment */
+                dataManager.EnergySource = "Diesel";
+                mCallback.saveData(TabsMainActivity.Identifiers.BombasFragment1, dataManager);
                 switchFragment();
 
             }

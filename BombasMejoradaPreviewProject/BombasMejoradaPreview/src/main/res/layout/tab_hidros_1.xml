@@ -5,11 +5,6 @@
         android:layout_height="fill_parent"
         android:background="#ff1212b1"
         >
-<com.smartplace.effects.BounceScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:fillViewport="true"
-        android:overScrollMode="always">
 
     <LinearLayout
             android:orientation="vertical"
@@ -44,6 +39,14 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
                     android:background="@drawable/strong_divider_blue"/>
+
+
+            <com.smartplace.effects.BounceScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:fillViewport="true"
+                    android:overScrollMode="always"
+                    android:scrollbars="none">
 
             <LinearLayout
                     android:orientation="vertical"
@@ -247,9 +250,10 @@
 
             </LinearLayout>
 
+            </com.smartplace.effects.BounceScrollView>
+
         </LinearLayout>
 
     </LinearLayout>
 
-</com.smartplace.effects.BounceScrollView>
 </LinearLayout>

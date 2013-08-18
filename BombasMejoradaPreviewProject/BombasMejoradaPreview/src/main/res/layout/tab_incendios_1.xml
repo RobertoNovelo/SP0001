@@ -5,11 +5,7 @@
         android:layout_height="fill_parent"
         android:background="#c20f14"
         android:baselineAligned="false">
-    <com.smartplace.effects.BounceScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:fillViewport="true"
-            android:overScrollMode="always">
+
 
         <LinearLayout
                 android:orientation="vertical"
@@ -45,23 +41,38 @@
                         android:layout_marginBottom="12dp"
                         android:background="@drawable/strong_divider_red"/>
 
-                <RelativeLayout
+
+
+                <com.smartplace.effects.BounceScrollView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:clickable="true">
+                        android:fillViewport="true"
+                        android:overScrollMode="always">
 
-                <TextView
-                        android:layout_width="wrap_content"
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Riesgo Ligero"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
-                        android:textSize="20sp"/>
-                </RelativeLayout>
+                        >
 
-                <LinearLayout
+                        <RelativeLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:clickable="true">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                    android:text="Riesgo Ligero"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:textSize="20sp"/>
+                        </RelativeLayout>
+
+                        <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -237,9 +248,13 @@
 
                 </LinearLayout>
 
+
+                    </LinearLayout>
+
+                </com.smartplace.effects.BounceScrollView>
+
             </LinearLayout>
 
         </LinearLayout>
 
-    </com.smartplace.effects.BounceScrollView>
 </LinearLayout>

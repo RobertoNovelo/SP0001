@@ -30,7 +30,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Monofásica 110 V"
                 android:padding="10dp"
-                android:id="@+id/textView2"
+                android:id="@+id/instalacionLabel"
                 android:textColor="#ff1b5a58"
                 android:textStyle="bold"
                 android:layout_marginRight="10dp"
@@ -57,7 +57,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="10 lpm"
                 android:padding="10dp"
-                android:id="@+id/textView4"
+                android:id="@+id/gastoLabel"
                 android:textColor="#ff1b5a58"
                 android:textStyle="bold"
                 android:layout_marginRight="10dp"
@@ -85,7 +85,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="5 psi"
                 android:padding="10dp"
-                android:id="@+id/textView6"
+                android:id="@+id/presionLabel"
                 android:textColor="#ff1b5a58"
                 android:textStyle="bold"
                 android:layout_marginRight="10dp"
@@ -113,9 +113,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="2"
+                android:text="0"
                 android:padding="10dp"
-                android:id="@+id/textView8"
+                android:id="@+id/rEncontrados"
                 android:textStyle="bold"
                 android:layout_marginRight="10dp"
                 android:layout_alignParentRight="true"/>
@@ -130,117 +130,574 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/strong_divider"/>
 
-    <LinearLayout
-            android:orientation="vertical"
+    <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/custom_button_green"
-            android:showDividers="middle"
-            android:divider="?android:dividerVertical"
-            android:dividerPadding="10dp"
-            android:baselineAligned="false"
-            android:layout_margin="12dp"
             android:padding="10dp"
             android:clickable="true">
 
-        <RelativeLayout
-                android:id="@+id/modelo3"
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/notFoundBombas"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="No hay resultados"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:visibility="gone"/>
+    </RelativeLayout>
+
+    <com.smartplace.effects.BounceScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:overScrollMode="always"
+            android:id="@+id/rpdfbombas"
+            android:visibility="gone"
+            android:scrollbars="none"
+            android:background="#FFFFFF">
+
+
+        <LinearLayout
+                android:id="@+id/resultsContainer"
+                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:focusableInTouchMode="true">
-
-            <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="false">
-
-                <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/pdf"
-                        android:layout_alignParentLeft="true"/>
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Modelo 3"
-                        android:layout_marginLeft="12dp"
-                        android:layout_centerVertical="true"
-                        android:gravity="center"/>
-            </LinearLayout>
-
-            <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/arrow"
-                    android:id="@+id/imageView"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-                android:id="@+id/modelo4"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button_green"
+                android:showDividers="middle"
+                android:divider="?android:dividerVertical"
+                android:dividerPadding="10dp"
+                android:baselineAligned="false"
+                android:layout_margin="12dp"
                 android:padding="10dp"
                 android:clickable="true">
 
-            <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:visibility="gone">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pdf"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Modelo 3"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"/>
+                </LinearLayout>
 
                 <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/pdf"
-                        android:layout_alignParentLeft="true"/>
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrow"
+                        android:id="@+id/imageView"/>
 
-                <TextView
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:visibility="gone">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pdf"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Modelo 4"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"/>
+                </LinearLayout>
+
+                <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Modelo 4"
-                        android:layout_marginLeft="12dp"
                         android:layout_centerVertical="true"
-                        android:gravity="center"/>
-            </LinearLayout>
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrow"
+                        android:id="@+id/imageView2"/>
 
-            <ImageView
-                    android:layout_width="wrap_content"
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/arrow"
-                    android:id="@+id/imageView2"/>
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:visibility="gone">
 
-        </RelativeLayout>
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-    </LinearLayout>
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pdf"
+                            android:layout_alignParentLeft="true"/>
 
-    <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Modelo 4"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"/>
+                </LinearLayout>
 
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="    Enviar    "
-                android:textColor="#ffffff"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/custom_button_dark_green"
-                android:id="@+id/enviarbutton"
-                android:layout_gravity="center"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"/>
-    </RelativeLayout>
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrow"
+                        android:id="@+id/imageView2"/>
 
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:visibility="gone">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pdf"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Modelo 4"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"/>
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrow"
+                        android:id="@+id/imageView2"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:visibility="gone">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pdf"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Modelo 4"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"/>
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrow"
+                        android:id="@+id/imageView2"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:visibility="gone">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pdf"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Modelo 4"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"/>
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrow"
+                        android:id="@+id/imageView2"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:visibility="gone">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pdf"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Modelo 4"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"/>
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrow"
+                        android:id="@+id/imageView2"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:visibility="gone">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pdf"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Modelo 4"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"/>
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrow"
+                        android:id="@+id/imageView2"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:visibility="gone">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pdf"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Modelo 4"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"/>
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrow"
+                        android:id="@+id/imageView2"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:visibility="gone">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pdf"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Modelo 4"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"/>
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrow"
+                        android:id="@+id/imageView2"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:visibility="gone">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pdf"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Modelo 4"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"/>
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrow"
+                        android:id="@+id/imageView2"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:visibility="gone">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pdf"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Modelo 4"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"/>
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrow"
+                        android:id="@+id/imageView2"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:visibility="gone">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pdf"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Modelo 4"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"/>
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrow"
+                        android:id="@+id/imageView2"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:visibility="gone">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pdf"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Modelo 4"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"/>
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrow"
+                        android:id="@+id/imageView2"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+    </com.smartplace.effects.BounceScrollView>
 
 </LinearLayout>

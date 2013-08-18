@@ -23,8 +23,8 @@ import com.smartplace.bombasmejorada.tabs.incendios.TabIncendiosFragment;
 import com.smartplace.bombasmejorada.tabs.otros.TabOtrosFragment;
 
 public class TabsMainActivity extends Activity implements
-        BombasFragment1.onBombasFragment1Change,
-        BombasFragment2.onBombasFragment2Change{
+        BombasFragment1.onSaveData,
+        BombasFragment2.onSaveData{
 
     public String EquipoModelo;
 
@@ -59,7 +59,7 @@ public class TabsMainActivity extends Activity implements
 
     public DataManager DataManager = new DataManager();
 
-    public void onFragmentChange( Identifiers TabIdentifier,DataManager fragmentDataManager)
+    public void saveData( Identifiers TabIdentifier,DataManager fragmentDataManager)
     {
         switch (TabIdentifier)
         {
