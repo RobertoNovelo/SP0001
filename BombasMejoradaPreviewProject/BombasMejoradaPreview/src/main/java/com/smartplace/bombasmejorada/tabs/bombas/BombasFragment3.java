@@ -1,5 +1,7 @@
 package com.smartplace.bombasmejorada.tabs.bombas;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
@@ -27,6 +29,7 @@ import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
  */
 public class BombasFragment3 extends Fragment {
 
+    String test = new String();
     String[] pdfLabel   = new String[30];
     int pdfResultsCount = 0;
     int i;
@@ -86,7 +89,27 @@ public class BombasFragment3 extends Fragment {
                     @Override
                     public void onClick(View view) {
 
-                        pdfs.OpenPDF(getActivity(),findPDF( ((TextView) ((LinearLayout) ((RelativeLayout) view).getChildAt(0)).getChildAt(1)).getText().toString()));
+                        test = ((TextView) ((LinearLayout) ((RelativeLayout) view).getChildAt(0)).getChildAt(1)).getText().toString();
+
+                        AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create(); //Read Update
+                        alertDialog.setTitle("Opciones");
+
+                        alertDialog.setButton("Enviar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // here you can add functions
+                            }
+                        });
+                        alertDialog.setButton2("Ver", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // here you can add functions
+                                pdfs.OpenPDF(getActivity(), findPDF(test));
+
+                            }
+                        });
+
+                        alertDialog.show();  //<-- See This!
+
+//                        pdfs.OpenPDF(getActivity(),findPDF( ((TextView) ((LinearLayout) ((RelativeLayout) view).getChildAt(0)).getChildAt(1)).getText().toString()));
 
                     }
                 });
@@ -99,8 +122,8 @@ public class BombasFragment3 extends Fragment {
         }
         else
         {
-            label = (TextView) getActivity().findViewById(R.id.notFoundBombas);
-            label.setVisibility(View.VISIBLE);
+            RelativeLayout notFound = (RelativeLayout) getActivity().findViewById(R.id.notFoundBombas);
+            notFound.setVisibility(View.VISIBLE);
         }
 
 
