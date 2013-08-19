@@ -3,6 +3,7 @@ package com.smartplace.bombasmejorada.tabs.bombas;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.Html;
@@ -29,7 +30,7 @@ import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
  */
 public class BombasFragment3 extends Fragment {
 
-    String test = new String();
+    String pdfName = new String();
     String[] pdfLabel   = new String[30];
     int pdfResultsCount = 0;
     int i;
@@ -89,7 +90,7 @@ public class BombasFragment3 extends Fragment {
                     @Override
                     public void onClick(View view) {
 
-                        test = ((TextView) ((LinearLayout) ((RelativeLayout) view).getChildAt(0)).getChildAt(1)).getText().toString();
+                        pdfName = ((TextView) ((LinearLayout) ((RelativeLayout) view).getChildAt(0)).getChildAt(1)).getText().toString();
 
                         AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create(); //Read Update
                         alertDialog.setTitle("Opciones");
@@ -101,15 +102,16 @@ public class BombasFragment3 extends Fragment {
                                 DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
                                 Intent i = new Intent(Intent.ACTION_SEND);
                                 i.setType("message/rfc822");
-                                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"robertod.novelo@gmail.com"});
+//                                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"robertod.novelo@gmail.com"});
                                 i.putExtra(Intent.EXTRA_SUBJECT, Html.fromHtml("Solicito Informaci&oacute;n v&iacute;a Android").toString());
-                                i.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(
-                                        "Bombas - Hoja de c&aacute;lculo: <br/>" +
-                                        "<br/>1.Fuente de energ&iacute;a: <br/>" + dataManager.EnergySource +
-                                        "<br/><br/>2.Gasto pico m&aacute;ximo: <br/>" + dataManager.lpm +
-                                        " lpm<br/><br/>3.Presi&oacute;n:           <br/>" + dataManager.psi +
-                                        " psi<br/><br/>" +
-                                        "Enviado desde mi Android").toString());
+                                i.putExtra(Intent.EXTRA_TEXT,
+                                        "Bombas - Hoja de cálculo: " + Html.fromHtml("<br/><br/>") +
+                                        "1.Fuente de energía: " + Html.fromHtml("<br/>") + dataManager.EnergySource + Html.fromHtml("<br/><br/>") +
+                                        "2.Gasto pico máximo: " + Html.fromHtml("<br/>") + dataManager.lpm + " lpm" + Html.fromHtml("<br/><br/>") +
+                                        "3.Presión:           " + Html.fromHtml("<br/>") + dataManager.psi + " psi" + Html.fromHtml("<br/><br/>") +
+                                        "Enviado desde mi Android" );
+
+                                i.putExtra(Intent.EXTRA_STREAM, Uri.parse(Environment.getExternalStorageDirectory() + "/BombasMejorada/" + findPDF(pdfName) ));
                                 try {
                                     startActivity(Intent.createChooser(i, "Send mail..."));
                                 } catch (android.content.ActivityNotFoundException ex) {
@@ -121,7 +123,7 @@ public class BombasFragment3 extends Fragment {
                         alertDialog.setButton2("Ver", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 // here you can add functions
-                                pdfs.OpenPDF(getActivity(), findPDF(test));
+                                pdfs.OpenPDF(getActivity(), findPDF(pdfName));
 
                             }
                         });

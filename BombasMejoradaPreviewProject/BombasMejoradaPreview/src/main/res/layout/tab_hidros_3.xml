@@ -40,7 +40,7 @@
                 <NumberPicker
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/numberPicker"
+                        android:id="@+id/hidrosPicker3"
                         android:layout_alignParentRight="true"/>
             </LinearLayout>
         </RelativeLayout>
@@ -80,7 +80,7 @@
                 <NumberPicker
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/numberPicker2"
+                        android:id="@+id/hidrosPicker4"
                         android:layout_alignParentRight="true"/>
             </LinearLayout>
         </RelativeLayout>

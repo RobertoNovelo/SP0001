@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.smartplace.bombasmejorada.R;
+import com.smartplace.bombasmejorada.tabs.DataManager;
+import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
 
 /**
  * Created by ROBERTO on 28/06/13.
@@ -35,6 +37,11 @@ public class HidrosFragment4 extends Fragment {
         super.onResume();
 
         Button btnEnviar = (Button) getActivity().findViewById(R.id.enviarbutton);
+
+        DataManager dataManager =  ((TabsMainActivity)getActivity()).getDataManager();
+
+
+        Toast.makeText(getActivity(), dataManager.Edificio, Toast.LENGTH_SHORT).show();
 
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override

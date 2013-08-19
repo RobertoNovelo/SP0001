@@ -3,16 +3,13 @@ package com.smartplace.bombasmejorada.tabs.bombas;
 import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.os.IBinder;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.NumberPicker;
 
 import com.smartplace.bombasmejorada.R;
@@ -38,10 +35,13 @@ public class BombasFragment2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
+
         View v = inflater.inflate(R.layout.tab_bombas_2, container, false);
-        np1 = (NumberPicker)v.findViewById(R.id.numberPicker);
-        np2 = (NumberPicker)v.findViewById(R.id.numberPicker2);
+
+        np1 = (NumberPicker)v.findViewById(R.id.bombasPicker1);
+        np2 = (NumberPicker)v.findViewById(R.id.bombasPicker2);
+
         setHasOptionsMenu(true);
 
 //        if(savedInstanceState != null && savedState == null)
@@ -86,6 +86,7 @@ public class BombasFragment2 extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
+
         inflater.inflate(R.menu.tab_bombas_2, menu);
     }
 //    private Bundle saveState() { /* called either from onDestroyView() or onSaveInstanceState() */
@@ -134,12 +135,11 @@ public class BombasFragment2 extends Fragment {
     public void onResume ()
     {
         super.onResume();
-
-        InitNumberPickers(np1, np2);
+        InitNumberPickers(np1,np2);
 
         DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
-        np1.setValue((dataManager.lpm / 10) +9);
-        np2.setValue((dataManager.psi / 5) +4);
+        np1.setValue((dataManager.lpm / 10) -1);
+        np2.setValue((dataManager.psi / 5) -1);
 
     }
 
@@ -149,33 +149,33 @@ public class BombasFragment2 extends Fragment {
         super.onPause();
 
         DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
-        dataManager.lpm = (np1.getValue() - 9 ) * 10 ;
-        dataManager.psi = (np2.getValue() - 4 ) * 5;
+        dataManager.lpm = (np1.getValue() +1 ) * 10 ;
+        dataManager.psi = (np2.getValue() +1 ) * 5;
 
     }
 
     private void InitNumberPickers(NumberPicker np1, NumberPicker np2)
     {
         //RoNo: Init stuff
-        String[] np1nums = new String[510];
+        String[] np1nums = new String[500];
         for(int i=0; i<np1nums.length; i++)
         {
             np1nums[i] = Integer.toString((i+1)*10);
         }
 
-        String[] np2nums = new String[41];
+        String[] np2nums = new String[36];
         for(int i=0; i<np2nums.length; i++)
         {
             np2nums[i] = Integer.toString((i+1)*5);
         }
 
         np1.setMaxValue(np1nums.length-1);
-        np1.setMinValue(10);
+        np1.setMinValue(0);
         np1.setWrapSelectorWheel(true);
         np1.setDisplayedValues(np1nums);
 
         np2.setMaxValue(np2nums.length-1);
-        np2.setMinValue(5);
+        np2.setMinValue(0);
         np2.setWrapSelectorWheel(true);
         np2.setDisplayedValues(np2nums);
     }

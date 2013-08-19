@@ -31,7 +31,6 @@ public class BombasFragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.tab_bombas_1, container, false);
         return view;
 
@@ -64,6 +63,7 @@ public class BombasFragment1 extends Fragment {
             public void onClick(View view) {
                 setPressed(view);
                 /* Pass current Fragment Arguments to next Fragment */
+
                 dataManager.EnergySource = "Monofasica 110 V";
                 mCallback.saveData(TabsMainActivity.Identifiers.BombasFragment1, dataManager);
                 switchFragment();

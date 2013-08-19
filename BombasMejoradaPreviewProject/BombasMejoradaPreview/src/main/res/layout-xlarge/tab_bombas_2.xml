@@ -50,7 +50,7 @@
                     <NumberPicker
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/numberPicker"
+                            android:id="@+id/bombasPicker1"
                             android:layout_alignParentRight="true"/>
 
                 </LinearLayout>
@@ -95,7 +95,7 @@
                 <NumberPicker
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/numberPicker2"
+                        android:id="@+id/bombasPicker2"
                         android:layout_alignParentRight="true"/>
             </RelativeLayout>
 

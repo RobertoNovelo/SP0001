@@ -28,6 +28,7 @@ public class TabsMainActivity extends Activity implements
 
     public String EquipoModelo;
 
+
     /* Tab identifiers */
     static String TAB_A = "Bombas";
     static String TAB_B = "Hidros";

@@ -9,19 +9,24 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.smartplace.bombasmejorada.R;
+import com.smartplace.bombasmejorada.tabs.DataManager;
+import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
 
 /**
  * Created by ROBERTO on 28/06/13.
  */
 public class HidrosFragment1 extends Fragment {
 
+    // Used to reference current state data to the activity.
+    DataManager dataManager;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
         return inflater.inflate(R.layout.tab_hidros_1, container, false);
     }
 
@@ -34,11 +39,15 @@ public class HidrosFragment1 extends Fragment {
 
         RelativeLayout relLayout = (RelativeLayout) getActivity().findViewById(R.id.club);
 
+        dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+
         relLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setPressed(view);
 
+                /* Pass current Fragment Arguments to next Fragment */
+                dataManager.Edificio =((TextView)((RelativeLayout) view).getChildAt(0)).getText().toString();;
                 switchFragment();
 
             }
@@ -50,7 +59,8 @@ public class HidrosFragment1 extends Fragment {
             @Override
             public void onClick(View view) {
                 setPressed(view);
-
+                /* Pass current Fragment Arguments to next Fragment */
+                dataManager.Edificio =((TextView)((RelativeLayout) view).getChildAt(0)).getText().toString();;
                 switchFragment();
 
             }
@@ -62,7 +72,8 @@ public class HidrosFragment1 extends Fragment {
             @Override
             public void onClick(View view) {
                 setPressed(view);
-
+                /* Pass current Fragment Arguments to next Fragment */
+                dataManager.Edificio =((TextView)((RelativeLayout) view).getChildAt(0)).getText().toString();;
                 switchFragment();
 
             }
@@ -74,7 +85,8 @@ public class HidrosFragment1 extends Fragment {
             @Override
             public void onClick(View view) {
                 setPressed(view);
-
+                /* Pass current Fragment Arguments to next Fragment */
+                dataManager.Edificio =((TextView)((RelativeLayout) view).getChildAt(0)).getText().toString();;
                 switchFragment();
 
             }
@@ -86,7 +98,8 @@ public class HidrosFragment1 extends Fragment {
             @Override
             public void onClick(View view) {
                 setPressed(view);
-
+                /* Pass current Fragment Arguments to next Fragment */
+                dataManager.Edificio =((TextView)((RelativeLayout) view).getChildAt(0)).getText().toString();;
                 switchFragment();
 
             }
@@ -98,7 +111,8 @@ public class HidrosFragment1 extends Fragment {
             @Override
             public void onClick(View view) {
                 setPressed(view);
-
+                /* Pass current Fragment Arguments to next Fragment */
+                dataManager.Edificio =((TextView)((RelativeLayout) view).getChildAt(0)).getText().toString();;
                 switchFragment();
 
             }
@@ -109,7 +123,8 @@ public class HidrosFragment1 extends Fragment {
             @Override
             public void onClick(View view) {
                 setPressed(view);
-
+                /* Pass current Fragment Arguments to next Fragment */
+                dataManager.Edificio =((TextView)((RelativeLayout) view).getChildAt(0)).getText().toString();;
                 switchFragment();
 
             }

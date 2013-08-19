@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/btn_siguiente"
+          android:title="@string/label_siguiente"
+          android:orderInCategory="10"
+          android:menuCategory="system"
+          android:showAsAction="ifRoom|withText"/>
+</menu>

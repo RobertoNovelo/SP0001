@@ -12,12 +12,19 @@ import android.view.ViewGroup;
 import android.widget.NumberPicker;
 
 import com.smartplace.bombasmejorada.R;
+import com.smartplace.bombasmejorada.tabs.DataManager;
+import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
 
 /**
  * Created by ROBERTO on 28/06/13.
  */
 public class HidrosFragment3 extends Fragment {
 
+    private NumberPicker np1;
+    private NumberPicker np2;
+
+    private String[] np1nums = new String[160];
+    private String[] np2nums = new String[16];
 
 
     @Override
@@ -25,21 +32,25 @@ public class HidrosFragment3 extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        View v = inflater.inflate(R.layout.tab_hidros_3, container, false);
+
+        np1 = (NumberPicker)v.findViewById(R.id.hidrosPicker3);
+        np2 = (NumberPicker)v.findViewById(R.id.hidrosPicker4);
 
         setHasOptionsMenu(true);
 
-        return inflater.inflate(R.layout.tab_hidros_3, container, false);
-
+        return v;
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.tab_hidros, menu);
+        inflater.inflate(R.menu.tab_hidros_2, menu);
     }
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.btn_accept:
+            case R.id.btn_siguiente:
 
                 // Create new fragment and transaction
                 HidrosFragment4 newFragment = new HidrosFragment4();
@@ -66,29 +77,46 @@ public class HidrosFragment3 extends Fragment {
     {
         super.onResume();
 
-        String[] nums = new String[21];
+        InitNumberPickers(np1, np2);
 
-        for(int i=0; i<nums.length; i++)
-            nums[i] = Integer.toString(i*5);
+        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+        np1.setValue((dataManager.hLongSalida / 5) -1 );
+        np2.setValue( dataManager.hPresionSalida -15 );
 
-        NumberPicker numberPicker = (NumberPicker) getView().findViewById (R.id.numberPicker);
-        NumberPicker numberPicker2 =  (NumberPicker) getView().findViewById(R.id.numberPicker2);
+    }
 
-        numberPicker.setMaxValue(nums.length-1);
-        numberPicker2.setMaxValue(nums.length - 1);
+    @Override
+    public void onPause ()
+    {
+        super.onPause();
 
-        numberPicker.setMinValue(0);
-        numberPicker2.setMinValue(0);
+        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+        dataManager.hLongSalida = (np1.getValue() +1 ) * 5 ;
+        dataManager.hPresionSalida = (np2.getValue() +15 );
 
-        numberPicker.setWrapSelectorWheel(false);
-        numberPicker2.setWrapSelectorWheel(false);
+    }
+    private void InitNumberPickers(NumberPicker np1, NumberPicker np2)
+    {
+        //RoNo: Init stuff
+        for(int i=0; i<np1nums.length; i++)
+        {
+            np1nums[i] = Integer.toString((i+1)*5);
+        }
 
-        numberPicker.setDisplayedValues(nums);
-        numberPicker2.setDisplayedValues(nums);
+        for(int i=0; i<np2nums.length; i++)
+        {
+            np2nums[i] = Integer.toString(i+15);
+        }
 
+        np1.setMaxValue(np1nums.length-1);
+        np1.setMinValue(0);
+        np1.setWrapSelectorWheel(true);
+        np1.setDisplayedValues(np1nums);
 
-
-
+        np2.setMaxValue(np2nums.length-1);
+        np2.setMinValue(0);
+        np2.setWrapSelectorWheel(true);
+        np2.setDisplayedValues(np2nums);
     }
 
 
