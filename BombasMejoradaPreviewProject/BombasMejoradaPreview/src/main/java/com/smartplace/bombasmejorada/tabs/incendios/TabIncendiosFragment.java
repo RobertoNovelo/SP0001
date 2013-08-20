@@ -8,16 +8,19 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.smartplace.bombasmejorada.R;
+import com.smartplace.bombasmejorada.tabs.hidros.HidrosFragment1;
 
 public class TabIncendiosFragment extends Fragment {
 
@@ -37,6 +40,43 @@ public class TabIncendiosFragment extends Fragment {
         vp.setAdapter(myAdapter);
         return view;
     }
+
+    final GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
+        public boolean onDoubleTap(MotionEvent e) {
+
+            // Create new fragment and transaction
+            IncendiosFragment1 newFragment = new IncendiosFragment1();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+            // Replace whatever is in the fragment_container view with this fragment,
+            // and add the transaction to the back stack
+            transaction.replace(android.R.id.tabcontent, newFragment);
+            transaction.addToBackStack(null);
+
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+            // Commit the transaction
+            transaction.commit();
+
+            return true;
+        }
+    });
+
+
+    @Override
+    public void onResume ()
+    {
+        super.onResume();
+        vp.setOnTouchListener( new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+
+                return gestureDetector.onTouchEvent(motionEvent);
+
+            }
+        });
+    }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {

@@ -3,17 +3,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="fill_parent"
+              android:layout_height="match_parent"
               android:showDividers="middle"
               android:divider="?android:dividerVertical"
               android:dividerPadding="10dp"
-              android:baselineAligned="false"
-        android:background="#FFFFFF">
+              android:background="#FFFFFF">
 
-    <com.smartplace.effects.BounceScrollView
+
+    <RelativeLayout
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+            android:layout_weight=".2">
+
+        <com.smartplace.effects.BounceScrollView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:overScrollMode="always"
+            android:isScrollContainer="true"
             android:scrollbars="none">
 
             <LinearLayout
@@ -36,7 +42,6 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Instalación:"
                 android:padding="10dp"
-                android:id="@+id/textView"
                 android:layout_marginLeft="10dp"
                 android:layout_alignParentLeft="true"/>
 
@@ -44,9 +49,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Monofásica 110 V"
+                android:text="Default"
                 android:padding="10dp"
-                android:id="@+id/textView2"
+                android:id="@+id/instalacionHidros"
                 android:textColor="#ff1212b1"
                 android:textStyle="bold"
                 android:layout_marginRight="10dp"
@@ -61,9 +66,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Gasto:"
+                android:text="Salidas:"
                 android:padding="10dp"
-                android:id="@+id/textView3"
                 android:layout_marginLeft="10dp"
                 android:layout_alignParentLeft="true"/>
 
@@ -71,9 +75,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="10 lpm"
+                android:text="0"
                 android:padding="10dp"
-                android:id="@+id/textView4"
+                android:id="@+id/salidasHidros"
                 android:textColor="#ff1212b1"
                 android:textStyle="bold"
                 android:layout_marginRight="10dp"
@@ -89,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Presión:"
+                android:text="Factor por salida:"
                 android:padding="10dp"
                 android:id="@+id/textView5"
                 android:layout_marginLeft="10dp"
@@ -99,9 +103,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="5 psi"
+                android:text="0 lpm/salida"
                 android:padding="10dp"
-                android:id="@+id/textView6"
+                android:id="@+id/factorSalida"
                 android:textColor="#ff1212b1"
                 android:textStyle="bold"
                 android:layout_marginRight="10dp"
@@ -116,9 +120,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Instalación:"
+                            android:text="Desnivel total \nmáximo:"
                             android:padding="10dp"
-                            android:id="@+id/textView"
                             android:layout_marginLeft="10dp"
                             android:layout_alignParentLeft="true"/>
 
@@ -126,9 +129,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Monofásica 110 V"
+                            android:text="0 mts"
                             android:padding="10dp"
-                            android:id="@+id/textView2"
+                            android:id="@+id/desnivelMax"
                             android:textColor="#ff1212b1"
                             android:textStyle="bold"
                             android:layout_marginRight="10dp"
@@ -143,9 +146,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Gasto:"
+                            android:text="Longitud de\ntubería máxima:"
                             android:padding="10dp"
-                            android:id="@+id/textView3"
                             android:layout_marginLeft="10dp"
                             android:layout_alignParentLeft="true"/>
 
@@ -153,91 +155,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="10 lpm"
+                            android:text="0 mts"
                             android:padding="10dp"
-                            android:id="@+id/textView4"
-                            android:textColor="#ff1212b1"
-                            android:textStyle="bold"
-                            android:layout_marginRight="10dp"
-                            android:layout_alignParentRight="true"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content">
-
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Presión:"
-                            android:padding="10dp"
-                            android:id="@+id/textView5"
-                            android:layout_marginLeft="10dp"
-                            android:layout_alignParentLeft="true"/>
-
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="5 psi"
-                            android:padding="10dp"
-                            android:id="@+id/textView6"
-                            android:textColor="#ff1212b1"
-                            android:textStyle="bold"
-                            android:layout_marginRight="10dp"
-                            android:layout_alignParentRight="true"/>
-
-                </RelativeLayout>
-                <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content">
-
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Instalación:"
-                            android:padding="10dp"
-                            android:id="@+id/textView"
-                            android:layout_marginLeft="10dp"
-                            android:layout_alignParentLeft="true"/>
-
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Monofásica 110 V"
-                            android:padding="10dp"
-                            android:id="@+id/textView2"
-                            android:textColor="#ff1212b1"
-                            android:textStyle="bold"
-                            android:layout_marginRight="10dp"
-                            android:layout_alignParentRight="true"/>
-                </RelativeLayout>
-
-                <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content">
-
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Gasto:"
-                            android:padding="10dp"
-                            android:id="@+id/textView3"
-                            android:layout_marginLeft="10dp"
-                            android:layout_alignParentLeft="true"/>
-
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="10 lpm"
-                            android:padding="10dp"
-                            android:id="@+id/textView4"
+                            android:id="@+id/longitudTuberia"
                             android:textColor="#ff1212b1"
                             android:textStyle="bold"
                             android:layout_marginRight="10dp"
@@ -253,9 +173,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Presión:"
+                            android:text="Presión en salida:"
                             android:padding="10dp"
-                            android:id="@+id/textView5"
                             android:layout_marginLeft="10dp"
                             android:layout_alignParentLeft="true"/>
 
@@ -263,9 +182,61 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="5 psi"
+                            android:text="0 psi"
                             android:padding="10dp"
-                            android:id="@+id/textView6"
+                            android:id="@+id/presionSalida"
+                            android:textColor="#ff1212b1"
+                            android:textStyle="bold"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+                <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="Porcentaje máximo de\npérdidas en la conducción"
+                            android:padding="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="0%"
+                            android:padding="10dp"
+                            android:id="@+id/porcentajePerdidas"
+                            android:textColor="#ff1212b1"
+                            android:textStyle="bold"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="Gasto pico máximo:"
+                            android:padding="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="0 lpm"
+                            android:padding="10dp"
+                            android:id="@+id/gastoPico"
                             android:textColor="#ff1212b1"
                             android:textStyle="bold"
                             android:layout_marginRight="10dp"
@@ -281,9 +252,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Presión:"
+                            android:text="Carga dinámica\ntotal"
                             android:padding="10dp"
-                            android:id="@+id/textView5"
                             android:layout_marginLeft="10dp"
                             android:layout_alignParentLeft="true"/>
 
@@ -291,9 +261,36 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="5 psi"
+                            android:text="0 psi"
                             android:padding="10dp"
-                            android:id="@+id/textView6"
+                            android:id="@+id/cargaDinamica"
+                            android:textColor="#ff1212b1"
+                            android:textStyle="bold"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="Diámetro de tubo recomendado\nen la línea principal:"
+                            android:padding="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text='0"'
+                            android:padding="10dp"
+                            android:id="@+id/diametroTubo"
                             android:textColor="#ff1212b1"
                             android:textStyle="bold"
                             android:layout_marginRight="10dp"
@@ -306,11 +303,12 @@
     </com.smartplace.effects.BounceScrollView>
 
 
+    </RelativeLayout>
+
     <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="bottom"
-            android:layout_gravity="bottom">
+            android:layout_weight="1">
 
         <Button
                 android:layout_width="wrap_content"
@@ -319,7 +317,7 @@
                 android:textColor="#ffffff"
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/custom_button_dark_green"
+                android:background="@drawable/custom_button_dark_blue"
                 android:id="@+id/enviarbutton"
                 android:layout_gravity="center"
                 android:layout_alignParentBottom="true"

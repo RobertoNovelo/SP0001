@@ -1,6 +1,7 @@
 package com.smartplace.bombasmejorada.tabs.bombas;
 
 import android.app.AlertDialog;
+import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -46,6 +48,43 @@ public class BombasFragment3 extends Fragment {
 
         return inflater.inflate(R.layout.tab_bombas_3, container, false);
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
+    {
+        super.onCreateOptionsMenu(menu, inflater);
+
+        inflater.inflate(R.menu.tab_bombas_3, menu);
+    }
+
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.btn_enviar:
+
+                DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("message/rfc822");
+                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"enlinea@bombasmejorada.com"});
+                i.putExtra(Intent.EXTRA_SUBJECT, Html.fromHtml("Solicito Informaci&oacute;n v&iacute;a Android").toString());
+                i.putExtra(Intent.EXTRA_TEXT,
+                        "Bombas - Hoja de cálculo: " + Html.fromHtml("<br/><br/>") +
+                                "1.Fuente de energía: " + Html.fromHtml("<br/>") + dataManager.EnergySource + Html.fromHtml("<br/><br/>") +
+                                "2.Gasto pico máximo: " + Html.fromHtml("<br/>") + dataManager.lpm + " lpm" + Html.fromHtml("<br/><br/>") +
+                                "3.Presión:           " + Html.fromHtml("<br/>") + dataManager.psi + " psi" + Html.fromHtml("<br/><br/>") +
+                                "Enviado desde mi Android" );
+
+                try {
+                    startActivity(Intent.createChooser(i, "Send mail..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(getActivity(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                }
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
@@ -102,7 +141,7 @@ public class BombasFragment3 extends Fragment {
                                 DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
                                 Intent i = new Intent(Intent.ACTION_SEND);
                                 i.setType("message/rfc822");
-//                                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"robertod.novelo@gmail.com"});
+//                                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"enlinea@bombasmejorada.com"});
                                 i.putExtra(Intent.EXTRA_SUBJECT, Html.fromHtml("Solicito Informaci&oacute;n v&iacute;a Android").toString());
                                 i.putExtra(Intent.EXTRA_TEXT,
                                         "Bombas - Hoja de cálculo: " + Html.fromHtml("<br/><br/>") +

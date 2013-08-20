@@ -1,10 +1,8 @@
-package com.smartplace.bombasmejorada.tabs.hidros;
+package com.smartplace.bombasmejorada.tabs.incendios;
 
 import android.app.Fragment;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,14 +20,14 @@ import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
 /**
  * Created by ROBERTO on 28/06/13.
  */
-public class HidrosFragment4 extends Fragment {
+public class IncendiosFragment4 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        return inflater.inflate(R.layout.tab_hidros_4, container, false);
+        return inflater.inflate(R.layout.tab_incendios_4, container, false);
 
     }
 
@@ -39,7 +37,7 @@ public class HidrosFragment4 extends Fragment {
         super.onResume();
 
         Button btnEnviar = (Button) getActivity().findViewById(R.id.enviarbutton);
-        DataManager dataManager =  ((TabsMainActivity)getActivity()).getDataManager();
+
 
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +46,7 @@ public class HidrosFragment4 extends Fragment {
                 DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("message/rfc822");
-                                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"enlinea@bombasmejorada.com"});
+                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"enlinea@bombasmejorada.com"});
                 i.putExtra(Intent.EXTRA_SUBJECT, Html.fromHtml("Solicito Informaci&oacute;n v&iacute;a Android").toString());
                 i.putExtra(Intent.EXTRA_TEXT,
                         "Bombas - Hoja de cálculo: " + Html.fromHtml("<br/><br/>") +
@@ -72,7 +70,7 @@ public class HidrosFragment4 extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.tab_hidros_3, menu);
+        inflater.inflate(R.menu.tab_incendios_3, menu);
     }
 
 }

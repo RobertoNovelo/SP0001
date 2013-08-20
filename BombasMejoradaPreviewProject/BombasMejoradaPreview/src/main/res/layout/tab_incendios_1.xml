@@ -47,6 +47,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:fillViewport="true"
+                        android:scrollbars="none"
                         android:overScrollMode="always">
 
 
@@ -76,6 +77,7 @@
                         android:orientation="vertical"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/riesgoLigero"
                         android:background="@drawable/custom_button_red"
                         android:showDividers="middle"
                         android:divider="?android:dividerVertical"
@@ -246,7 +248,1510 @@
 
                     </RelativeLayout>
 
+
+                    <RelativeLayout
+                                android:id="@+id/tiendas"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:clickable="true">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                    android:text="Tiendas de Autoservicio"
+                                    android:textColor="#ffffff"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:textSize="18sp"/>
+
+                            <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/arrow"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                                android:id="@+id/museo"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:clickable="true">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                    android:text="Museo"
+                                    android:textColor="#ffffff"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:textSize="18sp"/>
+
+                            <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/arrow"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                                android:id="@+id/oficinas"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:clickable="true">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                    android:text="Oficinas"
+                                    android:textColor="#ffffff"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:textSize="18sp"/>
+
+                            <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/arrow"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                                android:id="@+id/restaurante"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:clickable="true">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                    android:text="Restaurante"
+                                    android:textColor="#ffffff"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:textSize="18sp"/>
+
+                            <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/arrow"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                                android:id="@+id/teatro"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:clickable="true">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                    android:text="Teatro"
+                                    android:textColor="#ffffff"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:textSize="18sp"/>
+
+                            <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/arrow"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                                android:id="@+id/vivienda"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:clickable="true">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                    android:text="Vivienda"
+                                    android:textColor="#ffffff"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:textSize="18sp"/>
+
+                            <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/arrow"/>
+
+                        </RelativeLayout>
+
+
                 </LinearLayout>
+
+                        <RelativeLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:clickable="true">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                    android:text="Riesgo Ordinario Grupo 1"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:textSize="20sp"/>
+                        </RelativeLayout>
+
+
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/riesgoOrdinario1"
+                                android:background="@drawable/custom_button_red"
+                                android:showDividers="middle"
+                                android:divider="?android:dividerVertical"
+                                android:dividerPadding="10dp"
+                                android:baselineAligned="false"
+                                android:padding="10dp">
+
+
+                            <RelativeLayout
+                                    android:id="@+id/areasrestaurantes"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Áreas de Restaurantes"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/embotelladora"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Embotelladora"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/enlatadora"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Enlatadora"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/estacionamiento"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Estacionamiento"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/lavanderia"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Lavandería"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/panaderia"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Panadería"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                    android:id="@+id/plantaelectrica"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Planta Eléctrica"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/procesadoralacteos"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Procesadora de Lácteos"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/salaAutos"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Sala de exhibición de autos"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/vidrieria"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Vidriería"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+
+
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:clickable="true">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                    android:text="Riesgo Ordinario Grupo 2"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:textSize="20sp"/>
+                        </RelativeLayout>
+
+
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/riesgoOrdinario2"
+                                android:background="@drawable/custom_button_red"
+                                android:showDividers="middle"
+                                android:divider="?android:dividerVertical"
+                                android:dividerPadding="10dp"
+                                android:baselineAligned="false"
+                                android:padding="10dp">
+
+
+                            <RelativeLayout
+                                    android:id="@+id/caballeriza"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Caballeriza"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/centroMercantil"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Centro Mercantil"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/comercio"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Comercio"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/destileria"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Destilería"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/carpinteria"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Carpintería"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/embarcadero"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Embarcadero"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                    android:id="@+id/escenario"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Escenario"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/fabricaNeumaticos"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Fábrica de neumáticos"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/fabricaPapel"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Fábrica de papel"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/fabricaTextiles"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Fábrica de textiles"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/forrajerias"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Forrajerías"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                    android:id="@+id/maquinadoMaderas"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Maquinado de maderas"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                    android:id="@+id/molino"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Molino"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/muelle"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Muelle"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/oficinaCorreos"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Oficina de correos"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/plantaQuimica"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Planta química"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                    android:id="@+id/productosConfeccion"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Productos de confección"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                    android:id="@+id/productosCuero"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Productos de cuero"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                    android:id="@+id/tabaqueria"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Tabaquería"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                    android:id="@+id/tallerMaquinarias"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Taller de maquinarias"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                    android:id="@+id/tallerReparacion"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Taller de reparación"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                    android:id="@+id/tintoreria"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Tintorería"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+
+                        <RelativeLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:clickable="true">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                    android:text="Riesgo Extra Grupo 1"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:textSize="20sp"/>
+                        </RelativeLayout>
+
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/riesgoExtra1"
+                                android:background="@drawable/custom_button_red"
+                                android:showDividers="middle"
+                                android:divider="?android:dividerVertical"
+                                android:dividerPadding="10dp"
+                                android:baselineAligned="false"
+                                android:padding="10dp">
+
+
+                            <RelativeLayout
+                                    android:id="@+id/aserradero"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Aserradero"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/espumasPlasticas"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Espumas plásticas"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/extrusionMetales"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Extrusión metales"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/fabricacionAglomerados"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Fabricación de aglomerados"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/fibrasSintLana"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Fibras sintéticas y lana"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/fundidora"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Fundidora"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                    android:id="@+id/hangar"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Hangar"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/imprenta"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Imprenta"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/vulcanizadoraGoma"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Vulcanizadore de goma"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+
+
+                        </LinearLayout>
+
+
+
+
+                        <RelativeLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:clickable="true">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                    android:text="Riesgo Extra Grupo 2"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:textSize="20sp"/>
+                        </RelativeLayout>
+
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/riesgoExtra2"
+                                android:background="@drawable/custom_button_red"
+                                android:showDividers="middle"
+                                android:divider="?android:dividerVertical"
+                                android:dividerPadding="10dp"
+                                android:baselineAligned="false"
+                                android:padding="10dp">
+
+
+                            <RelativeLayout
+                                    android:id="@+id/barnizados"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Barnizados"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/pintadoInmersion"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Pintado por inmersión"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                    android:id="@+id/procesamientoPlasticos"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:clickable="true">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="Procesamiento de plásticos"
+                                        android:textColor="#ffffff"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:textSize="18sp"/>
+
+                                <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/arrow"/>
+
+                            </RelativeLayout>
+
+
+
+
+                        </LinearLayout>
+
 
 
                     </LinearLayout>

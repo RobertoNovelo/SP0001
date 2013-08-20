@@ -6,15 +6,20 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.smartplace.bombasmejorada.R;
 
@@ -22,6 +27,8 @@ public class TabBombasFragment extends Fragment {
 
     ViewPager vp;
     private vpAdapter myAdapter;
+    int i=0;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -36,6 +43,66 @@ public class TabBombasFragment extends Fragment {
         vp.setAdapter(myAdapter);
         return view;
     }
+
+    final GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
+        public boolean onDoubleTap(MotionEvent e) {
+
+            // Create new fragment and transaction
+            BombasFragment1 newFragment = new BombasFragment1();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+            // Replace whatever is in the fragment_container view with this fragment,
+            // and add the transaction to the back stack
+            transaction.replace(android.R.id.tabcontent, newFragment);
+            transaction.addToBackStack(null);
+
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+            // Commit the transaction
+            transaction.commit();
+
+            return true;
+        }
+    });
+
+
+    @Override
+    public void onResume ()
+    {
+        super.onResume();
+        vp.setOnTouchListener( new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+
+                return gestureDetector.onTouchEvent(motionEvent);
+
+            }
+        });
+//        vp.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                i++ ;
+//                Handler handler = new Handler();
+//                Runnable r = new Runnable() {
+//
+//                    @Override
+//                    public void run() {
+//
+//                        i = 0;
+//                    }
+//                };
+//                if(i==1){
+//                    handler.postDelayed(r, 250);
+//                }else if(i == 2){
+//                    i = 0;
+//                    Toast.makeText(getActivity(),"afhsdkñjh", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+    }
+
+
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {

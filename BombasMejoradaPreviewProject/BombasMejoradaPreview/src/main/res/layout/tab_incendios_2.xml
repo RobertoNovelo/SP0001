@@ -1,8 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#c20f14"
+        android:baselineAligned="false">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="10dp"
+            android:background="#c20f14"
+            android:paddingTop="10dp">
+
+        <LinearLayout android:orientation="vertical"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:baselineAligned="false"
+                      android:showDividers="middle"
+                      android:divider="?android:dividerVertical"
+                      android:dividerPadding="10dp"
+                      android:padding="10dp"
+                      android:background="#ffffff"
+                      android:paddingTop="10dp">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textStyle="bold"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="2. Protección con (seleccione almenos una):"
+                    android:textColor="#c20f14"
+                    android:textSize="18sp"/>
+
+            <com.smartplace.effects.BounceScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true"
+                    android:overScrollMode="always"
+                    android:scrollbars="none"
+                    >
+
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                    <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:clickable="true">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text='Hidrantes para\nmangueras de 1.5" '
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"
+                                android:textSize="20sp"/>
+
+                        <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/radioButton"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:clickable="true">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text='Hidrantes para\nmangueras de 2.5" '
+                                android:id="@+id/cuerpoBomberos"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"
+                                android:textSize="20sp"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text='(sólo para cuerpos de bomberos)'
+                                android:textSize="15sp"
+                                android:layout_below="@+id/cuerpoBomberos"
+                                android:layout_marginBottom="-10dp"
+                                android:layout_alignLeft="@+id/cuerpoBomberos"/>
+
+                        <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/radioButton"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:clickable="true">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text='Rociadores\nautomáticos '
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"
+                                android:textSize="20sp"/>
+
+                        <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/radioButton"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:clickable="true">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text='Cañones\nmonitores '
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"
+                                android:textSize="20sp"/>
+
+                        <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/radioButton"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                />
+
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </com.smartplace.effects.BounceScrollView>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

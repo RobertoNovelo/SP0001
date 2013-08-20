@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/btn_buscar"
+          android:title="Buscar"
+          android:orderInCategory="10"
+          android:menuCategory="system"
+          android:showAsAction="ifRoom|withText"/>
+</menu>
