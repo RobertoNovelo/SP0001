@@ -17,6 +17,17 @@ public class DataManager {
     public int hPresionSalida;
     public int iLongSalida;
     public int iDesnivel;
+    public String EquipoModelo;
+    public String NoDeSerie;
+    public String Falla;
+    public String Domicilio;
+    public String Observaciones;
+    public String Nombre;
+    public String Empresa;
+    public String Puesto;
+    public String Telefono;
+    public String Celular;
+    public String Correo;
 
 
     public DataManager()
@@ -29,6 +40,18 @@ public class DataManager {
         hPresionSalida=15;
         iLongSalida=5;
         iDesnivel=5;
+        EquipoModelo = null;
+        NoDeSerie = null;
+        Falla = null;
+        Domicilio = null;
+        Observaciones = null;
+        Nombre = null;
+        Empresa = null;
+        Puesto = null;
+        Telefono = null;
+        Celular = null;
+        Correo = null;
+
     }
 
 }
