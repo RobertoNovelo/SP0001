@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 
 import com.smartplace.bombasmejorada.R;
@@ -20,11 +22,12 @@ import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
  */
 public class HidrosFragment3 extends Fragment {
 
-    private NumberPicker np1;
-    private NumberPicker np2;
-
-    private String[] np1nums = new String[160];
-    private String[] np2nums = new String[16];
+    private Button btnHidrosSum3;
+    private EditText txt_long_salida;
+    private Button btnHidrosRes3;
+    private Button btnHidrosSum4;
+    private EditText txt_presion_salida;
+    private Button btnHidrosRes4;
 
 
     @Override
@@ -34,11 +37,13 @@ public class HidrosFragment3 extends Fragment {
 
         View v = inflater.inflate(R.layout.tab_hidros_3, container, false);
 
-        np1 = (NumberPicker)v.findViewById(R.id.hidrosPicker3);
-        np2 = (NumberPicker)v.findViewById(R.id.hidrosPicker4);
-
+        btnHidrosSum3 = (Button)v.findViewById(R.id.btnHidrosSum3);
+        txt_long_salida = (EditText)v.findViewById(R.id.tvHidros3);
+        btnHidrosRes3 = (Button)v.findViewById(R.id.btnHidrosRes3);
+        btnHidrosSum4 = (Button)v.findViewById(R.id.btnHidrosSum4);
+        txt_presion_salida = (EditText)v.findViewById(R.id.tvHidros4);
+        btnHidrosRes4 = (Button)v.findViewById(R.id.btnHidrosRes4);
         setHasOptionsMenu(true);
-
         return v;
     }
 
@@ -77,12 +82,43 @@ public class HidrosFragment3 extends Fragment {
     {
         super.onResume();
 
-        InitNumberPickers(np1, np2);
+        final DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
 
-        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
-        np1.setValue((dataManager.hLongSalida / 5) -1 );
-        np2.setValue( dataManager.hPresionSalida -15 );
+        btnHidrosSum3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.hLongSalida = Integer.parseInt(txt_long_salida.getText().toString());
+                dataManager.hLongSalida=dataManager.hLongSalida+5;
+                txt_long_salida.setText(String.valueOf(dataManager.hLongSalida));
+            }
+        });
+        btnHidrosRes3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.hLongSalida = Integer.parseInt(txt_long_salida.getText().toString());
+                dataManager.hLongSalida=dataManager.hLongSalida-5;
+                txt_long_salida.setText(String.valueOf(dataManager.hLongSalida));
+            }
+        });
+        btnHidrosSum4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.hPresionSalida = Integer.parseInt(txt_presion_salida.getText().toString());
+                dataManager.hPresionSalida=dataManager.hPresionSalida+15;
+                txt_presion_salida.setText(String.valueOf(dataManager.hPresionSalida));
+            }
+        });
+        btnHidrosRes4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.hPresionSalida = Integer.parseInt(txt_presion_salida.getText().toString());
+                dataManager.hPresionSalida=dataManager.hPresionSalida-15;
+                txt_presion_salida.setText(String.valueOf(dataManager.hPresionSalida));
+            }
+        });
 
+        txt_long_salida.setText(String.valueOf(dataManager.hLongSalida));
+        txt_presion_salida.setText(String.valueOf(dataManager.hPresionSalida));
     }
 
     @Override
@@ -91,33 +127,8 @@ public class HidrosFragment3 extends Fragment {
         super.onPause();
 
         DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
-        dataManager.hLongSalida = (np1.getValue() +1 ) * 5 ;
-        dataManager.hPresionSalida = (np2.getValue() +15 );
-
+        dataManager.hLongSalida = Integer.parseInt(txt_long_salida.getText().toString());
+        dataManager.hPresionSalida = Integer.parseInt(txt_presion_salida.getText().toString());
     }
-    private void InitNumberPickers(NumberPicker np1, NumberPicker np2)
-    {
-        //RoNo: Init stuff
-        for(int i=0; i<np1nums.length; i++)
-        {
-            np1nums[i] = Integer.toString((i+1)*5);
-        }
-
-        for(int i=0; i<np2nums.length; i++)
-        {
-            np2nums[i] = Integer.toString(i+15);
-        }
-
-        np1.setMaxValue(np1nums.length-1);
-        np1.setMinValue(0);
-        np1.setWrapSelectorWheel(true);
-        np1.setDisplayedValues(np1nums);
-
-        np2.setMaxValue(np2nums.length-1);
-        np2.setMinValue(0);
-        np2.setWrapSelectorWheel(true);
-        np2.setDisplayedValues(np2nums);
-    }
-
 
 }

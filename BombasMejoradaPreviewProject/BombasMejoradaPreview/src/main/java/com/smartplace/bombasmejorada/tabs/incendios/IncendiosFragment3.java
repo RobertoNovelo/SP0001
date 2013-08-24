@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
@@ -21,9 +23,12 @@ import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
  */
 public class IncendiosFragment3 extends Fragment {
 
-
-    private NumberPicker np1;
-    private NumberPicker np2;
+    private Button btnIncendiosSum1;
+    private EditText txt_long_salida;
+    private Button btnIncendiosRes1;
+    private Button btnIncendiosSum2;
+    private EditText txt_desnivel;
+    private Button btnIncendiosRes2;
 
 
     @Override
@@ -33,11 +38,13 @@ public class IncendiosFragment3 extends Fragment {
 
         View v = inflater.inflate(R.layout.tab_incendios_3, container, false);
 
-        np1 = (NumberPicker)v.findViewById(R.id.incendiosPicker1);
-        np2 = (NumberPicker)v.findViewById(R.id.incendiosPicker2);
-
+        btnIncendiosSum1 = (Button)v.findViewById(R.id.btnIncendiosSum1);
+        txt_long_salida = (EditText)v.findViewById(R.id.tvIncendios1);
+        btnIncendiosRes1 = (Button)v.findViewById(R.id.btnIncendiosRes1);
+        btnIncendiosSum2 = (Button)v.findViewById(R.id.btnIncendiosSum2);
+        txt_desnivel = (EditText)v.findViewById(R.id.tvIncendios2);
+        btnIncendiosRes2 = (Button)v.findViewById(R.id.btnIncendiosRes2);
         setHasOptionsMenu(true);
-
         return v;
 
     }
@@ -74,18 +81,46 @@ public class IncendiosFragment3 extends Fragment {
         }
     }
 
-    @Override
     public void onResume ()
     {
         super.onResume();
+        final DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
 
-        InitNumberPickers(np1, np2);
+        btnIncendiosSum1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.iLongSalida = Integer.parseInt(txt_long_salida.getText().toString());
+                dataManager.iLongSalida=dataManager.iLongSalida+5;
+                txt_long_salida.setText(String.valueOf(dataManager.iLongSalida));
+            }
+        });
+        btnIncendiosRes1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.iLongSalida = Integer.parseInt(txt_long_salida.getText().toString());
+                dataManager.iLongSalida=dataManager.iLongSalida-5;
+                txt_long_salida.setText(String.valueOf(dataManager.iLongSalida));
+            }
+        });
+        btnIncendiosSum2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.iDesnivel = Integer.parseInt(txt_desnivel.getText().toString());
+                dataManager.iDesnivel=dataManager.iDesnivel+5;
+                txt_desnivel.setText(String.valueOf(dataManager.iDesnivel));
+            }
+        });
+        btnIncendiosRes2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.iDesnivel = Integer.parseInt(txt_desnivel.getText().toString());
+                dataManager.iDesnivel=dataManager.iDesnivel-5;
+                txt_desnivel.setText(String.valueOf(dataManager.iDesnivel));
+            }
+        });
 
-        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
-        np1.setValue((dataManager.hSalidas / 5) -2 );
-        np2.setValue((dataManager.hDistVertical / 5) -2);
-
-
+        txt_long_salida.setText(String.valueOf(dataManager.iLongSalida));
+        txt_desnivel.setText(String.valueOf(dataManager.iDesnivel));
     }
 
     @Override
@@ -94,36 +129,9 @@ public class IncendiosFragment3 extends Fragment {
         super.onPause();
 
         DataManager dataManager =   ((TabsMainActivity)getActivity()).getDataManager();
-        dataManager.iLongSalida =   (np1.getValue() +2 ) * 5 ;
-        dataManager.iDesnivel =     (np2.getValue() +2 ) * 5;
+        dataManager.iLongSalida = Integer.parseInt(txt_long_salida.getText().toString());
+        dataManager.iDesnivel = Integer.parseInt(txt_desnivel.getText().toString());
 
-    }
-
-    private void InitNumberPickers(NumberPicker np1, NumberPicker np2)
-    {
-        //RoNo: Init stuff
-        String[] np1nums = new String[2000];
-        String[] np2nums = new String[100];
-
-        for(int i=0; i<np1nums.length; i++)
-        {
-            np1nums[i] = Integer.toString((i+1)*5);
-        }
-
-        for(int i=0; i<np2nums.length; i++)
-        {
-            np2nums[i] = Integer.toString((i+1)*5);
-        }
-
-        np1.setMaxValue(np1nums.length-1);
-        np1.setMinValue(0);
-        np1.setWrapSelectorWheel(true);
-        np1.setDisplayedValues(np1nums);
-
-        np2.setMaxValue(np2nums.length-1);
-        np2.setMinValue(0);
-        np2.setWrapSelectorWheel(true);
-        np2.setDisplayedValues(np2nums);
     }
 
 
