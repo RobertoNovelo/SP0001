@@ -37,11 +37,55 @@
                         android:gravity="center_vertical"
                         android:layout_alignParentLeft="true"/>
 
-                <NumberPicker
+                <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/hidrosPicker3"
-                        android:layout_alignParentRight="true"/>
+                        android:layout_weight=".05">
+
+                    <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:fontFamily="roboto-light"
+                            android:textSize="30dp"
+                            android:textColor="#ff8b8b8b"
+                            android:textStyle="bold"
+                            android:id="@+id/btnHidrosSum3"/>
+
+                    <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:ems="4"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:fontFamily="roboto-light"
+                            android:textSize="18dp"
+                            android:gravity="center"
+                            android:textColor="#ff8b8b8b"
+                            android:textStyle="bold"
+                            android:id="@+id/tvHidros3"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:maxLength="5"/>
+
+                    <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:fontFamily="roboto-light"
+                            android:textSize="30dp"
+                            android:textColor="#ff8b8b8b"
+                            android:textStyle="bold"
+                            android:id="@+id/btnHidrosRes3"
+                            />
+
+                </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
@@ -77,11 +121,55 @@
                         android:gravity="center_vertical"
                         android:layout_alignParentLeft="true"/>
 
-                <NumberPicker
+                <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/hidrosPicker4"
-                        android:layout_alignParentRight="true"/>
+                        android:layout_weight=".05">
+
+                    <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:fontFamily="roboto-light"
+                            android:textSize="30dp"
+                            android:textColor="#ff8b8b8b"
+                            android:textStyle="bold"
+                            android:id="@+id/btnHidrosSum4"/>
+
+                    <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:ems="4"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:fontFamily="roboto-light"
+                            android:textSize="18dp"
+                            android:gravity="center"
+                            android:textColor="#ff8b8b8b"
+                            android:textStyle="bold"
+                            android:id="@+id/tvHidros4"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:maxLength="5"/>
+
+                    <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:fontFamily="roboto-light"
+                            android:textSize="30dp"
+                            android:textColor="#ff8b8b8b"
+                            android:textStyle="bold"
+                            android:id="@+id/btnHidrosRes4"
+                            />
+
+                </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>

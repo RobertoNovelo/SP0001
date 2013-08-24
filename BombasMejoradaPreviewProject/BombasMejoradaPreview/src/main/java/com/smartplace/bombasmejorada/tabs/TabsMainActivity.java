@@ -27,8 +27,7 @@ import com.smartplace.bombasmejorada.tabs.otros.ServiceFragment5;
 import com.smartplace.bombasmejorada.tabs.otros.TabOtrosFragment;
 
 public class TabsMainActivity extends Activity implements
-        BombasFragment1.onSaveData,
-        BombasFragment2.onSaveData{
+        BombasFragment1.onSaveData{
 
 
 

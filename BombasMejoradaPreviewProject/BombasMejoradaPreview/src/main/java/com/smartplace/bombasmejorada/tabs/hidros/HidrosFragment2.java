@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
@@ -21,9 +23,12 @@ import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
  */
 public class HidrosFragment2 extends Fragment {
 
-
-    private NumberPicker np1;
-    private NumberPicker np2;
+    private Button btnHidrosSum1;
+    private EditText txt_salidas;
+    private Button btnHidrosRes1;
+    private Button btnHidrosSum2;
+    private EditText txt_dist_vertical;
+    private Button btnHidrosRes2;
 
 
     @Override
@@ -33,9 +38,12 @@ public class HidrosFragment2 extends Fragment {
 
         View v = inflater.inflate(R.layout.tab_hidros_2, container, false);
 
-        np1 = (NumberPicker)v.findViewById(R.id.hidrosPicker1);
-        np2 = (NumberPicker)v.findViewById(R.id.hidrosPicker2);
-
+        btnHidrosSum1 = (Button)v.findViewById(R.id.btnHidrosSum1);
+        txt_salidas = (EditText)v.findViewById(R.id.tvHidros1);
+        btnHidrosRes1 = (Button)v.findViewById(R.id.btnHidrosRes1);
+        btnHidrosSum2 = (Button)v.findViewById(R.id.btnHidrosSum2);
+        txt_dist_vertical = (EditText)v.findViewById(R.id.tvHidros2);
+        btnHidrosRes2 = (Button)v.findViewById(R.id.btnHidrosRes2);
         setHasOptionsMenu(true);
 
         return v;
@@ -78,14 +86,43 @@ public class HidrosFragment2 extends Fragment {
     public void onResume ()
     {
         super.onResume();
+        final DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
 
-        InitNumberPickers(np1, np2);
+        btnHidrosSum1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.hSalidas = Integer.parseInt(txt_salidas.getText().toString());
+                dataManager.hSalidas=dataManager.hSalidas+10;
+                txt_salidas.setText(String.valueOf(dataManager.hSalidas));
+            }
+        });
+        btnHidrosRes1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.hSalidas = Integer.parseInt(txt_salidas.getText().toString());
+                dataManager.hSalidas=dataManager.hSalidas-10;
+                txt_salidas.setText(String.valueOf(dataManager.hSalidas));
+            }
+        });
+        btnHidrosSum2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.hDistVertical = Integer.parseInt(txt_dist_vertical.getText().toString());
+                dataManager.hDistVertical=dataManager.hDistVertical+5;
+                txt_dist_vertical.setText(String.valueOf(dataManager.hDistVertical));
+            }
+        });
+        btnHidrosRes2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.hDistVertical = Integer.parseInt(txt_dist_vertical.getText().toString());
+                dataManager.hDistVertical=dataManager.hDistVertical-5;
+                txt_dist_vertical.setText(String.valueOf(dataManager.hDistVertical));
+            }
+        });
 
-        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
-        np1.setValue((dataManager.hSalidas / 10) -1 );
-        np2.setValue((dataManager.hDistVertical / 5) -1);
-
-
+        txt_salidas.setText(String.valueOf(dataManager.hSalidas));
+        txt_dist_vertical.setText(String.valueOf(dataManager.hDistVertical));
     }
 
     @Override
@@ -94,36 +131,8 @@ public class HidrosFragment2 extends Fragment {
         super.onPause();
 
         DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
-        dataManager.hSalidas = (np1.getValue() +1 ) * 10 ;
-        dataManager.hDistVertical = (np2.getValue() +1 ) * 5;
-
-    }
-
-    private void InitNumberPickers(NumberPicker np1, NumberPicker np2)
-    {
-        //RoNo: Init stuff
-        String[] np1nums = new String[10000];
-        String[] np2nums = new String[2000];
-
-        for(int i=0; i<np1nums.length; i++)
-        {
-            np1nums[i] = Integer.toString((i+1)*10);
-        }
-
-        for(int i=0; i<np2nums.length; i++)
-        {
-            np2nums[i] = Integer.toString((i+1)*5);
-        }
-
-        np1.setMaxValue(np1nums.length-1);
-        np1.setMinValue(0);
-        np1.setWrapSelectorWheel(true);
-        np1.setDisplayedValues(np1nums);
-
-        np2.setMaxValue(np2nums.length-1);
-        np2.setMinValue(0);
-        np2.setWrapSelectorWheel(true);
-        np2.setDisplayedValues(np2nums);
+        dataManager.hDistVertical = Integer.parseInt(txt_dist_vertical.getText().toString());
+        dataManager.hSalidas = Integer.parseInt(txt_salidas.getText().toString());
     }
 
 

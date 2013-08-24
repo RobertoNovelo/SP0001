@@ -10,6 +10,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 
 import com.smartplace.bombasmejorada.R;
@@ -21,16 +23,12 @@ import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
  */
 public class BombasFragment2 extends Fragment {
 
-    //Interface instance used to pass data on to the holder activity
-    onSaveData mCallback;
-    private Bundle savedState = null;
-    private NumberPicker np1;
-    private NumberPicker np2;
-
-    public interface onSaveData
-    {
-        public void saveData(TabsMainActivity.Identifiers TabIdentifier, DataManager fragmentDataManager);
-    }
+    private Button btnBombasSum1;
+    private EditText txt_lpm;
+    private Button btnBombasRes1;
+    private Button btnBombasSum2;
+    private EditText txt_psi;
+    private Button btnBombasRes2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,48 +37,18 @@ public class BombasFragment2 extends Fragment {
 
         View v = inflater.inflate(R.layout.tab_bombas_2, container, false);
 
-        np1 = (NumberPicker)v.findViewById(R.id.bombasPicker1);
-        np2 = (NumberPicker)v.findViewById(R.id.bombasPicker2);
+        btnBombasSum1 = (Button)v.findViewById(R.id.btnBombasSum1);
+        txt_lpm = (EditText)v.findViewById(R.id.tvBombas1);
+        btnBombasRes1 = (Button)v.findViewById(R.id.btnBombasRes1);
+        btnBombasSum2 = (Button)v.findViewById(R.id.btnBombasSum2);
+        txt_psi = (EditText)v.findViewById(R.id.tvBombas2);
+        btnBombasRes2 = (Button)v.findViewById(R.id.btnBombasRes2);
 
         setHasOptionsMenu(true);
-
-//        if(savedInstanceState != null && savedState == null)
-//        {
-//            savedState = savedInstanceState.getBundle("bundle");
-//            if(savedState != null)
-//            {
-//                np1.setValue(savedState.getInt("np1"));
-//                np2.setValue(savedState.getInt("np2"));
-//            }
-//        }
-//        savedState = null;
-
-
 
         return v;
 
     }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-
-        // This makes sure that the container activity has implemented
-        // the callback interface. If not, it throws an exception
-        try {
-            mCallback = (onSaveData) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnHeadlineSelectedListener");
-        }
-    }
-//    @Override
-//    public void onDestroyView() {
-//        super.onDestroyView();
-//        savedState = saveState(); /* vstup defined here for sure */
-//        np1 = null;
-//        np2 = null;
-//    }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
@@ -89,19 +57,6 @@ public class BombasFragment2 extends Fragment {
 
         inflater.inflate(R.menu.tab_bombas_2, menu);
     }
-//    private Bundle saveState() { /* called either from onDestroyView() or onSaveInstanceState() */
-//        Bundle state = new Bundle();
-//        state.putInt("np1",np1.getValue());
-//        state.putInt("np2",np2.getValue());
-//        return state;
-//    }
-
-//    @Override
-//    public void onSaveInstanceState(Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//        outState.putBundle("bundle", savedState != null ? savedState : saveState());
-//
-//    }
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -110,10 +65,6 @@ public class BombasFragment2 extends Fragment {
                 // Create new fragment and transaction
                 BombasFragment3 newFragment = new BombasFragment3();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-//                Bundle args = new Bundle();
-//                args.putString("EnergySource", tempDataManager.EnergySource);
-//                newFragment.setArguments(args);
 
                 // Replace whatever is in the fragment_container view with this fragment,
                 // and add the transaction to the back stack
@@ -135,11 +86,44 @@ public class BombasFragment2 extends Fragment {
     public void onResume ()
     {
         super.onResume();
-        InitNumberPickers(np1,np2);
 
-        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
-        np1.setValue((dataManager.lpm / 10) -1);
-        np2.setValue((dataManager.psi / 5) -1);
+        final DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+
+        btnBombasSum1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.lpm = Integer.parseInt(txt_lpm.getText().toString());
+                dataManager.lpm=dataManager.lpm+10;
+                txt_lpm.setText(String.valueOf(dataManager.lpm));
+            }
+        });
+        btnBombasRes1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.lpm = Integer.parseInt(txt_lpm.getText().toString());
+                dataManager.lpm=dataManager.lpm-10;
+                txt_lpm.setText(String.valueOf(dataManager.lpm));
+            }
+        });
+        btnBombasSum2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.psi = Integer.parseInt(txt_psi.getText().toString());
+                dataManager.psi=dataManager.psi+5;
+                txt_psi.setText(String.valueOf(dataManager.psi));
+            }
+        });
+        btnBombasRes2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataManager.psi = Integer.parseInt(txt_psi.getText().toString());
+                dataManager.psi=dataManager.psi-5;
+                txt_psi.setText(String.valueOf(dataManager.psi));
+            }
+        });
+
+        txt_lpm.setText(String.valueOf(dataManager.lpm));
+        txt_psi.setText(String.valueOf(dataManager.psi));
 
     }
 
@@ -149,34 +133,9 @@ public class BombasFragment2 extends Fragment {
         super.onPause();
 
         DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
-        dataManager.lpm = (np1.getValue() +1 ) * 10 ;
-        dataManager.psi = (np2.getValue() +1 ) * 5;
+        dataManager.lpm = Integer.parseInt(txt_lpm.getText().toString());
+        dataManager.psi = Integer.parseInt(txt_psi.getText().toString());
 
     }
 
-    private void InitNumberPickers(NumberPicker np1, NumberPicker np2)
-    {
-        //RoNo: Init stuff
-        String[] np1nums = new String[500];
-        for(int i=0; i<np1nums.length; i++)
-        {
-            np1nums[i] = Integer.toString((i+1)*10);
-        }
-
-        String[] np2nums = new String[36];
-        for(int i=0; i<np2nums.length; i++)
-        {
-            np2nums[i] = Integer.toString((i+1)*5);
-        }
-
-        np1.setMaxValue(np1nums.length-1);
-        np1.setMinValue(0);
-        np1.setWrapSelectorWheel(true);
-        np1.setDisplayedValues(np1nums);
-
-        np2.setMaxValue(np2nums.length-1);
-        np2.setMinValue(0);
-        np2.setWrapSelectorWheel(true);
-        np2.setDisplayedValues(np2nums);
-    }
 }
