@@ -20,13 +20,16 @@ import com.smartplace.bombasmejorada.tabs.bombas.TabBombasFragment;
 import com.smartplace.bombasmejorada.tabs.convertidor.TabCalculadoraFragment;
 import com.smartplace.bombasmejorada.tabs.hidros.TabHidrosFragment;
 import com.smartplace.bombasmejorada.tabs.incendios.TabIncendiosFragment;
+import com.smartplace.bombasmejorada.tabs.otros.ServiceFragment1;
+import com.smartplace.bombasmejorada.tabs.otros.ServiceFragment2;
+import com.smartplace.bombasmejorada.tabs.otros.ServiceFragment3;
+import com.smartplace.bombasmejorada.tabs.otros.ServiceFragment5;
 import com.smartplace.bombasmejorada.tabs.otros.TabOtrosFragment;
 
 public class TabsMainActivity extends Activity implements
         BombasFragment1.onSaveData,
         BombasFragment2.onSaveData{
 
-    public String EquipoModelo;
 
 
     /* Tab identifiers */
@@ -56,6 +59,10 @@ public class TabsMainActivity extends Activity implements
         IncendiosFragment2,
         IncendiosFragment3,
         IncendiosFragment4,
+        ServicioFragment1,
+        ServicioFragment2,
+        ServicioFragment3,
+        ServicioFragment5
     }
 
     public DataManager DataManager = new DataManager();
@@ -79,6 +86,25 @@ public class TabsMainActivity extends Activity implements
                 break;
             case HidrosFragment3:
                 DataManager.EnergySource = fragmentDataManager.EnergySource;
+                break;
+            case ServicioFragment1:
+                DataManager.EquipoModelo = fragmentDataManager.EquipoModelo;
+                DataManager.NoDeSerie = fragmentDataManager.NoDeSerie;
+                break;
+            case ServicioFragment2:
+                DataManager.Falla = fragmentDataManager.Falla;
+                break;
+            case ServicioFragment3:
+                DataManager.Domicilio = fragmentDataManager.Domicilio;
+                DataManager.Observaciones = fragmentDataManager.Observaciones;
+                break;
+            case ServicioFragment5:
+                DataManager.Nombre = fragmentDataManager.Nombre;
+                DataManager.Empresa = fragmentDataManager.Empresa;
+                DataManager.Puesto = fragmentDataManager.Puesto;
+                DataManager.Telefono = fragmentDataManager.Telefono;
+                DataManager.Celular = fragmentDataManager.Celular;
+                DataManager.Correo = fragmentDataManager.Correo;
                 break;
         }
     }
@@ -207,5 +233,4 @@ public class TabsMainActivity extends Activity implements
         ((TextView) view.findViewById(R.id.tab_text)).setText(text);
         return view;
     }
-    
 }

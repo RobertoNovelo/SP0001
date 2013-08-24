@@ -1,6 +1,7 @@
 package com.smartplace.bombasmejorada.tabs.otros;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.graphics.Color;
@@ -14,9 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.smartplace.bombasmejorada.R;
+import com.smartplace.bombasmejorada.tabs.DataManager;
+import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
 
 /**
  * Created by Roberto on 12/07/13.
@@ -37,6 +41,9 @@ import com.smartplace.bombasmejorada.R;
 * */
 public class ServiceFragment3 extends Fragment {
 
+    EditText txt_domicilio;
+    EditText txt_observaciones;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,9 +52,11 @@ public class ServiceFragment3 extends Fragment {
         abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1A535A")));
         setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.tab_otros_service_3, container, false);
-
+        txt_domicilio = (EditText)view.findViewById(R.id.txt_service_4);
+        txt_observaciones = (EditText)view.findViewById(R.id.txt_service_5);
        return view;
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
@@ -74,6 +83,27 @@ public class ServiceFragment3 extends Fragment {
                 Toast.makeText(getActivity().getBaseContext(),"No ID identificado",Toast.LENGTH_SHORT).show();
         }
         return  true;
+
+    }
+    @Override
+    public void onResume ()
+    {
+        super.onResume();
+
+        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+        txt_domicilio.setText(dataManager.Domicilio);
+        txt_observaciones.setText(dataManager.Observaciones);
+
+    }
+
+    @Override
+    public void onPause ()
+    {
+        super.onPause();
+
+        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+        dataManager.Domicilio = txt_domicilio.getText().toString();
+        dataManager.Observaciones = txt_observaciones.getText().toString();
 
     }
 
