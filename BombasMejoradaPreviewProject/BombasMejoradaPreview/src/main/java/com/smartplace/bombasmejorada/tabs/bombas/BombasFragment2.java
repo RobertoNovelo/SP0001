@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+import android.widget.Toast;
 
 import com.smartplace.bombasmejorada.R;
 import com.smartplace.bombasmejorada.tabs.DataManager;
@@ -29,6 +32,8 @@ public class BombasFragment2 extends Fragment {
     private Button btnBombasSum2;
     private EditText txt_psi;
     private Button btnBombasRes2;
+    private TextWatcher lpmtxtwt;
+    private TextWatcher psitxtwt;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,6 +64,7 @@ public class BombasFragment2 extends Fragment {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()) {
             case R.id.btn_siguiente:
 
@@ -92,6 +98,7 @@ public class BombasFragment2 extends Fragment {
         btnBombasSum1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                txt_lpm.clearFocus();
                 dataManager.lpm = Integer.parseInt(txt_lpm.getText().toString());
                 dataManager.lpm=dataManager.lpm+10;
                 txt_lpm.setText(String.valueOf(dataManager.lpm));
@@ -100,6 +107,7 @@ public class BombasFragment2 extends Fragment {
         btnBombasRes1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                txt_lpm.clearFocus();
                 dataManager.lpm = Integer.parseInt(txt_lpm.getText().toString());
                 dataManager.lpm=dataManager.lpm-10;
                 txt_lpm.setText(String.valueOf(dataManager.lpm));
@@ -108,6 +116,7 @@ public class BombasFragment2 extends Fragment {
         btnBombasSum2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                txt_psi.clearFocus();
                 dataManager.psi = Integer.parseInt(txt_psi.getText().toString());
                 dataManager.psi=dataManager.psi+5;
                 txt_psi.setText(String.valueOf(dataManager.psi));
@@ -116,6 +125,7 @@ public class BombasFragment2 extends Fragment {
         btnBombasRes2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                txt_psi.clearFocus();
                 dataManager.psi = Integer.parseInt(txt_psi.getText().toString());
                 dataManager.psi=dataManager.psi-5;
                 txt_psi.setText(String.valueOf(dataManager.psi));
@@ -125,14 +135,157 @@ public class BombasFragment2 extends Fragment {
         txt_lpm.setText(String.valueOf(dataManager.lpm));
         txt_psi.setText(String.valueOf(dataManager.psi));
 
+        lpmtxtwt = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {}
+
+            @Override
+            public void afterTextChanged(Editable editable) {}
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+                DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+
+                txt_lpm.removeTextChangedListener(lpmtxtwt);
+
+                if (dataManager.lpm < 10)
+                {
+                    dataManager.lpm = (10);
+                    txt_lpm.setText(String.valueOf(dataManager.lpm));
+                }
+                else if (dataManager.lpm > 5000)
+                {
+                    dataManager.lpm = (5000);
+                    txt_lpm.setText(String.valueOf(dataManager.lpm));
+                }
+                if ((!charSequence.toString().matches(""))||(!txt_lpm.getText().toString().matches("")))
+                {
+                    if (Integer.parseInt(charSequence.toString())<10)
+                    {
+                        if (txt_lpm.hasFocus())
+                        {
+                            /*Do nothing*/
+                        }
+                        else
+                        {
+                            dataManager.lpm = (10);
+                            txt_lpm.setText(String.valueOf(dataManager.lpm));
+                        }
+                    }
+                    else if (Integer.parseInt(charSequence.toString())>5000)
+                    {
+                        dataManager.lpm = (5000);
+                        txt_lpm.setText(String.valueOf(dataManager.lpm));
+                    }
+                }
+
+                txt_lpm.addTextChangedListener(lpmtxtwt);
+            }
+        };
+
+        psitxtwt = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {}
+
+            @Override
+            public void afterTextChanged(Editable editable) {}
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+                DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+
+                txt_psi.removeTextChangedListener(psitxtwt);
+
+                if (dataManager.psi < 5)
+                {
+                    dataManager.psi = (5);
+                    txt_psi.setText(String.valueOf(dataManager.psi));
+                }
+                else if (dataManager.psi > 180)
+                {
+                    dataManager.psi = (180);
+                    txt_psi.setText(String.valueOf(dataManager.psi));
+                }
+                if ((!charSequence.toString().matches(""))||(!txt_psi.getText().toString().matches("")))
+                {
+                    if (Integer.parseInt(charSequence.toString())<5)
+                    {
+                        if (txt_psi.hasFocus())
+                        {
+                            /*Do nothing*/
+                        }
+                        else
+                        {
+                            dataManager.psi = (5);
+                            txt_psi.setText(String.valueOf(dataManager.psi));
+                        }
+                    }
+                    else if (Integer.parseInt(charSequence.toString())>180)
+                    {
+                        dataManager.psi = (180);
+                        txt_psi.setText(String.valueOf(dataManager.psi));
+                    }
+                }
+
+                txt_psi.addTextChangedListener(psitxtwt);
+            }
+        };
+
+        txt_lpm.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b)
+                {
+                    if ((txt_lpm.getText().toString().matches(""))||(Integer.parseInt(txt_lpm.getText().toString())<10))
+                    {
+                        dataManager.lpm = (10);
+                        txt_lpm.setText(String.valueOf(dataManager.lpm));
+                    }
+                }
+            }
+        });
+
+        txt_psi.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b)
+                {
+                    if ((txt_psi.getText().toString().matches(""))||(Integer.parseInt(txt_psi.getText().toString())<5))
+                    {
+                        dataManager.psi = (5);
+                        txt_psi.setText(String.valueOf(dataManager.psi));
+                    }
+                }
+            }
+        });
+
+        txt_lpm.addTextChangedListener(lpmtxtwt);
+        txt_psi.addTextChangedListener(psitxtwt);
     }
 
-    @Override
+
+
+
+
+        @Override
     public void onPause ()
     {
         super.onPause();
 
+        txt_psi.clearFocus();
+        txt_lpm.clearFocus();
+
         DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+
+        if ((txt_lpm.getText().toString().matches(""))||(Integer.parseInt(txt_lpm.getText().toString())<10))
+        {
+            dataManager.lpm = (10);
+            txt_lpm.setText(String.valueOf(dataManager.lpm));
+        }
+
+
         dataManager.lpm = Integer.parseInt(txt_lpm.getText().toString());
         dataManager.psi = Integer.parseInt(txt_psi.getText().toString());
 

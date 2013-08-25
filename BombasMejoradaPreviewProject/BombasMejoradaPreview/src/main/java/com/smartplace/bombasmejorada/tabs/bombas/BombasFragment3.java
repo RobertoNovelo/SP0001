@@ -367,7 +367,7 @@ public class BombasFragment3 extends Fragment {
     public void getResults(DataManager resultsDataManager)
     {
         int gastoLpm = resultsDataManager.lpm;
-        int presion = resultsDataManager.psi;
+        double presion = (resultsDataManager.psi * 0.7031);
 
         pdfResultsCount=0;
 
