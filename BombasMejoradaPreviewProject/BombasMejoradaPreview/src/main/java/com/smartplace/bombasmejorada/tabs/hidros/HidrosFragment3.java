@@ -3,6 +3,8 @@ package com.smartplace.bombasmejorada.tabs.hidros;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,7 +30,8 @@ public class HidrosFragment3 extends Fragment {
     private Button btnHidrosSum4;
     private EditText txt_presion_salida;
     private Button btnHidrosRes4;
-
+    private TextWatcher longSaltxtwt;
+    private TextWatcher presSalttxtwt;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -87,6 +90,7 @@ public class HidrosFragment3 extends Fragment {
         btnHidrosSum3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                txt_long_salida.clearFocus();
                 dataManager.hLongSalida = Integer.parseInt(txt_long_salida.getText().toString());
                 dataManager.hLongSalida=dataManager.hLongSalida+5;
                 txt_long_salida.setText(String.valueOf(dataManager.hLongSalida));
@@ -95,6 +99,7 @@ public class HidrosFragment3 extends Fragment {
         btnHidrosRes3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                txt_long_salida.clearFocus();
                 dataManager.hLongSalida = Integer.parseInt(txt_long_salida.getText().toString());
                 dataManager.hLongSalida=dataManager.hLongSalida-5;
                 txt_long_salida.setText(String.valueOf(dataManager.hLongSalida));
@@ -103,22 +108,154 @@ public class HidrosFragment3 extends Fragment {
         btnHidrosSum4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                txt_presion_salida.clearFocus();
                 dataManager.hPresionSalida = Integer.parseInt(txt_presion_salida.getText().toString());
-                dataManager.hPresionSalida=dataManager.hPresionSalida+15;
+                dataManager.hPresionSalida=dataManager.hPresionSalida+1;
                 txt_presion_salida.setText(String.valueOf(dataManager.hPresionSalida));
             }
         });
         btnHidrosRes4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                txt_presion_salida.clearFocus();
                 dataManager.hPresionSalida = Integer.parseInt(txt_presion_salida.getText().toString());
-                dataManager.hPresionSalida=dataManager.hPresionSalida-15;
+                dataManager.hPresionSalida=dataManager.hPresionSalida-1;
                 txt_presion_salida.setText(String.valueOf(dataManager.hPresionSalida));
             }
         });
 
         txt_long_salida.setText(String.valueOf(dataManager.hLongSalida));
         txt_presion_salida.setText(String.valueOf(dataManager.hPresionSalida));
+
+        longSaltxtwt = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {}
+            @Override
+            public void afterTextChanged(Editable editable) {}
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3)
+            {
+                DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+
+                txt_long_salida.removeTextChangedListener(longSaltxtwt);
+
+                if (dataManager.hLongSalida < 1)
+                {
+                    dataManager.hLongSalida = (1);
+                    txt_long_salida.setText(String.valueOf(dataManager.hLongSalida));
+                }
+                else if (dataManager.hLongSalida > 800)
+                {
+                    dataManager.hLongSalida = (800);
+                    txt_long_salida.setText(String.valueOf(dataManager.hLongSalida));
+                }
+                if ((!charSequence.toString().matches(""))||(!txt_long_salida.getText().toString().matches("")))
+                {
+                    if (Integer.parseInt(charSequence.toString())<1)
+                    {
+                        if (txt_long_salida.hasFocus())
+                        {
+                            /*Do nothing*/
+                        }
+                        else
+                        {
+                            dataManager.hLongSalida = (1);
+                            txt_long_salida.setText(String.valueOf(dataManager.hLongSalida));
+                        }
+                    }
+                    else if (Integer.parseInt(charSequence.toString())>800)
+                    {
+                        dataManager.hLongSalida = (800);
+                        txt_long_salida.setText(String.valueOf(dataManager.hLongSalida));
+                    }
+                }
+
+                txt_long_salida.addTextChangedListener(longSaltxtwt);
+            }
+        };
+
+        presSalttxtwt = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {}
+
+            @Override
+            public void afterTextChanged(Editable editable) {}
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+                DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+
+                txt_presion_salida.removeTextChangedListener(presSalttxtwt);
+
+                if (dataManager.hPresionSalida < 15)
+                {
+                    dataManager.hPresionSalida = (15);
+                    txt_presion_salida.setText(String.valueOf(dataManager.hPresionSalida));
+                }
+                else if (dataManager.hPresionSalida > 30)
+                {
+                    dataManager.hPresionSalida = (30);
+                    txt_presion_salida.setText(String.valueOf(dataManager.hPresionSalida));
+                }
+                if ((!charSequence.toString().matches(""))||(!txt_presion_salida.getText().toString().matches("")))
+                {
+                    if (Integer.parseInt(charSequence.toString())<15)
+                    {
+                        if (txt_presion_salida.hasFocus())
+                        {
+                            /*Do nothing*/
+                        }
+                        else
+                        {
+                            dataManager.hPresionSalida = (15);
+                            txt_presion_salida.setText(String.valueOf(dataManager.hPresionSalida));
+                        }
+                    }
+                    else if (Integer.parseInt(charSequence.toString())>30)
+                    {
+                        dataManager.hPresionSalida = (30);
+                        txt_presion_salida.setText(String.valueOf(dataManager.hPresionSalida));
+                    }
+                }
+
+                txt_presion_salida.addTextChangedListener(presSalttxtwt);
+            }
+        };
+
+
+        txt_presion_salida.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b)
+                {
+                    if ((txt_presion_salida.getText().toString().matches(""))||(Integer.parseInt(txt_presion_salida.getText().toString())<10))
+                    {
+                        dataManager.hPresionSalida = (1);
+                        txt_presion_salida.setText(String.valueOf(dataManager.hPresionSalida));
+                    }
+                }
+            }
+        });
+
+        txt_long_salida.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b)
+                {
+                    if ((txt_long_salida.getText().toString().matches(""))||(Integer.parseInt(txt_long_salida.getText().toString())<5))
+                    {
+                        dataManager.hLongSalida = (15);
+                        txt_long_salida.setText(String.valueOf(dataManager.hLongSalida));
+                    }
+                }
+            }
+        });
+
+        txt_long_salida.addTextChangedListener(longSaltxtwt);
+        txt_presion_salida.addTextChangedListener(presSalttxtwt);
+
     }
 
     @Override
