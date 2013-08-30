@@ -112,7 +112,7 @@ public class HidrosFragment1 extends Fragment {
             public void onClick(View view) {
                 setPressed(view);
                 /* Pass current Fragment Arguments to next Fragment */
-                dataManager.Edificio =((TextView)((RelativeLayout) view).getChildAt(0)).getText().toString();;
+                dataManager.Edificio ="Tiendas de\nAutoservicio";//((TextView)((RelativeLayout) view).getChildAt(0)).getText().toString();;
                 switchFragment();
 
             }

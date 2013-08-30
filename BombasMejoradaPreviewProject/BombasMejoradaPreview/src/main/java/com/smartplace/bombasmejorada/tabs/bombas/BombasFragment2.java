@@ -1,6 +1,7 @@
 package com.smartplace.bombasmejorada.tabs.bombas;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -34,6 +35,7 @@ public class BombasFragment2 extends Fragment {
     private Button btnBombasRes2;
     private TextWatcher lpmtxtwt;
     private TextWatcher psitxtwt;
+    private DataManager dataManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,7 +50,7 @@ public class BombasFragment2 extends Fragment {
         btnBombasSum2 = (Button)v.findViewById(R.id.btnBombasSum2);
         txt_psi = (EditText)v.findViewById(R.id.tvBombas2);
         btnBombasRes2 = (Button)v.findViewById(R.id.btnBombasRes2);
-
+        dataManager = ((TabsMainActivity)getActivity()).getDataManager();
         setHasOptionsMenu(true);
 
         return v;
@@ -59,32 +61,65 @@ public class BombasFragment2 extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
-
-        inflater.inflate(R.menu.tab_bombas_2, menu);
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&dataManager.screenSize == "xlarge")
+        {
+           /*Do nothing*/
+        }
+        else
+        {
+            inflater.inflate(R.menu.tab_bombas_2, menu);
+        }
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()) {
-            case R.id.btn_siguiente:
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&dataManager.screenSize == "large")
+        {
+            switch (item.getItemId()) {
+                case R.id.btn_siguiente:
 
-                // Create new fragment and transaction
-                BombasFragment3 newFragment = new BombasFragment3();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    // Create new fragment and transaction
+                    BombasFragment3 newFragment = new BombasFragment3();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
-                transaction.replace(android.R.id.tabcontent, newFragment);
-                transaction.addToBackStack(null);
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.addToBackStack(null);
+                    transaction.remove(this);
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 
-                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                    // Commit the transaction
+                    transaction.commit();
 
-                // Commit the transaction
-                transaction.commit();
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
+        }
+        else
+        {
+            switch (item.getItemId()) {
+                case R.id.btn_siguiente:
 
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+                    // Create new fragment and transaction
+                    BombasFragment3 newFragment = new BombasFragment3();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.addToBackStack(null);
+
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                    // Commit the transaction
+                    transaction.commit();
+
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
         }
     }
 
@@ -92,8 +127,6 @@ public class BombasFragment2 extends Fragment {
     public void onResume ()
     {
         super.onResume();
-
-        final DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
 
         btnBombasSum1.setOnClickListener(new View.OnClickListener() {
             @Override

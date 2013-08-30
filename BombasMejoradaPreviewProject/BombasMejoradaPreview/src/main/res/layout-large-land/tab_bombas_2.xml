@@ -4,44 +4,48 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="#ff1212b1">
-
+              android:background="#ff26afb1"
+              android:layout_weight="1">
 
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="2"
-            android:gravity="center">
+            android:gravity="center_vertical|center_horizontal">
 
-        <RelativeLayout
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/white_rounded_corners">
+
+            <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/white_rounded_corners">
+                    android:layout_height="fill_parent">
 
                 <LinearLayout
                         android:layout_width="fill_parent"
-                        android:layout_height="250dp">
+                        android:layout_height="wrap_content">
 
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="fill_parent"
                             android:padding="8dp"
-                            android:textColor="#ff1212b1"
+                            android:textColor="#ff1b5a58"
                             android:textStyle="bold"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="2. Salidas de agua conectadas a la red:"
-                            android:layout_weight=".5"
-                            android:gravity="center_vertical"
-                            android:layout_alignParentLeft="true"/>
+                            android:text="2. Gasto Requerido (lpm):"
+                            android:layout_alignParentLeft="true"
+                            android:gravity="center_vertical"/>
 
                     <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight=".05">
+                            android:layout_weight=".2">
 
                         <Button
                                 android:layout_width="wrap_content"
@@ -53,7 +57,7 @@
                                 android:textSize="30dp"
                                 android:textColor="#ff8b8b8b"
                                 android:textStyle="bold"
-                                android:id="@+id/btnHidrosSum1"/>
+                                android:id="@+id/btnBombasSum1"/>
 
                         <EditText
                                 android:layout_width="wrap_content"
@@ -67,10 +71,10 @@
                                 android:gravity="center"
                                 android:textColor="#ff8b8b8b"
                                 android:textStyle="bold"
-                                android:id="@+id/tvHidros1"
+                                android:id="@+id/tvBombas1"
                                 android:lines="1"
                                 android:maxLines="1"
-                                android:maxLength="5"/>
+                                android:maxLength="4"/>
 
                         <Button
                                 android:layout_width="wrap_content"
@@ -82,12 +86,17 @@
                                 android:textSize="30dp"
                                 android:textColor="#ff8b8b8b"
                                 android:textStyle="bold"
-                                android:id="@+id/btnHidrosRes1"
+                                android:id="@+id/btnBombasRes1"
                                 />
 
                     </LinearLayout>
+
                 </LinearLayout>
+
             </RelativeLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -95,28 +104,32 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="2"
-            android:gravity="center">
+            android:gravity="center_vertical|center_horizontal">
 
-        <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/white_rounded_corners">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/white_rounded_corners">
+
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
 
                 <LinearLayout
                         android:layout_width="fill_parent"
-                        android:layout_height="240dp">
+                        android:layout_height="wrap_content">
 
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="fill_parent"
                             android:padding="8dp"
-                            android:textColor="#ff1212b1"
+                            android:textColor="#ff1b5a58"
                             android:textStyle="bold"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="3. Distancia vertical entre el fondo de la reserva hasta la maxima altura (metros):"
-                            android:layout_weight=".5"
+                            android:text="3. Presion requerida (psi):"
                             android:gravity="center_vertical"
                             android:layout_alignParentLeft="true"/>
 
@@ -124,7 +137,7 @@
                             android:orientation="vertical"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight=".05">
+                            android:layout_weight=".2">
 
                         <Button
                                 android:layout_width="wrap_content"
@@ -136,7 +149,7 @@
                                 android:textSize="30dp"
                                 android:textColor="#ff8b8b8b"
                                 android:textStyle="bold"
-                                android:id="@+id/btnHidrosSum2"/>
+                                android:id="@+id/btnBombasSum2"/>
 
                         <EditText
                                 android:layout_width="wrap_content"
@@ -150,10 +163,10 @@
                                 android:gravity="center"
                                 android:textColor="#ff8b8b8b"
                                 android:textStyle="bold"
-                                android:id="@+id/tvHidros2"
+                                android:id="@+id/tvBombas2"
                                 android:lines="1"
                                 android:maxLines="1"
-                                android:maxLength="5"/>
+                                android:maxLength="3"/>
 
                         <Button
                                 android:layout_width="wrap_content"
@@ -165,13 +178,17 @@
                                 android:textSize="30dp"
                                 android:textColor="#ff8b8b8b"
                                 android:textStyle="bold"
-                                android:id="@+id/btnHidrosRes2"
+                                android:id="@+id/btnBombasRes2"
                                 />
 
                     </LinearLayout>
-                </LinearLayout>
-            </RelativeLayout>
-    </LinearLayout>
 
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

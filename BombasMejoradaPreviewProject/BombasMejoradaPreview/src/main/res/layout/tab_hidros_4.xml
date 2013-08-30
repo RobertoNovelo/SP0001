@@ -279,7 +279,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Diámetro de tubo recomendado\nen la línea principal:"
+                            android:text="Diámetro de tubo\nrecomendado en la\nlínea principal:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_alignParentLeft="true"/>

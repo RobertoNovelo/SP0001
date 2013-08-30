@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.smartplace.assets.AssetsHandler;
 import com.smartplace.bombasmejorada.R;
@@ -26,8 +29,7 @@ import com.smartplace.bombasmejorada.tabs.otros.ServiceFragment3;
 import com.smartplace.bombasmejorada.tabs.otros.ServiceFragment5;
 import com.smartplace.bombasmejorada.tabs.otros.TabOtrosFragment;
 
-public class TabsMainActivity extends Activity implements
-        BombasFragment1.onSaveData{
+public class TabsMainActivity extends Activity{
 
 
 
@@ -45,103 +47,73 @@ public class TabsMainActivity extends Activity implements
     TabCalculadoraFragment      tab_calculadora;
     TabOtrosFragment            tab_otros;
 
-    public enum Identifiers
-    {
-        BombasFragment1,
-        BombasFragment2,
-        BombasFragment3,
-        HidrosFragment1,
-        HidrosFragment2,
-        HidrosFragment3,
-        HidrosFragment4,
-        IncendiosFragment1,
-        IncendiosFragment2,
-        IncendiosFragment3,
-        IncendiosFragment4,
-        ServicioFragment1,
-        ServicioFragment2,
-        ServicioFragment3,
-        ServicioFragment5
+
+    public DataManager dataManager = new DataManager();
+
+
+    public DataManager getDataManager(){
+        return (dataManager);
     }
-
-    public DataManager DataManager = new DataManager();
-
-    public void saveData( Identifiers TabIdentifier,DataManager fragmentDataManager)
-    {
-        switch (TabIdentifier)
-        {
-            case BombasFragment1:
-                DataManager.EnergySource = fragmentDataManager.EnergySource;
-                break;
-            case BombasFragment2:
-                DataManager.lpm = fragmentDataManager.lpm;
-                DataManager.psi = fragmentDataManager.psi;
-                break;
-            case HidrosFragment1:
-                DataManager.EnergySource = fragmentDataManager.EnergySource;
-                break;
-            case HidrosFragment2:
-                DataManager.EnergySource = fragmentDataManager.EnergySource;
-                break;
-            case HidrosFragment3:
-                DataManager.EnergySource = fragmentDataManager.EnergySource;
-                break;
-            case ServicioFragment1:
-                DataManager.EquipoModelo = fragmentDataManager.EquipoModelo;
-                DataManager.NoDeSerie = fragmentDataManager.NoDeSerie;
-                break;
-            case ServicioFragment2:
-                DataManager.Falla = fragmentDataManager.Falla;
-                break;
-            case ServicioFragment3:
-                DataManager.Domicilio = fragmentDataManager.Domicilio;
-                DataManager.Observaciones = fragmentDataManager.Observaciones;
-                break;
-            case ServicioFragment5:
-                DataManager.Nombre = fragmentDataManager.Nombre;
-                DataManager.Empresa = fragmentDataManager.Empresa;
-                DataManager.Puesto = fragmentDataManager.Puesto;
-                DataManager.Telefono = fragmentDataManager.Telefono;
-                DataManager.Celular = fragmentDataManager.Celular;
-                DataManager.Correo = fragmentDataManager.Correo;
-                break;
-        }
-    }
-
-    public DataManager getDataManager()
-    {
-        return (DataManager);
-    }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_tabhost);
+        if(savedInstanceState == null) {
+        /* First launch, add fragments */
+            tab_bombas = new TabBombasFragment();
+            tab_hidros = new TabHidrosFragment();
+            tab_incendios = new TabIncendiosFragment();
+            tab_calculadora = new TabCalculadoraFragment();
+            tab_otros = new TabOtrosFragment();
+            mTabHost = (TabHost)findViewById(android.R.id.tabhost);
+            mTabHost.setOnTabChangedListener(listener);
+            mTabHost.setup();
+            dataManager.screenSize = getScreenSize();
+            initializeTab(0);
+            AssetsHandler.Operations.CopyAssetsToPhone(getBaseContext(),Environment.getExternalStorageDirectory() + "/BombasMejorada/","PDFs");
 
-        tab_bombas = new TabBombasFragment();
-        tab_hidros = new TabHidrosFragment();
-        tab_incendios = new TabIncendiosFragment();
-        tab_calculadora = new TabCalculadoraFragment();
-        tab_otros = new TabOtrosFragment();
+        } else {
+        /*
+           Activity restored, don't add new fragments or in your case,
+           don't make the first tab selected.
+        */
+            tab_bombas = new TabBombasFragment();
+            tab_hidros = new TabHidrosFragment();
+            tab_incendios = new TabIncendiosFragment();
+            tab_calculadora = new TabCalculadoraFragment();
+            tab_otros = new TabOtrosFragment();
+            mTabHost = (TabHost)findViewById(android.R.id.tabhost);
+            mTabHost.setOnTabChangedListener(listener);
+            mTabHost.setup();
+            int currentTab = savedInstanceState.getInt("CurrentTab");
+            Toast.makeText(getBaseContext(),"Current Tab:" + String.valueOf(currentTab),Toast.LENGTH_LONG).show();
+            dataManager.screenSize = getScreenSize();
+            initializeTab(currentTab);
+            AssetsHandler.Operations.CopyAssetsToPhone(getBaseContext(),Environment.getExternalStorageDirectory() + "/BombasMejorada/","PDFs");
 
-        mTabHost = (TabHost)findViewById(android.R.id.tabhost);
-        mTabHost.setOnTabChangedListener(listener);
-        mTabHost.setup();
+        }
 
-        initializeTab();
-        AssetsHandler.Operations.CopyAssetsToPhone(getBaseContext(),Environment.getExternalStorageDirectory() + "/BombasMejorada/","PDFs");
+
+
+
     }
-
-
-
-    /*
-     * Initialize the tabs and set views and identifiers for the tabs
-     */
-    public void initializeTab() {
-
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        // Save UI state changes to the savedInstanceState.
+        // This bundle will be passed to onCreate if the process is
+        // killed and restarted.
+        //savedInstanceState.putBoolean("MyBoolean", true);
+        //savedInstanceState.putDouble("myDouble", 1.9);
+        savedInstanceState.putInt("CurrentTab", mTabHost.getCurrentTab());
+        //savedInstanceState.putString("MyString", "Welcome back to Android");
+        // etc.
+    }
+    public void initializeTab(int i) {
+        /*
+         * Initialize the tabs and set views and identifiers for the tabs
+         */
         TabHost.TabSpec spec    =   mTabHost.newTabSpec(TAB_A);
-        mTabHost.setCurrentTab(-3);
         spec.setContent(new TabHost.TabContentFactory() {
             public View createTabContent(String tag) {
                 return findViewById(android.R.id.tabcontent);
@@ -186,15 +158,72 @@ public class TabsMainActivity extends Activity implements
         });
         spec.setIndicator(createTabView(TAB_E, R.drawable.tab_otros_selector));
         mTabHost.addTab(spec);
+        mTabHost.setCurrentTab(i);
+    }
+    public void pushFragments(String tag, Fragment fragment){
+        /*
+         * adds the fragment to the FrameLayout
+         */
+        FragmentManager manager         =   getFragmentManager();
+        manager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        FragmentTransaction ft            =   manager.beginTransaction();
+
+        ft.replace(android.R.id.tabcontent, fragment);
+        ft.commit();
+    }
+    private View createTabView(final String text, final int id) {
+        /*
+         * returns the tab view i.e. the tab icon and text
+         */
+        View view = LayoutInflater.from(this).inflate(R.layout.tabs_icon, null);
+        ImageView imageView =   (ImageView) view.findViewById(R.id.tab_icon);
+        imageView.setImageDrawable(getResources().getDrawable(id));
+        ((TextView) view.findViewById(R.id.tab_text)).setText(text);
+        return view;
+    }
+    private String getScreenSize(){
+
+        String screenSize;
+        //Determine screen size
+        if ((getResources().getConfiguration().screenLayout &      Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_XLARGE)
+        {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+            screenSize = "xlarge";
+            Toast.makeText(this, "X-Large screen", Toast.LENGTH_LONG).show();
+        }
+        else if ((getResources().getConfiguration().screenLayout &      Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE)
+        {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+            screenSize = "large";
+            Toast.makeText(this, "Large screen", Toast.LENGTH_LONG).show();
+
+        }
+        else if ((getResources().getConfiguration().screenLayout &      Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_NORMAL)
+        {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            screenSize = "normal";
+            Toast.makeText(this, "Normal sized screen" , Toast.LENGTH_LONG).show();
+        }
+        else if ((getResources().getConfiguration().screenLayout &      Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_SMALL)
+        {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            screenSize = "small";
+            Toast.makeText(this, "Small sized screen" , Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            screenSize = "not defined";
+            Toast.makeText(this, "Screen size is neither x-large, large, normal or small" , Toast.LENGTH_LONG).show();
+        }
+        return screenSize;
     }
 
-    /*
-     * TabChangeListener for changing the tab when one of the tabs is pressed
-     */
     TabHost.OnTabChangeListener listener    =   new TabHost.OnTabChangeListener() {
         public void onTabChanged(String tabId) {
             /*Set current tab..*/
-
+            /*
+             * TabChangeListener for changing the tab when one of the tabs is pressed
+             */
             if(tabId.equals(TAB_A)){
                 pushFragments(tabId, tab_bombas);
             }else if(tabId.equals(TAB_B)){
@@ -209,27 +238,6 @@ public class TabsMainActivity extends Activity implements
         }
     };
 
-    /*
-     * adds the fragment to the FrameLayout
-     */
-    public void pushFragments(String tag, Fragment fragment){
 
-        FragmentManager manager         =   getFragmentManager();
-        manager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-        FragmentTransaction ft            =   manager.beginTransaction();
 
-        ft.replace(android.R.id.tabcontent, fragment);
-        ft.commit();
-    }
-
-    /*
-     * returns the tab view i.e. the tab icon and text
-     */
-    private View createTabView(final String text, final int id) {
-        View view = LayoutInflater.from(this).inflate(R.layout.tabs_icon, null);
-        ImageView imageView =   (ImageView) view.findViewById(R.id.tab_icon);
-        imageView.setImageDrawable(getResources().getDrawable(id));
-        ((TextView) view.findViewById(R.id.tab_text)).setText(text);
-        return view;
-    }
 }
