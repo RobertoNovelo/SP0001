@@ -1,8 +1,10 @@
 package com.smartplace.bombasmejorada.tabs.bombas;
 import android.app.ActionBar;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -22,6 +24,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.smartplace.bombasmejorada.R;
+import com.smartplace.bombasmejorada.tabs.DataManager;
+import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
 
 public class TabBombasFragment extends Fragment {
 
@@ -47,20 +51,43 @@ public class TabBombasFragment extends Fragment {
     final GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
         public boolean onDoubleTap(MotionEvent e) {
 
-            // Create new fragment and transaction
-            BombasFragment1 newFragment = new BombasFragment1();
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+            if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
+            {
+                Toast.makeText(getActivity(),"landscape",Toast.LENGTH_SHORT).show();
 
-            // Replace whatever is in the fragment_container view with this fragment,
-            // and add the transaction to the back stack
-            transaction.replace(android.R.id.tabcontent, newFragment);
-            transaction.addToBackStack(null);
 
-            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                BombasFragment1 newFragment = new BombasFragment1();
+                BombasFragment2 newFragment2 = new BombasFragment2();
+               // BombasFragment3 newFragment3 = new BombasFragment3();
 
-            // Commit the transaction
-            transaction.commit();
+                FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(android.R.id.tabcontent, newFragment);
+                //transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.add(R.id.myfragment,newFragment2);
+                //transaction.add(R.id.myfragment,newFragment3);
+                transaction.addToBackStack(null);
+                // Commit the transaction
+                transaction.commit();
+            }
+            else
+            {
+                // Create new fragment and transaction
+                BombasFragment1 newFragment = new BombasFragment1();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(android.R.id.tabcontent, newFragment);
+                transaction.addToBackStack(null);
+
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                // Commit the transaction
+                transaction.commit();
+            }
             return true;
         }
     });
@@ -113,20 +140,43 @@ public class TabBombasFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.btn_accept:
 
-                // Create new fragment and transaction
-                BombasFragment1 newFragment = new BombasFragment1();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+                if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
+                {
+                    Toast.makeText(getActivity(),"landscape",Toast.LENGTH_SHORT).show();
 
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
-                transaction.replace(android.R.id.tabcontent, newFragment);
-                transaction.addToBackStack(null);
 
-                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                    BombasFragment1 newFragment = new BombasFragment1();
+                    BombasFragment2 newFragment2 = new BombasFragment2();
+                    // BombasFragment3 newFragment3 = new BombasFragment3();
 
-                // Commit the transaction
-                transaction.commit();
+                    FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    //transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                    transaction.add(R.id.myfragment,newFragment2);
+                    //transaction.add(R.id.myfragment,newFragment3);
+                    transaction.addToBackStack(null);
+                    // Commit the transaction
+                    transaction.commit();
+                }
+                else
+                {
+                    // Create new fragment and transaction
+                    BombasFragment1 newFragment = new BombasFragment1();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.addToBackStack(null);
+
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                    // Commit the transaction
+                    transaction.commit();
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

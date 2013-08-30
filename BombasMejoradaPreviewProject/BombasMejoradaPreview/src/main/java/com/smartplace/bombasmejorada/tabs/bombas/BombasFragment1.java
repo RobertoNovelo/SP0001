@@ -1,6 +1,8 @@
 package com.smartplace.bombasmejorada.tabs.bombas;
 
 import android.app.Activity;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -17,37 +19,29 @@ import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
  */
 public class BombasFragment1 extends Fragment {
 
-    //Interface instance used to pass data on to the holder activity
-    onSaveData mCallback;
+    private DataManager dataManager;
+    RelativeLayout relLayout1;
+    RelativeLayout relLayout2;
+    RelativeLayout relLayout3;
+    RelativeLayout relLayout4;
+    RelativeLayout relLayout5;
+    RelativeLayout relLayout6;
     // Used to reference current state data to the activity.
-    DataManager dataManager = new DataManager();
-
-    public interface onSaveData
-    {
-        public void saveData(  TabsMainActivity.Identifiers TabIdentifier, DataManager fragmentDataManager);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.tab_bombas_1, container, false);
+        dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+        relLayout1 = (RelativeLayout) view.findViewById(R.id.monofasica110);
+        relLayout2 = (RelativeLayout) view.findViewById(R.id.monofasica220);
+        relLayout3 = (RelativeLayout) view.findViewById(R.id.trifasica220);
+        relLayout4 = (RelativeLayout) view.findViewById(R.id.trifasica440);
+        relLayout5 = (RelativeLayout) view.findViewById(R.id.gasolina);
+        relLayout6 = (RelativeLayout) view.findViewById(R.id.diesel);
+        setPressed(view);
         return view;
-
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-
-        // This makes sure that the container activity has implemented
-        // the callback interface. If not, it throws an exception
-        try {
-            mCallback = (onSaveData) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnHeadlineSelectedListener");
-        }
     }
 
     @Override
@@ -55,94 +49,61 @@ public class BombasFragment1 extends Fragment {
     {
         super.onResume();
 
-        RelativeLayout relLayout = (RelativeLayout) getActivity().findViewById(R.id.monofasica110);
-
-
-        relLayout.setOnClickListener(new View.OnClickListener() {
+        relLayout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setPressed(view);
                 /* Pass current Fragment Arguments to next Fragment */
-
                 dataManager.EnergySource = "Monofasica 110 V";
-                mCallback.saveData(TabsMainActivity.Identifiers.BombasFragment1, dataManager);
-                switchFragment();
+                switchFragment(relLayout1);
 
             }
         });
 
-        relLayout = (RelativeLayout) getActivity().findViewById(R.id.monofasica220);
-
-        relLayout.setOnClickListener(new View.OnClickListener() {
+        relLayout2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setPressed(view);
+
                 /* Pass current Fragment Arguments to next Fragment */
                 dataManager.EnergySource = "Monofasica 220 V";
-                mCallback.saveData(TabsMainActivity.Identifiers.BombasFragment1, dataManager);
-                switchFragment();
-
+                switchFragment(relLayout2);
             }
         });
-
-        relLayout = (RelativeLayout) getActivity().findViewById(R.id.trifasica220);
-
-        relLayout.setOnClickListener(new View.OnClickListener() {
+        relLayout3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setPressed(view);
+               // setPressed(view);
                 /* Pass current Fragment Arguments to next Fragment */
                 dataManager.EnergySource = "Trifasica 220 V";
-                mCallback.saveData(TabsMainActivity.Identifiers.BombasFragment1, dataManager);
-                switchFragment();
-
+                switchFragment(relLayout3);
             }
         });
-
-        relLayout = (RelativeLayout) getActivity().findViewById(R.id.trifasica440);
-
-        relLayout.setOnClickListener(new View.OnClickListener() {
+        relLayout4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setPressed(view);
+               // setPressed(view);
                 /* Pass current Fragment Arguments to next Fragment */
                 dataManager.EnergySource = "Trifasica 440 V";
-                mCallback.saveData(TabsMainActivity.Identifiers.BombasFragment1, dataManager);
-                switchFragment();
-
+                switchFragment(relLayout4);
             }
         });
-
-        relLayout = (RelativeLayout) getActivity().findViewById(R.id.gasolina);
-
-        relLayout.setOnClickListener(new View.OnClickListener() {
+        relLayout5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setPressed(view);
+              //  setPressed(view);
                 /* Pass current Fragment Arguments to next Fragment */
                 dataManager.EnergySource = "Gasolina";
-                mCallback.saveData(TabsMainActivity.Identifiers.BombasFragment1, dataManager);
-                switchFragment();
-
+                switchFragment(relLayout5);
             }
         });
-
-        relLayout = (RelativeLayout) getActivity().findViewById(R.id.diesel);
-
-        relLayout.setOnClickListener(new View.OnClickListener() {
+        relLayout6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setPressed(view);
+               // setPressed(view);
                 /* Pass current Fragment Arguments to next Fragment */
                 dataManager.EnergySource = "Diesel";
-                mCallback.saveData(TabsMainActivity.Identifiers.BombasFragment1, dataManager);
-                switchFragment();
-
+                switchFragment(relLayout6);
             }
         });
-
-
-
     }
 
 
@@ -152,27 +113,52 @@ public class BombasFragment1 extends Fragment {
         for (int i = 0; i < viewGroup .getChildCount(); i++) {
 
             View viewChild = viewGroup .getChildAt(i);
+            switch(viewChild.getId())
+            {
+                case R.id.monofasica110:
+                    RelativeLayout rel = (RelativeLayout)viewChild;
+                    rel.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                break;
+            }
             viewChild.setPressed(true);
 
         }
 
     }
 
-    private void switchFragment ()
+    private void switchFragment (RelativeLayout rl)
     {
-        // Create new fragment and transaction
-        BombasFragment2 newFragment = new BombasFragment2();
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
+        {
+            relLayout1.setBackgroundColor(Color.parseColor("#26AFB1"));
+            relLayout2.setBackgroundColor(Color.parseColor("#26AFB1"));
+            relLayout3.setBackgroundColor(Color.parseColor("#26AFB1"));
+            relLayout4.setBackgroundColor(Color.parseColor("#26AFB1"));
+            relLayout5.setBackgroundColor(Color.parseColor("#26AFB1"));
+            relLayout6.setBackgroundColor(Color.parseColor("#26AFB1"));
 
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack
-        transaction.replace(android.R.id.tabcontent, newFragment);
-        transaction.addToBackStack(null);
+            rl.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            dataManager.relativelayout = rl;
 
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 
-        // Commit the transaction
-        transaction.commit();
+           /*Do nothing it shall just select the value*/
+        }
+        else
+            {
+            // Create new fragment and transaction
+            BombasFragment2 newFragment = new BombasFragment2();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+            // Replace whatever is in the fragment_container view with this fragment,
+            // and add the transaction to the back stack
+            transaction.replace(android.R.id.tabcontent, newFragment);
+            transaction.addToBackStack(null);
+
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+            // Commit the transaction
+            transaction.commit();
+        }
 
     }
 

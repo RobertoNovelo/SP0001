@@ -1,5 +1,7 @@
 package com.smartplace.bombasmejorada.tabs;
 
+import android.widget.RelativeLayout;
+
 /**
  * Created by RoNo on 25/07/13.
  */
@@ -28,6 +30,8 @@ public class DataManager {
     public String Telefono;
     public String Celular;
     public String Correo;
+    public String screenSize;
+    public RelativeLayout relativelayout;
 
 
     public DataManager()
@@ -51,7 +55,7 @@ public class DataManager {
         Telefono = null;
         Celular = null;
         Correo = null;
-
+        screenSize = null;
     }
 
 }

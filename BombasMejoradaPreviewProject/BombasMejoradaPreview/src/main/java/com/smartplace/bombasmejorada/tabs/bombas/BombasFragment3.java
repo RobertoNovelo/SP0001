@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -35,6 +36,7 @@ public class BombasFragment3 extends Fragment {
     String pdfName = new String();
     String[] pdfLabel   = new String[30];
     int pdfResultsCount = 0;
+    private DataManager dataManager;
     int i;
 
     PDFHandler pdfs = new PDFHandler(Environment.getExternalStorageDirectory() + "/BombasMejorada/");
@@ -45,6 +47,7 @@ public class BombasFragment3 extends Fragment {
 
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        dataManager = ((TabsMainActivity)getActivity()).getDataManager();
 
         return inflater.inflate(R.layout.tab_bombas_3, container, false);
 
@@ -54,36 +57,75 @@ public class BombasFragment3 extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
-
-        inflater.inflate(R.menu.tab_bombas_3, menu);
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) && dataManager.screenSize == "xlarge")
+        {
+            inflater.inflate(R.menu.tab_bombas_land_3, menu);
+        }
+        else
+        {
+             inflater.inflate(R.menu.tab_bombas_3, menu);
+        }
     }
 
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.btn_enviar:
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
+        {
+            switch (item.getItemId()) {
+                case R.id.btn_enviar:
 
-                DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("message/rfc822");
-                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"enlinea@bombasmejorada.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT, Html.fromHtml("Solicito Informaci&oacute;n v&iacute;a Android").toString());
-                i.putExtra(Intent.EXTRA_TEXT,
-                        "Bombas - Hoja de cálculo: " + Html.fromHtml("<br/><br/>") +
-                                "1.Fuente de energía: " + Html.fromHtml("<br/>") + dataManager.EnergySource + Html.fromHtml("<br/><br/>") +
-                                "2.Gasto pico máximo: " + Html.fromHtml("<br/>") + dataManager.lpm + " lpm" + Html.fromHtml("<br/><br/>") +
-                                "3.Presión:           " + Html.fromHtml("<br/>") + dataManager.psi + " psi" + Html.fromHtml("<br/><br/>") +
-                                "Enviado desde mi Android" );
+                    //DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("message/rfc822");
+                    i.putExtra(Intent.EXTRA_EMAIL, new String[]{"enlinea@bombasmejorada.com"});
+                    i.putExtra(Intent.EXTRA_SUBJECT, Html.fromHtml("Solicito Informaci&oacute;n v&iacute;a Android").toString());
+                    i.putExtra(Intent.EXTRA_TEXT,
+                            "Bombas - Hoja de cálculo: " + Html.fromHtml("<br/><br/>") +
+                                    "1.Fuente de energía: " + Html.fromHtml("<br/>") + dataManager.EnergySource + Html.fromHtml("<br/><br/>") +
+                                    "2.Gasto pico máximo: " + Html.fromHtml("<br/>") + dataManager.lpm + " lpm" + Html.fromHtml("<br/><br/>") +
+                                    "3.Presión:           " + Html.fromHtml("<br/>") + dataManager.psi + " psi" + Html.fromHtml("<br/><br/>") +
+                                    "Enviado desde mi Android" );
 
-                try {
-                    startActivity(Intent.createChooser(i, "Send mail..."));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(getActivity(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-                }
+                    try {
+                        startActivity(Intent.createChooser(i, "Send mail..."));
+                    } catch (android.content.ActivityNotFoundException ex) {
+                        Toast.makeText(getActivity(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                    }
+                    return true;
+                case R.id.btn_calcular:
+                    onResume();
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
+        }
+        else
+        {
+            switch (item.getItemId()) {
+                case R.id.btn_enviar:
 
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+                    //DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("message/rfc822");
+                    i.putExtra(Intent.EXTRA_EMAIL, new String[]{"enlinea@bombasmejorada.com"});
+                    i.putExtra(Intent.EXTRA_SUBJECT, Html.fromHtml("Solicito Informaci&oacute;n v&iacute;a Android").toString());
+                    i.putExtra(Intent.EXTRA_TEXT,
+                            "Bombas - Hoja de cálculo: " + Html.fromHtml("<br/><br/>") +
+                                    "1.Fuente de energía: " + Html.fromHtml("<br/>") + dataManager.EnergySource + Html.fromHtml("<br/><br/>") +
+                                    "2.Gasto pico máximo: " + Html.fromHtml("<br/>") + dataManager.lpm + " lpm" + Html.fromHtml("<br/><br/>") +
+                                    "3.Presión:           " + Html.fromHtml("<br/>") + dataManager.psi + " psi" + Html.fromHtml("<br/><br/>") +
+                                    "Enviado desde mi Android" );
+
+                    try {
+                        startActivity(Intent.createChooser(i, "Send mail..."));
+                    } catch (android.content.ActivityNotFoundException ex) {
+                        Toast.makeText(getActivity(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                    }
+
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
         }
     }
 
@@ -92,8 +134,8 @@ public class BombasFragment3 extends Fragment {
     public void onResume ()
     {
         super.onResume();
-
-        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+        //clearResults();
+      //  DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
         TextView label;
 
         getResults(dataManager);
@@ -117,6 +159,7 @@ public class BombasFragment3 extends Fragment {
         {
             View v;
             v = getActivity().findViewById(R.id.rpdfbombas);
+
             v.setVisibility(View.VISIBLE);
 
             for (i =0;i<pdfResultsCount;i++)
@@ -543,5 +586,18 @@ public class BombasFragment3 extends Fragment {
     }
 
 
+private void clearResults()
+{
+    LinearLayout resultsContainer = (LinearLayout) getActivity().findViewById(R.id.resultsContainer);
+    View v = getActivity().findViewById(R.id.rpdfbombas);
+    v.setVisibility(View.INVISIBLE);
+    for (i =0;i<14;i++)
+    {
+        v = resultsContainer.getChildAt(i);
+        v.setVisibility(View.INVISIBLE);
 
+    }
+    RelativeLayout notFound = (RelativeLayout) getActivity().findViewById(R.id.notFoundBombas);
+    notFound.setVisibility(View.INVISIBLE);
+}
 }
