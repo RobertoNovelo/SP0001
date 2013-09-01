@@ -1614,7 +1614,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textAppearance="?android:attr/textAppearanceLarge"
-                                        android:text="Vulcanizadore de goma"
+                                        android:text="Vulcanizadora de goma"
                                         android:textColor="#ffffff"
                                         android:layout_centerVertical="true"
                                         android:layout_alignParentLeft="true"

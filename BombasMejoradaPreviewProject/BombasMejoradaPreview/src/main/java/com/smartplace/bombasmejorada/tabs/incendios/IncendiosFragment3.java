@@ -3,6 +3,8 @@ package com.smartplace.bombasmejorada.tabs.incendios;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -29,6 +31,8 @@ public class IncendiosFragment3 extends Fragment {
     private Button btnIncendiosSum2;
     private EditText txt_desnivel;
     private Button btnIncendiosRes2;
+    private TextWatcher longSaltxtwt;
+    private TextWatcher desniveltxtwt;
 
 
     @Override
@@ -89,6 +93,7 @@ public class IncendiosFragment3 extends Fragment {
         btnIncendiosSum1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                txt_long_salida.clearFocus();
                 dataManager.iLongSalida = Integer.parseInt(txt_long_salida.getText().toString());
                 dataManager.iLongSalida=dataManager.iLongSalida+5;
                 txt_long_salida.setText(String.valueOf(dataManager.iLongSalida));
@@ -97,6 +102,7 @@ public class IncendiosFragment3 extends Fragment {
         btnIncendiosRes1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                txt_long_salida.clearFocus();
                 dataManager.iLongSalida = Integer.parseInt(txt_long_salida.getText().toString());
                 dataManager.iLongSalida=dataManager.iLongSalida-5;
                 txt_long_salida.setText(String.valueOf(dataManager.iLongSalida));
@@ -105,6 +111,7 @@ public class IncendiosFragment3 extends Fragment {
         btnIncendiosSum2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                txt_desnivel.clearFocus();
                 dataManager.iDesnivel = Integer.parseInt(txt_desnivel.getText().toString());
                 dataManager.iDesnivel=dataManager.iDesnivel+5;
                 txt_desnivel.setText(String.valueOf(dataManager.iDesnivel));
@@ -113,6 +120,7 @@ public class IncendiosFragment3 extends Fragment {
         btnIncendiosRes2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                txt_desnivel.clearFocus();
                 dataManager.iDesnivel = Integer.parseInt(txt_desnivel.getText().toString());
                 dataManager.iDesnivel=dataManager.iDesnivel-5;
                 txt_desnivel.setText(String.valueOf(dataManager.iDesnivel));
@@ -121,6 +129,137 @@ public class IncendiosFragment3 extends Fragment {
 
         txt_long_salida.setText(String.valueOf(dataManager.iLongSalida));
         txt_desnivel.setText(String.valueOf(dataManager.iDesnivel));
+
+        longSaltxtwt = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {}
+            @Override
+            public void afterTextChanged(Editable editable) {}
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3)
+            {
+                DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+
+                txt_long_salida.removeTextChangedListener(longSaltxtwt);
+
+                if (dataManager.iLongSalida < 1)
+                {
+                    dataManager.iLongSalida = (1);
+                    txt_long_salida.setText(String.valueOf(dataManager.iLongSalida));
+                }
+                else if (dataManager.iLongSalida > 9999)
+                {
+                    dataManager.iLongSalida = (9999);
+                    txt_long_salida.setText(String.valueOf(dataManager.iLongSalida));
+                }
+                if ((!charSequence.toString().matches(""))||(!txt_long_salida.getText().toString().matches("")))
+                {
+                    if (Integer.parseInt(charSequence.toString())<1)
+                    {
+                        if (txt_long_salida.hasFocus())
+                        {
+                            /*Do nothing*/
+                        }
+                        else
+                        {
+                            dataManager.iLongSalida = (1);
+                            txt_long_salida.setText(String.valueOf(dataManager.iLongSalida));
+                        }
+                    }
+                    else if (Integer.parseInt(charSequence.toString())>9999)
+                    {
+                        dataManager.iLongSalida = (9999);
+                        txt_long_salida.setText(String.valueOf(dataManager.iLongSalida));
+                    }
+                }
+
+                txt_long_salida.addTextChangedListener(longSaltxtwt);
+            }
+        };
+
+        desniveltxtwt = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {}
+
+            @Override
+            public void afterTextChanged(Editable editable) {}
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+                DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+
+                txt_desnivel.removeTextChangedListener(desniveltxtwt);
+
+                if (dataManager.iDesnivel < 1)
+                {
+                    dataManager.iDesnivel = (1);
+                    txt_desnivel.setText(String.valueOf(dataManager.iDesnivel));
+                }
+                else if (dataManager.iDesnivel > 500)
+                {
+                    dataManager.iDesnivel = (500);
+                    txt_desnivel.setText(String.valueOf(dataManager.iDesnivel));
+                }
+                if ((!charSequence.toString().matches(""))||(!txt_desnivel.getText().toString().matches("")))
+                {
+                    if (Integer.parseInt(charSequence.toString())<1)
+                    {
+                        if (txt_desnivel.hasFocus())
+                        {
+                            /*Do nothing*/
+                        }
+                        else
+                        {
+                            dataManager.iDesnivel = (1);
+                            txt_desnivel.setText(String.valueOf(dataManager.iDesnivel));
+                        }
+                    }
+                    else if (Integer.parseInt(charSequence.toString())>500)
+                    {
+                        dataManager.iDesnivel = (500);
+                        txt_desnivel.setText(String.valueOf(dataManager.iDesnivel));
+                    }
+                }
+
+                txt_desnivel.addTextChangedListener(desniveltxtwt);
+            }
+        };
+
+
+        txt_desnivel.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b)
+                {
+                    if ((txt_desnivel.getText().toString().matches(""))||(Integer.parseInt(txt_desnivel.getText().toString())<10))
+                    {
+                        dataManager.hPresionSalida = (1);
+                        txt_desnivel.setText(String.valueOf(dataManager.hPresionSalida));
+                    }
+                }
+            }
+        });
+
+        txt_long_salida.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b)
+                {
+                    if ((txt_long_salida.getText().toString().matches(""))||(Integer.parseInt(txt_long_salida.getText().toString())<5))
+                    {
+                        dataManager.hLongSalida = (15);
+                        txt_long_salida.setText(String.valueOf(dataManager.hLongSalida));
+                    }
+                }
+            }
+        });
+
+        txt_long_salida.addTextChangedListener(longSaltxtwt);
+        txt_desnivel.addTextChangedListener(desniveltxtwt);
+
+
     }
 
     @Override

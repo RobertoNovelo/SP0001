@@ -129,6 +129,18 @@ public class HidrosFragment1 extends Fragment {
 
             }
         });
+        relLayout = (RelativeLayout) getActivity().findViewById(R.id.vivienda);
+
+        relLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setPressed(view);
+                /* Pass current Fragment Arguments to next Fragment */
+                dataManager.Edificio =((TextView)((RelativeLayout) view).getChildAt(0)).getText().toString();;
+                switchFragment();
+
+            }
+        });
 
 
 

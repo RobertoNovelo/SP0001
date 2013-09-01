@@ -19,6 +19,13 @@ public class DataManager {
     public int hPresionSalida;
     public int iLongSalida;
     public int iDesnivel;
+
+    public double hFactorPorSalida;
+    public double hPorcentajePerdidas;
+    public double hGastoPico;
+    public double hCargaDinamica;
+    public double hDiametroTubo;
+
     public String EquipoModelo;
     public String NoDeSerie;
     public String Falla;
@@ -44,6 +51,13 @@ public class DataManager {
         hPresionSalida=15;
         iLongSalida=5;
         iDesnivel=5;
+
+        hFactorPorSalida=0;
+        hPorcentajePerdidas=0;
+        hGastoPico=0;
+        hCargaDinamica=0;
+        hDiametroTubo=0;
+
         EquipoModelo = null;
         NoDeSerie = null;
         Falla = null;

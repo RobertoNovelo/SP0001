@@ -248,6 +248,33 @@
 
                 </RelativeLayout>
 
+                <RelativeLayout
+                        android:id="@+id/vivienda"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:clickable="true">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="Vivienda"
+                            android:textColor="#ffffff"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentLeft="true"
+                            android:textSize="18sp"/>
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/arrow"/>
+
+                </RelativeLayout>
+
             </LinearLayout>
 
             </com.smartplace.effects.BounceScrollView>
