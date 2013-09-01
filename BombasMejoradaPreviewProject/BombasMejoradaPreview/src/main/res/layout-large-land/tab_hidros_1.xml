@@ -5,11 +5,6 @@
         android:layout_height="fill_parent"
         android:background="#ff1212b1"
         >
-<com.smartplace.effects.BounceScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:fillViewport="true"
-        android:overScrollMode="always">
 
     <LinearLayout
             android:orientation="vertical"
@@ -44,6 +39,19 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
                     android:background="@drawable/strong_divider_blue"/>
+
+
+            <com.smartplace.effects.BounceScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:fillViewport="true"
+                    android:isScrollContainer="true"
+                    android:overScrollMode="always"
+                    android:scrollbars="none">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
 
             <LinearLayout
                     android:orientation="vertical"
@@ -98,7 +106,7 @@
                             android:textColor="#ffffff"
                             android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
-                            android:textSize="26sp"/>
+                                android:textSize="26sp"/>
 
                     <ImageView
                             android:layout_width="wrap_content"
@@ -125,7 +133,7 @@
                             android:textColor="#ffffff"
                             android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
-                            android:textSize="26sp"/>
+	                        android:textSize="26sp"/>
 
                     <ImageView
                             android:layout_width="wrap_content"
@@ -152,7 +160,7 @@
                             android:textColor="#ffffff"
                             android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
-                            android:textSize="26sp"/>
+	                        android:textSize="26sp"/>
 
                     <ImageView
                             android:layout_width="wrap_content"
@@ -179,7 +187,7 @@
                             android:textColor="#ffffff"
                             android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
-                            android:textSize="26sp"/>
+	                        android:textSize="26sp"/>
 
                     <ImageView
                             android:layout_width="wrap_content"
@@ -206,7 +214,7 @@
                             android:textColor="#ffffff"
                             android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
-                            android:textSize="26sp"/>
+	                        android:textSize="26sp"/>
 
                     <ImageView
                             android:layout_width="wrap_content"
@@ -233,6 +241,33 @@
                             android:textColor="#ffffff"
                             android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
+	                        android:textSize="26sp"/>
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/arrow"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:id="@+id/vivienda"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:clickable="true">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="Vivienda"
+                            android:textColor="#ffffff"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentLeft="true"
                             android:textSize="26sp"/>
 
                     <ImageView
@@ -247,9 +282,12 @@
 
             </LinearLayout>
 
+            </LinearLayout>
+
+            </com.smartplace.effects.BounceScrollView>
+
         </LinearLayout>
 
     </LinearLayout>
 
-</com.smartplace.effects.BounceScrollView>
 </LinearLayout>

@@ -64,10 +64,9 @@ public class TabBombasFragment extends Fragment {
                 FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
                 // Replace whatever is in the fragment_container view with this fragment,
                 // and add the transaction to the back stack
-                transaction.replace(android.R.id.tabcontent, newFragment);
+                transaction.replace(android.R.id.tabcontent, newFragment,"bombas_fragment_1");
                 //transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-                transaction.add(R.id.myfragment,newFragment2);
-                //transaction.add(R.id.myfragment,newFragment3);
+                transaction.add(R.id.myfragment,newFragment2,"bombas_fragment_2");
                 transaction.addToBackStack(null);
                 // Commit the transaction
                 transaction.commit();
@@ -80,7 +79,7 @@ public class TabBombasFragment extends Fragment {
 
                 // Replace whatever is in the fragment_container view with this fragment,
                 // and add the transaction to the back stack
-                transaction.replace(android.R.id.tabcontent, newFragment);
+                transaction.replace(android.R.id.tabcontent, newFragment,"bombas_fragment_1");
                 transaction.addToBackStack(null);
 
                 transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);

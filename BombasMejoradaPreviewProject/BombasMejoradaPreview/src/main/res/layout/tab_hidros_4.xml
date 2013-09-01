@@ -32,7 +32,7 @@
                 android:background="#FFFFFF"
                 >
 
-                <RelativeLayout
+    <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
@@ -85,7 +85,7 @@
 
     </RelativeLayout>
 
-                <RelativeLayout
+    <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 

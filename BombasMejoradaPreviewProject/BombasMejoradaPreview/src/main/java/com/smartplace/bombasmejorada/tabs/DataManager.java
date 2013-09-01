@@ -38,7 +38,7 @@ public class DataManager {
     public String Celular;
     public String Correo;
     public String screenSize;
-    public RelativeLayout relativelayout;
+    public String currentEnergySource;
 
 
     public DataManager()

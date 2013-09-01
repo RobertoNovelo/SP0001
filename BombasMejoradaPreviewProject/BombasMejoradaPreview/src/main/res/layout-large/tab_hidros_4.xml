@@ -199,7 +199,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Porcentaje máximo de\npérdidas en la conducción"
+                            android:text="Porcentaje máximo de\npérdidas en la conducción:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_alignParentLeft="true"/>
@@ -252,7 +252,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Carga dinámica\ntotal"
+                            android:text="Carga dinámica\ntotal:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_alignParentLeft="true"/>

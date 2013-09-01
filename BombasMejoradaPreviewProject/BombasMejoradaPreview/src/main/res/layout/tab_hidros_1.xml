@@ -43,10 +43,15 @@
 
             <com.smartplace.effects.BounceScrollView
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
                     android:fillViewport="true"
+                    android:isScrollContainer="true"
                     android:overScrollMode="always"
                     android:scrollbars="none">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
 
             <LinearLayout
                     android:orientation="vertical"
@@ -236,7 +241,7 @@
                             android:textColor="#ffffff"
                             android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
-                            android:textSize="18sp"/>
+	                        android:textSize="18sp"/>
 
                     <ImageView
                             android:layout_width="wrap_content"
@@ -274,6 +279,8 @@
                             android:background="@drawable/arrow"/>
 
                 </RelativeLayout>
+
+            </LinearLayout>
 
             </LinearLayout>
 

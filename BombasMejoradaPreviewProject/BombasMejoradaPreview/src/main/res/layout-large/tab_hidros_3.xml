@@ -32,7 +32,7 @@
                         android:textColor="#ff1212b1"
                         android:textStyle="bold"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="4. Longitud entre el equipo de mombeo y la salida mas distante (metros)"
+                        android:text="4. Longitud entre el equipo de bombeo y la salida mas distante (metros):"
                         android:layout_weight=".5"
                         android:gravity="center_vertical"
                         android:layout_alignParentLeft="true"/>
@@ -107,7 +107,7 @@
 
             <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="250dp">
+                    android:layout_height="240dp">
 
                 <TextView
                         android:layout_width="wrap_content"

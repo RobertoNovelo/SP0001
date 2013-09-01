@@ -1,6 +1,7 @@
 package com.smartplace.bombasmejorada.tabs.bombas;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -80,13 +81,14 @@ public class BombasFragment2 extends Fragment {
 
                     // Create new fragment and transaction
                     BombasFragment3 newFragment = new BombasFragment3();
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    FragmentManager fragmentManager = getFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
 
                     // Replace whatever is in the fragment_container view with this fragment,
                     // and add the transaction to the back stack
-                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.replace(android.R.id.tabcontent, newFragment,"bombas_fragment_3");
                     transaction.addToBackStack(null);
-                    transaction.remove(this);
+                    transaction.remove(fragmentManager.findFragmentByTag("bombas_fragment_2"));
                     transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 
                     // Commit the transaction
@@ -108,7 +110,7 @@ public class BombasFragment2 extends Fragment {
 
                     // Replace whatever is in the fragment_container view with this fragment,
                     // and add the transaction to the back stack
-                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.replace(android.R.id.tabcontent, newFragment,"bombas_fragment_3");
                     transaction.addToBackStack(null);
 
                     transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);

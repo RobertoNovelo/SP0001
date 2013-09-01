@@ -40,7 +40,15 @@ public class BombasFragment1 extends Fragment {
         relLayout4 = (RelativeLayout) view.findViewById(R.id.trifasica440);
         relLayout5 = (RelativeLayout) view.findViewById(R.id.gasolina);
         relLayout6 = (RelativeLayout) view.findViewById(R.id.diesel);
-        setPressed(view);
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
+        {
+            setPressed();
+           /*Do nothing it shall just select the value*/
+        }
+        else
+        {
+            /*Do nothing*/
+        }
         return view;
     }
 
@@ -54,7 +62,7 @@ public class BombasFragment1 extends Fragment {
             public void onClick(View view) {
                 /* Pass current Fragment Arguments to next Fragment */
                 dataManager.EnergySource = "Monofasica 110 V";
-                switchFragment(relLayout1);
+                switchFragment();
 
             }
         });
@@ -65,7 +73,7 @@ public class BombasFragment1 extends Fragment {
 
                 /* Pass current Fragment Arguments to next Fragment */
                 dataManager.EnergySource = "Monofasica 220 V";
-                switchFragment(relLayout2);
+                switchFragment();
             }
         });
         relLayout3.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +82,7 @@ public class BombasFragment1 extends Fragment {
                // setPressed(view);
                 /* Pass current Fragment Arguments to next Fragment */
                 dataManager.EnergySource = "Trifasica 220 V";
-                switchFragment(relLayout3);
+                switchFragment();
             }
         });
         relLayout4.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +91,7 @@ public class BombasFragment1 extends Fragment {
                // setPressed(view);
                 /* Pass current Fragment Arguments to next Fragment */
                 dataManager.EnergySource = "Trifasica 440 V";
-                switchFragment(relLayout4);
+                switchFragment();
             }
         });
         relLayout5.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +100,7 @@ public class BombasFragment1 extends Fragment {
               //  setPressed(view);
                 /* Pass current Fragment Arguments to next Fragment */
                 dataManager.EnergySource = "Gasolina";
-                switchFragment(relLayout5);
+                switchFragment();
             }
         });
         relLayout6.setOnClickListener(new View.OnClickListener() {
@@ -101,46 +109,19 @@ public class BombasFragment1 extends Fragment {
                // setPressed(view);
                 /* Pass current Fragment Arguments to next Fragment */
                 dataManager.EnergySource = "Diesel";
-                switchFragment(relLayout6);
+                switchFragment();
             }
         });
     }
 
 
-    private void setPressed(View view)
-    {
-        ViewGroup viewGroup = (ViewGroup) view;
-        for (int i = 0; i < viewGroup .getChildCount(); i++) {
 
-            View viewChild = viewGroup .getChildAt(i);
-            switch(viewChild.getId())
-            {
-                case R.id.monofasica110:
-                    RelativeLayout rel = (RelativeLayout)viewChild;
-                    rel.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                break;
-            }
-            viewChild.setPressed(true);
 
-        }
-
-    }
-
-    private void switchFragment (RelativeLayout rl)
+    private void switchFragment ()
     {
         if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
         {
-            relLayout1.setBackgroundColor(Color.parseColor("#26AFB1"));
-            relLayout2.setBackgroundColor(Color.parseColor("#26AFB1"));
-            relLayout3.setBackgroundColor(Color.parseColor("#26AFB1"));
-            relLayout4.setBackgroundColor(Color.parseColor("#26AFB1"));
-            relLayout5.setBackgroundColor(Color.parseColor("#26AFB1"));
-            relLayout6.setBackgroundColor(Color.parseColor("#26AFB1"));
-
-            rl.setBackgroundColor(Color.parseColor("#FFFFFF"));
-            dataManager.relativelayout = rl;
-
-
+            setPressed();
            /*Do nothing it shall just select the value*/
         }
         else
@@ -151,7 +132,7 @@ public class BombasFragment1 extends Fragment {
 
             // Replace whatever is in the fragment_container view with this fragment,
             // and add the transaction to the back stack
-            transaction.replace(android.R.id.tabcontent, newFragment);
+            transaction.replace(android.R.id.tabcontent, newFragment,"bombas_fragment_2");
             transaction.addToBackStack(null);
 
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
@@ -160,6 +141,43 @@ public class BombasFragment1 extends Fragment {
             transaction.commit();
         }
 
+    }
+    private void setPressed ()
+    {
+        relLayout1.setBackgroundColor(Color.parseColor("#26AFB1"));
+        relLayout2.setBackgroundColor(Color.parseColor("#26AFB1"));
+        relLayout3.setBackgroundColor(Color.parseColor("#26AFB1"));
+        relLayout4.setBackgroundColor(Color.parseColor("#26AFB1"));
+        relLayout5.setBackgroundColor(Color.parseColor("#26AFB1"));
+        relLayout6.setBackgroundColor(Color.parseColor("#26AFB1"));
+        if(dataManager.EnergySource == "Monofasica 110 V")
+        {
+            relLayout1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        }
+        else if(dataManager.EnergySource == "Monofasica 220 V")
+        {
+            relLayout2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        }
+        else if(dataManager.EnergySource == "Trifasica 220 V")
+        {
+            relLayout3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        }
+        else if(dataManager.EnergySource == "Trifasica 440 V")
+        {
+            relLayout4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        }
+        else if(dataManager.EnergySource == "Gasolina")
+        {
+            relLayout5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        }
+        else if(dataManager.EnergySource == "Diesel")
+        {
+            relLayout6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        }
+        else
+        {
+            /*Do nothing*/
+        }
     }
 
 }
