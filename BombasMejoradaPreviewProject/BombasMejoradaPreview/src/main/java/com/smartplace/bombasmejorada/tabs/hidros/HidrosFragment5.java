@@ -51,6 +51,8 @@ public class HidrosFragment5 extends Fragment {
     {
         super.onResume();
 
+        pdfResultsCount=0;
+
         TextView label;
 
         getResults(dataManager);
@@ -144,6 +146,12 @@ public class HidrosFragment5 extends Fragment {
 
     }//end onResume
 
+    @Override
+    public void onPause ()
+    {
+        super.onPause();
+        pdfResultsCount=0;
+    }
 
     String findPDF(String label)
     {

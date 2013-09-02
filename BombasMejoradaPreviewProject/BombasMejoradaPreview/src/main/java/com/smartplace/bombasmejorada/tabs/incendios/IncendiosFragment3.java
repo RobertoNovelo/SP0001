@@ -233,9 +233,9 @@ public class IncendiosFragment3 extends Fragment {
             public void onFocusChange(View view, boolean b) {
                 if (!b)
                 {
-                    if ((txt_desnivel.getText().toString().matches(""))||(Integer.parseInt(txt_desnivel.getText().toString())<10))
+                    if ((txt_desnivel.getText().toString().matches(""))||(Integer.parseInt(txt_desnivel.getText().toString())<1))
                     {
-                        dataManager.hPresionSalida = (1);
+                        dataManager.iLongSalida = (1);
                         txt_desnivel.setText(String.valueOf(dataManager.hPresionSalida));
                     }
                 }
@@ -247,9 +247,9 @@ public class IncendiosFragment3 extends Fragment {
             public void onFocusChange(View view, boolean b) {
                 if (!b)
                 {
-                    if ((txt_long_salida.getText().toString().matches(""))||(Integer.parseInt(txt_long_salida.getText().toString())<5))
+                    if ((txt_long_salida.getText().toString().matches(""))||(Integer.parseInt(txt_long_salida.getText().toString())<1))
                     {
-                        dataManager.hLongSalida = (15);
+                        dataManager.iDesnivel = (1);
                         txt_long_salida.setText(String.valueOf(dataManager.hLongSalida));
                     }
                 }

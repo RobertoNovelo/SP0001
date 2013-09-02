@@ -86,7 +86,7 @@ public class TabsMainActivity extends Activity{
             mTabHost.setOnTabChangedListener(listener);
             mTabHost.setup();
             int currentTab = savedInstanceState.getInt("CurrentTab");
-            Toast.makeText(getBaseContext(),"Current Tab:" + String.valueOf(currentTab),Toast.LENGTH_LONG).show();
+//            Toast.makeText(getBaseContext(),"Current Tab:" + String.valueOf(currentTab),Toast.LENGTH_LONG).show();
             dataManager.screenSize = getScreenSize();
             initializeTab(currentTab);
             AssetsHandler.Operations.CopyAssetsToPhone(getBaseContext(),Environment.getExternalStorageDirectory() + "/BombasMejorada/","PDFs");
@@ -189,31 +189,31 @@ public class TabsMainActivity extends Activity{
         {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
             screenSize = "xlarge";
-            Toast.makeText(this, "X-Large screen", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "X-Large screen", Toast.LENGTH_LONG).show();
         }
         else if ((getResources().getConfiguration().screenLayout &      Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE)
         {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
             screenSize = "large";
-            Toast.makeText(this, "Large screen", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "Large screen", Toast.LENGTH_LONG).show();
 
         }
         else if ((getResources().getConfiguration().screenLayout &      Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_NORMAL)
         {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             screenSize = "normal";
-            Toast.makeText(this, "Normal sized screen" , Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "Normal sized screen" , Toast.LENGTH_LONG).show();
         }
         else if ((getResources().getConfiguration().screenLayout &      Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_SMALL)
         {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             screenSize = "small";
-            Toast.makeText(this, "Small sized screen" , Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "Small sized screen" , Toast.LENGTH_LONG).show();
         }
         else
         {
             screenSize = "not defined";
-            Toast.makeText(this, "Screen size is neither x-large, large, normal or small" , Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "Screen size is neither x-large, large, normal or small" , Toast.LENGTH_LONG).show();
         }
         return screenSize;
     }

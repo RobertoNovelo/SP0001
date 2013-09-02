@@ -66,6 +66,7 @@ public class IncendiosFragment1 extends Fragment {
 
                     dataManager.Uso =  ((TextView)((RelativeLayout) view).getChildAt(0)).getText().toString();
                     dataManager.Grupo = "Riesgo Ligero";
+                    dataManager.iPresion = 65;
 
                     switchFragment();
 
@@ -90,6 +91,7 @@ public class IncendiosFragment1 extends Fragment {
 
                     dataManager.Uso =  ((TextView)((RelativeLayout) view).getChildAt(0)).getText().toString();
                     dataManager.Grupo = "Riesgo Ordinario 1";
+                    dataManager.iPresion = 100;
 
                     switchFragment();
 
@@ -113,6 +115,7 @@ public class IncendiosFragment1 extends Fragment {
 
                     dataManager.Uso =  ((TextView)((RelativeLayout) view).getChildAt(0)).getText().toString();
                     dataManager.Grupo = "Riesgo Ordinario 2";
+                    dataManager.iPresion = 100;
 
                     switchFragment();
 
@@ -136,6 +139,7 @@ public class IncendiosFragment1 extends Fragment {
 
                     dataManager.Uso =  ((TextView)((RelativeLayout) view).getChildAt(0)).getText().toString();
                     dataManager.Grupo = "Riesgo Extra 1";
+                    dataManager.iPresion = 100;
 
                     switchFragment();
 
@@ -159,6 +163,7 @@ public class IncendiosFragment1 extends Fragment {
 
                     dataManager.Uso =  ((TextView)((RelativeLayout) view).getChildAt(0)).getText().toString();
                     dataManager.Grupo = "Riesgo Extra 2";
+                    dataManager.iPresion = 100;
 
                     switchFragment();
 

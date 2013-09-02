@@ -27,7 +27,7 @@ import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
  */
 public class HidrosFragment4 extends Fragment {
 
-    private TextView txt_instalacion,
+    private TextView    txt_instalacion,
                         txt_salidas,
                         txt_factor_salida,
                         txt_desnivel,
@@ -37,9 +37,8 @@ public class HidrosFragment4 extends Fragment {
                         txt_gasto,
                         txt_carga,
                         txt_diametro;
+
     DataManager dataManager;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,7 +58,7 @@ public class HidrosFragment4 extends Fragment {
         txt_carga = (TextView)view.findViewById(R.id.cargaDinamica);
         txt_diametro = (TextView)view.findViewById(R.id.diametroTubo);
 
-return view;
+        return view;
 
     }
 
@@ -88,10 +87,9 @@ return view;
             @Override
             public void onClick(View view) {
 
-                DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("message/rfc822");
-                                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"enlinea@bombasmejorada.com"});
+                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"enlinea@bombasmejorada.com"});
                 i.putExtra(Intent.EXTRA_SUBJECT, Html.fromHtml("Solicito Informaci&oacute;n v&iacute;a Android").toString());
                 i.putExtra(Intent.EXTRA_TEXT,
                         "Bombas - Hoja de cálculo: " + Html.fromHtml("<br/><br/>") +

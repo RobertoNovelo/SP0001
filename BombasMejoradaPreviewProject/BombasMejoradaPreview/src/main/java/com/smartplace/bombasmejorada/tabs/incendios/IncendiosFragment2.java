@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
@@ -36,11 +37,6 @@ public class IncendiosFragment2 extends Fragment {
 
     // Used to reference current state data to the activity.
     DataManager dataManager;
-    RadioButton rb1;
-    RadioButton rb2;
-    RadioButton rb3;
-    RadioButton rb4;
-    RadioButton rb5;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,19 +66,408 @@ public class IncendiosFragment2 extends Fragment {
     }
 
     @Override
+    public void onPrepareOptionsMenu (Menu menu) {
+        if (dataManager.iproteccionCorrecta)
+        {
+            menu.getItem(0).setEnabled(true);
+        }
+        else
+        {
+            menu.getItem(0).setEnabled(false);
+        }
+
+    }
+
+    @Override
     public void onResume ()
     {
         super.onResume();
 
-        int RelLayoutCount=0;
-
-        RelativeLayout relLayout;
-
         dataManager = ((TabsMainActivity)getActivity()).getDataManager();
 
 
+        CheckBox chkBox;
+
+        chkBox = (CheckBox)getActivity().findViewById(R.id.checkBox1);
+        chkBox.setChecked(dataManager.iCheckBox1);
+        chkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onCheckboxClicked(view);
+            }
+        });
+        chkBox = (CheckBox)getActivity().findViewById(R.id.checkBox2);
+        chkBox.setChecked(dataManager.iCheckBox2);
+        chkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onCheckboxClicked(view);
+            }
+        });
+        chkBox = (CheckBox)getActivity().findViewById(R.id.checkBox3);
+        chkBox.setChecked(dataManager.iCheckBox3);
+        chkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onCheckboxClicked(view);
+            }
+        });
+        chkBox = (CheckBox)getActivity().findViewById(R.id.checkBox4);
+        chkBox.setChecked(dataManager.iCheckBox4);
+        chkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onCheckboxClicked(view);
+            }
+        });
 
     }
+
+    private void onCheckboxClicked(View view) {
+
+        // Check which checkbox was clicked
+        switch(view.getId()) {
+            case R.id.checkBox1:
+                    dataManager.iCheckBox1 = ((CheckBox) view).isChecked();
+            break;
+            case R.id.checkBox2:
+                    dataManager.iCheckBox2 = ((CheckBox) view).isChecked();
+            break;
+            case R.id.checkBox3:
+                    dataManager.iCheckBox3 = ((CheckBox) view).isChecked();
+            break;
+            case R.id.checkBox4:
+                    dataManager.iCheckBox4 = ((CheckBox) view).isChecked();
+            break;
+
+        }
+
+        validateCheckBoxStatus();
+
+    }
+
+    private void validateCheckBoxStatus()
+    {
+
+
+        if ((((CheckBox)getActivity().findViewById(R.id.checkBox1)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox2)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox3)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox4)).isChecked() == false))
+        {
+            dataManager.iProteccion = "Mangueras de 1.5\"";
+
+            if (dataManager.Grupo == "Riesgo Ligero")
+            {
+                dataManager.iGastoPico = 100;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 1")
+            {
+                dataManager.iGastoPico = 250;
+            }
+            else
+            {
+                dataManager.iGastoPico = 500;
+            }
+
+            dataManager.iproteccionCorrecta = true;
+        }
+
+        else if ((((CheckBox)getActivity().findViewById(R.id.checkBox1)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox2)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox3)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox4)).isChecked() == false))
+        {
+            dataManager.iProteccion = "Mangueras de\n1.5\" y 2.5\"";
+
+            if (dataManager.Grupo == "Riesgo Ligero")
+            {
+                dataManager.iGastoPico = 100;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 1")
+            {
+                dataManager.iGastoPico = 250;
+            }
+            else
+            {
+                dataManager.iGastoPico = 500;
+            }
+
+            dataManager.iproteccionCorrecta = true;
+        }
+
+        else if ((((CheckBox)getActivity().findViewById(R.id.checkBox1)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox2)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox3)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox4)).isChecked() == false))
+        {
+            dataManager.iProteccion = "Mangueras de\n1.5\" y Rociadores";
+
+            if (dataManager.Grupo == "Riesgo Ligero")
+            {
+                dataManager.iGastoPico = 250;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 1")
+            {
+                dataManager.iGastoPico = 350;
+            }
+            else if (dataManager.Grupo == "Riesgo Extra Grupo 2")
+            {
+                dataManager.iGastoPico = 1000;
+            }
+            else
+            {
+                dataManager.iGastoPico = 750;
+            }
+
+            dataManager.iproteccionCorrecta = true;
+        }
+
+        else if ((((CheckBox)getActivity().findViewById(R.id.checkBox1)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox2)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox3)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox4)).isChecked() == true))
+        {
+            dataManager.iProteccion = "Mangueras de\n1.5\" y Cañones";
+
+            if (dataManager.Grupo == "Riesgo Ligero")
+            {
+                dataManager.iGastoPico = 100;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 1")
+            {
+                dataManager.iGastoPico = 600;
+            }
+            else if (dataManager.Grupo == "Riesgo Extra Grupo 2")
+            {
+                dataManager.iGastoPico = 850;
+            }
+            else
+            {
+                dataManager.iGastoPico = 1000;
+            }
+
+            dataManager.iproteccionCorrecta = true;
+        }
+
+        else if ((((CheckBox)getActivity().findViewById(R.id.checkBox1)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox2)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox3)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox4)).isChecked() == false))
+        {
+            dataManager.iProteccion = "Mangueras de\n1.5\" y 2.5\"\ny rociadores";
+
+            if (dataManager.Grupo == "Riesgo Ligero")
+            {
+                dataManager.iGastoPico = 250;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 1")
+            {
+                dataManager.iGastoPico = 350;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 2")
+            {
+                dataManager.iGastoPico = 750;
+            }
+            else if (dataManager.Grupo == "Riesgo Extra Grupo 1")
+            {
+                dataManager.iGastoPico = 750;
+            }
+            else
+            {
+                dataManager.iGastoPico = 1000;
+            }
+
+            dataManager.iproteccionCorrecta = true;
+        }
+
+
+        else if ((((CheckBox)getActivity().findViewById(R.id.checkBox1)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox2)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox3)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox4)).isChecked() == true))
+        {
+            dataManager.iProteccion = "Mangueras de\n1.5\" y 2.5\",\nrociadores\ny cañones";
+
+            if (dataManager.Grupo == "Riesgo Ligero")
+            {
+                dataManager.iGastoPico = 250;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 1")
+            {
+                dataManager.iGastoPico = 700;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 2")
+            {
+                dataManager.iGastoPico = 1100;
+            }
+            else if (dataManager.Grupo == "Riesgo Extra Grupo 1")
+            {
+                dataManager.iGastoPico = 1250;
+            }
+            else
+            {
+                dataManager.iGastoPico = 1500;
+            }
+
+            dataManager.iproteccionCorrecta = true;
+        }
+
+        else if ((((CheckBox)getActivity().findViewById(R.id.checkBox1)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox2)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox3)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox4)).isChecked() == false))
+        {
+            dataManager.iProteccion = "Mangueras de 2.5\"";
+
+            if (dataManager.Grupo == "Riesgo Ligero")
+            {
+                dataManager.iGastoPico = 100;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 1")
+            {
+                dataManager.iGastoPico = 250;
+            }
+            else
+            {
+                dataManager.iGastoPico = 500;
+            }
+
+            dataManager.iproteccionCorrecta = true;
+        }
+
+        else if ((((CheckBox)getActivity().findViewById(R.id.checkBox1)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox2)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox3)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox4)).isChecked() == false))
+        {
+            dataManager.iProteccion = "Mangueras de 2.5\"\ny rociadores";
+
+            if (dataManager.Grupo == "Riesgo Ligero")
+            {
+                dataManager.iGastoPico = 250;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 1")
+            {
+                dataManager.iGastoPico = 350;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 2")
+            {
+                dataManager.iGastoPico = 750;
+            }
+            else if (dataManager.Grupo == "Riesgo Extra Grupo 1")
+            {
+                dataManager.iGastoPico = 750;
+            }
+            else
+            {
+                dataManager.iGastoPico = 1000;
+            }
+
+            dataManager.iproteccionCorrecta = true;
+        }
+
+        else if ((((CheckBox)getActivity().findViewById(R.id.checkBox1)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox2)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox3)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox4)).isChecked() == true))
+        {
+            dataManager.iProteccion = "Mangueras de 2.5\",\nrociadores y cañones";
+
+            if (dataManager.Grupo == "Riesgo Ligero")
+            {
+                dataManager.iGastoPico = 250;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 1")
+            {
+                dataManager.iGastoPico = 700;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 2")
+            {
+                dataManager.iGastoPico = 1100;
+            }
+            else if (dataManager.Grupo == "Riesgo Extra Grupo 1")
+            {
+                dataManager.iGastoPico = 1250;
+            }
+            else
+            {
+                dataManager.iGastoPico = 1500;
+            }
+
+            dataManager.iproteccionCorrecta = true;
+        }
+
+        else if ((((CheckBox)getActivity().findViewById(R.id.checkBox1)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox2)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox3)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox4)).isChecked() == false))
+        {
+            dataManager.iProteccion = "Rociadores automáticos";
+
+            if (dataManager.Grupo == "Riesgo Ligero")
+            {
+                dataManager.iGastoPico = 150;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 1")
+            {
+                dataManager.iGastoPico = 100;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 2")
+            {
+                dataManager.iGastoPico = 250;
+            }
+            else if (dataManager.Grupo == "Riesgo Extra Grupo 1")
+            {
+                dataManager.iGastoPico = 250;
+            }
+            else
+            {
+                dataManager.iGastoPico = 500;
+            }
+
+            dataManager.iproteccionCorrecta = true;
+        }
+
+        else if ((((CheckBox)getActivity().findViewById(R.id.checkBox1)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox2)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox3)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox4)).isChecked() == true))
+        {
+            dataManager.iProteccion = "Rociadores\ny cañones";
+
+            if (dataManager.Grupo == "Riesgo Ligero")
+            {
+                dataManager.iGastoPico = 150;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 1")
+            {
+                dataManager.iGastoPico = 450;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 2")
+            {
+                dataManager.iGastoPico = 600;
+            }
+            else if (dataManager.Grupo == "Riesgo Extra Grupo 1")
+            {
+                dataManager.iGastoPico = 750;
+            }
+            else
+            {
+                dataManager.iGastoPico = 1000;
+            }
+
+            dataManager.iproteccionCorrecta = true;
+        }
+
+        else if ((((CheckBox)getActivity().findViewById(R.id.checkBox1)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox2)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox3)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox4)).isChecked() == true))
+        {
+            dataManager.iProteccion = "Cañones automáticos";
+
+            if (dataManager.Grupo == "Riesgo Ligero")
+            {
+                dataManager.iGastoPico = 1;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 1")
+            {
+                dataManager.iGastoPico = 350;
+            }
+            else if (dataManager.Grupo == "Riesgo Ordinario Grupo 2")
+            {
+                dataManager.iGastoPico = 350;
+            }
+            else if (dataManager.Grupo == "Riesgo Extra Grupo 1")
+            {
+                dataManager.iGastoPico = 500;
+            }
+            else
+            {
+                dataManager.iGastoPico = 500;
+            }
+
+            dataManager.iproteccionCorrecta = true;
+        }
+
+        else
+        {
+            dataManager.iProteccion = "";
+            dataManager.iproteccionCorrecta = false;
+            dataManager.iGastoPico = 0;
+        }
+
+        dataManager.iGastoPico = dataManager.iGastoPico*3.785;
+
+        getActivity().invalidateOptionsMenu();
+
+    }
+
 
     @Override
     public void onPause ()
@@ -93,18 +478,6 @@ public class IncendiosFragment2 extends Fragment {
 
     }
 
-
-    private void setPressed(View view)
-    {
-        ViewGroup viewGroup = (ViewGroup) view;
-        for (int i = 0; i < viewGroup .getChildCount(); i++) {
-
-            View viewChild = viewGroup .getChildAt(i);
-            viewChild.setPressed(true);
-
-        }
-
-    }
 
     private void switchFragment ()
     {
