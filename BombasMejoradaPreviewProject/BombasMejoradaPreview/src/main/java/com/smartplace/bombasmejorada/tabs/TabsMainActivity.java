@@ -29,6 +29,10 @@ import com.smartplace.bombasmejorada.tabs.otros.ServiceFragment3;
 import com.smartplace.bombasmejorada.tabs.otros.ServiceFragment5;
 import com.smartplace.bombasmejorada.tabs.otros.TabOtrosFragment;
 
+import java.io.File;
+
+import static com.smartplace.assets.AssetsHandler.Operations.fileExistsInSD;
+
 public class TabsMainActivity extends Activity{
 
 
@@ -70,7 +74,6 @@ public class TabsMainActivity extends Activity{
             mTabHost.setup();
             dataManager.screenSize = getScreenSize();
             initializeTab(0);
-            AssetsHandler.Operations.CopyAssetsToPhone(getBaseContext(),Environment.getExternalStorageDirectory() + "/BombasMejorada/","PDFs");
 
         } else {
         /*
@@ -89,14 +92,25 @@ public class TabsMainActivity extends Activity{
 //            Toast.makeText(getBaseContext(),"Current Tab:" + String.valueOf(currentTab),Toast.LENGTH_LONG).show();
             dataManager.screenSize = getScreenSize();
             initializeTab(currentTab);
-            AssetsHandler.Operations.CopyAssetsToPhone(getBaseContext(),Environment.getExternalStorageDirectory() + "/BombasMejorada/","PDFs");
-
         }
 
 
 
 
     }
+
+    @Override
+    public void onResume ()
+    {
+        super.onResume();
+        if (!fileExistsInSD("Modelo1P.pdf")) {
+            AssetsHandler.Operations.CopyAssetsToPhone(getBaseContext(),Environment.getExternalStorageDirectory() + "/Android/data/com.smartplace.bombasmejorada/","PDFs");
+        }
+    }
+
+
+
+
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
@@ -106,7 +120,7 @@ public class TabsMainActivity extends Activity{
         //savedInstanceState.putBoolean("MyBoolean", true);
         //savedInstanceState.putDouble("myDouble", 1.9);
         savedInstanceState.putInt("CurrentTab", mTabHost.getCurrentTab());
-        //savedInstanceState.putString("MyString", "Welcome back to Android");
+
         // etc.
     }
     public void initializeTab(int i) {

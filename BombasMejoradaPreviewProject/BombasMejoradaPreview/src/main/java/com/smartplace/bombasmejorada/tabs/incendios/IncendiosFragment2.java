@@ -2,6 +2,7 @@ package com.smartplace.bombasmejorada.tabs.incendios;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -67,13 +68,19 @@ public class IncendiosFragment2 extends Fragment {
 
     @Override
     public void onPrepareOptionsMenu (Menu menu) {
-        if (dataManager.iproteccionCorrecta)
-        {
-            menu.getItem(0).setEnabled(true);
-        }
-        else
-        {
-            menu.getItem(0).setEnabled(false);
+        int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+        if (currentapiVersion >= Build.VERSION_CODES.ICE_CREAM_SANDWICH){
+            // Do something
+        } else{
+
+            if (dataManager.iproteccionCorrecta)
+            {
+                menu.getItem(0).setEnabled(true);
+            }
+            else
+            {
+                menu.getItem(0).setEnabled(false);
+            }
         }
 
     }
@@ -464,7 +471,13 @@ public class IncendiosFragment2 extends Fragment {
 
         dataManager.iGastoPico = dataManager.iGastoPico*3.785;
 
-        getActivity().invalidateOptionsMenu();
+        int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+        if (currentapiVersion >= Build.VERSION_CODES.ICE_CREAM_SANDWICH){
+            // Do something
+        } else{
+
+            getActivity().invalidateOptionsMenu();
+        }
 
     }
 

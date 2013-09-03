@@ -31,7 +31,7 @@ public class HidrosFragment5 extends Fragment {
     int pdfResultsCount = 0;
     private DataManager dataManager;
     int i;
-    PDFHandler pdfs = new PDFHandler(Environment.getExternalStorageDirectory() + "/BombasMejorada/");
+    PDFHandler pdfs = new PDFHandler(Environment.getExternalStorageDirectory() + "/Android/data/com.smartplace.bombasmejorada/");
 
 
     @Override
@@ -107,7 +107,7 @@ public class HidrosFragment5 extends Fragment {
                                                 "Diámetro de tubo recomendado en la linea principal: " + Html.fromHtml("<br/>") + String.valueOf(String.format("%.2f",dataManager.hDiametroTubo)) + '"' + Html.fromHtml("<br/><br/>") +
                                                 "Enviado desde mi Android" );
 
-                                i.putExtra(Intent.EXTRA_STREAM, Uri.parse(Environment.getExternalStorageDirectory() + "/BombasMejorada/" + findPDF(pdfName)));
+                                i.putExtra(Intent.EXTRA_STREAM, Uri.parse(Environment.getExternalStorageDirectory() + "/Android/data/com.smartplace.bombasmejorada/" + findPDF(pdfName)));
                                 try {
                                     startActivity(Intent.createChooser(i, "Send mail..."));
                                 } catch (android.content.ActivityNotFoundException ex) {

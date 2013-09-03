@@ -31,7 +31,7 @@ public class IncendiosFragment5 extends Fragment {
     int pdfResultsCount = 0;
     private DataManager dataManager;
     int i;
-    PDFHandler pdfs = new PDFHandler(Environment.getExternalStorageDirectory() + "/BombasMejorada/");
+    PDFHandler pdfs = new PDFHandler(Environment.getExternalStorageDirectory() + "/Android/data/com.smartplace.bombasmejorada/");
 
 
     @Override
@@ -101,13 +101,13 @@ public class IncendiosFragment5 extends Fragment {
                                                 "Desnivel total máximo: " + Html.fromHtml("<br/>") + dataManager.iDesnivel + " mts" + Html.fromHtml("<br/><br/>") +
                                                 "Presión de trabajo: " + Html.fromHtml("<br/>") + dataManager.iPresion + " psi" + Html.fromHtml("<br/><br/>") +
                                                 "Pérdidas de presión por fricción: " + Html.fromHtml("<br/>") + String.valueOf(String.format("%.2f", dataManager.iPerdidas)) + " %" + Html.fromHtml("<br/><br/>") +
-                                                "Gasto total: " + Html.fromHtml("<br/>") + String.valueOf(String.format("%.2f", dataManager.iGastoPico)) + " gpm" + Html.fromHtml("<br/><br/>") +
+                                                "Gasto total: " + Html.fromHtml("<br/>") + String.valueOf(String.format("%.2f", (dataManager.iGastoPico/3.785))) + " gpm" + Html.fromHtml("<br/><br/>") +
                                                 "Carga dinámica total: " + Html.fromHtml("<br/>") + String.valueOf(String.format("%.2f", dataManager.iCargaDinamica)) + " psi" + Html.fromHtml("<br/><br/>") +
                                                 "Diámetro de tubo recomendado en la linea principal: " + Html.fromHtml("<br/>") + String.valueOf(String.format("%.2f", dataManager.iDiamPrincipal)) + " \"" + Html.fromHtml("<br/><br/>") +
                                                 "Diámetro de tubo con circuito: " + Html.fromHtml("<br/>") + String.valueOf(String.format("%.2f", dataManager.iDiamCircuito)) + " \"" + Html.fromHtml("<br/><br/>") +
                                                 "Enviado desde mi Android");
 
-                                i.putExtra(Intent.EXTRA_STREAM, Uri.parse(Environment.getExternalStorageDirectory() + "/BombasMejorada/" + findPDF(pdfName)));
+                                i.putExtra(Intent.EXTRA_STREAM, Uri.parse(Environment.getExternalStorageDirectory() + "/Android/data/com.smartplace.bombasmejorada/" + findPDF(pdfName)));
                                 try {
                                     startActivity(Intent.createChooser(i, "Send mail..."));
                                 } catch (android.content.ActivityNotFoundException ex) {

@@ -39,7 +39,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Instalación:"
                 android:padding="10dp"
                 android:layout_marginLeft="10dp"
@@ -48,7 +48,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Default"
                 android:padding="10dp"
                 android:id="@+id/instalacionHidros"
@@ -65,7 +65,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Salidas:"
                 android:padding="10dp"
                 android:layout_marginLeft="10dp"
@@ -74,7 +74,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="0"
                 android:padding="10dp"
                 android:id="@+id/salidasHidros"
@@ -92,7 +92,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Factor por salida:"
                 android:padding="10dp"
                 android:id="@+id/textView5"
@@ -102,7 +102,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="0 lpm/salida"
                 android:padding="10dp"
                 android:id="@+id/factorSalida"
@@ -119,7 +119,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Desnivel total \nmáximo:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
@@ -128,7 +128,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0 mts"
                             android:padding="10dp"
                             android:id="@+id/desnivelMax"
@@ -145,7 +145,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Longitud de\ntubería máxima:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
@@ -154,7 +154,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0 mts"
                             android:padding="10dp"
                             android:id="@+id/longitudTuberia"
@@ -172,7 +172,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Presión en salida:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
@@ -181,7 +181,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0 psi"
                             android:padding="10dp"
                             android:id="@+id/presionSalida"
@@ -198,7 +198,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Porcentaje máximo de\npérdidas en la conducción:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
@@ -207,7 +207,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0%"
                             android:padding="10dp"
                             android:id="@+id/porcentajePerdidas"
@@ -224,7 +224,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Gasto pico máximo:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
@@ -233,7 +233,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0 lpm"
                             android:padding="10dp"
                             android:id="@+id/gastoPico"
@@ -251,7 +251,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Carga dinámica\ntotal:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
@@ -260,7 +260,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0 psi"
                             android:padding="10dp"
                             android:id="@+id/cargaDinamica"
@@ -278,7 +278,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Diámetro de tubo\nrecomendado en la\nlínea principal:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
@@ -287,7 +287,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text='0"'
                             android:padding="10dp"
                             android:id="@+id/diametroTubo"

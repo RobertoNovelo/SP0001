@@ -39,7 +39,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Instalación:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
@@ -48,7 +48,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Default"
                             android:padding="10dp"
                             android:id="@+id/iInstalacion"
@@ -65,7 +65,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Tipo de\nprotección:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
@@ -74,7 +74,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0"
                             android:padding="10dp"
                             android:id="@+id/iProteccion"
@@ -92,7 +92,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Longitud de\ntubería máxima:"
                             android:padding="10dp"
                             android:id="@+id/textView5"
@@ -102,7 +102,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0 mts"
                             android:padding="10dp"
                             android:id="@+id/iLongitudMax"
@@ -119,7 +119,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Desnivel total \nmáximo:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
@@ -128,7 +128,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0 mts"
                             android:padding="10dp"
                             android:id="@+id/iDesnivelMax"
@@ -145,7 +145,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Presión de trabajo:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
@@ -154,7 +154,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0 psi"
                             android:padding="10dp"
                             android:id="@+id/iPresion"
@@ -172,7 +172,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Pérdidas de presión\npor fricción:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
@@ -181,7 +181,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0 %"
                             android:padding="10dp"
                             android:id="@+id/iPerdidas"
@@ -198,7 +198,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Gasto total:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
@@ -207,7 +207,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0 gpm"
                             android:padding="10dp"
                             android:id="@+id/iGasto"
@@ -224,7 +224,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Carga dinámica\ntotal:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
@@ -233,7 +233,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0 psi"
                             android:padding="10dp"
                             android:id="@+id/iCargaDinamica"
@@ -251,7 +251,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Diámetro de tubo\nenlínea principal:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
@@ -260,7 +260,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text='0"'
                             android:padding="10dp"
                             android:id="@+id/iDiametroPrincipal"
@@ -278,8 +278,8 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Diámetro de tubo \ncon sircuito cerrado:"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Diámetro de tubo \ncon circuito cerrado:"
                             android:padding="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_alignParentLeft="true"/>
@@ -287,7 +287,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text='0"'
                             android:padding="10dp"
                             android:id="@+id/iDiametroCircuito"

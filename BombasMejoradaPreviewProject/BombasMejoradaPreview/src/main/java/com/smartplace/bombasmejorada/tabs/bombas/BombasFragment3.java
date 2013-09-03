@@ -39,7 +39,7 @@ public class BombasFragment3 extends Fragment {
     private DataManager dataManager;
     int i;
 
-    PDFHandler pdfs = new PDFHandler(Environment.getExternalStorageDirectory() + "/BombasMejorada/");
+    PDFHandler pdfs = new PDFHandler(Environment.getExternalStorageDirectory() + "/Android/data/com.smartplace.bombasmejorada/");
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -193,7 +193,7 @@ public class BombasFragment3 extends Fragment {
                                         "3.Presión:           " + Html.fromHtml("<br/>") + dataManager.psi + " psi" + Html.fromHtml("<br/><br/>") +
                                         "Enviado desde mi Android" );
 
-                                i.putExtra(Intent.EXTRA_STREAM, Uri.parse(Environment.getExternalStorageDirectory() + "/BombasMejorada/" + findPDF(pdfName) ));
+                                i.putExtra(Intent.EXTRA_STREAM, Uri.parse(Environment.getExternalStorageDirectory() + "/Android/data/com.smartplace.bombasmejorada/" + findPDF(pdfName) ));
                                 try {
                                     startActivity(Intent.createChooser(i, "Send mail..."));
                                 } catch (android.content.ActivityNotFoundException ex) {

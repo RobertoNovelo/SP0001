@@ -75,7 +75,7 @@ public class IncendiosFragment4 extends Fragment {
         txt_desnivel_max.setText(String.valueOf(dataManager.iDesnivel)+" mts");
         txt_presion.setText(String.valueOf(dataManager.iPresion)+" psi");
         txt_perdidas_presion.setText(String.valueOf(String.format("%.2f", dataManager.iPerdidas))+" %");
-        txt_gasto.setText(String.valueOf(String.format("%.2f", dataManager.iGastoPico))+" gpm");
+        txt_gasto.setText(String.valueOf(String.format("%.2f", (dataManager.iGastoPico/3.785))+" gpm"));
         txt_carga_dinamica.setText(String.valueOf(String.format("%.2f", dataManager.iCargaDinamica))+" psi");
         txt_diametro_principal.setText(String.valueOf(String.format("%.2f", dataManager.iDiamPrincipal))+" "+String.valueOf('"'));
         txt_diametro_ciruito.setText(String.valueOf(String.format("%.2f", dataManager.iDiamCircuito))+" "+String.valueOf('"'));
@@ -96,7 +96,7 @@ public class IncendiosFragment4 extends Fragment {
                                 "Desnivel total máximo: " + Html.fromHtml("<br/>") + dataManager.iDesnivel + " mts" + Html.fromHtml("<br/><br/>") +
                                 "Presión de trabajo: " + Html.fromHtml("<br/>") + dataManager.iPresion + " psi" + Html.fromHtml("<br/><br/>") +
                                 "Pérdidas de presión por fricción: " + Html.fromHtml("<br/>") + String.valueOf(String.format("%.2f", dataManager.iPerdidas)) + " %" + Html.fromHtml("<br/><br/>") +
-                                "Gasto total: " + Html.fromHtml("<br/>") + String.valueOf(String.format("%.2f", dataManager.iGastoPico)) + " gpm" + Html.fromHtml("<br/><br/>") +
+                                "Gasto total: " + Html.fromHtml("<br/>") + String.valueOf(String.format("%.2f",(dataManager.iGastoPico/3.785))) + " gpm" + Html.fromHtml("<br/><br/>") +
                                 "Carga dinámica total: " + Html.fromHtml("<br/>") + String.valueOf(String.format("%.2f", dataManager.iCargaDinamica)) + " psi" + Html.fromHtml("<br/><br/>") +
                                 "Diámetro de tubo recomendado en la linea principal: " + Html.fromHtml("<br/>") + String.valueOf(String.format("%.2f", dataManager.iDiamPrincipal)) + " \"" + Html.fromHtml("<br/><br/>") +
                                 "Diámetro de tubo con circuito: " + Html.fromHtml("<br/>") + String.valueOf(String.format("%.2f", dataManager.iDiamCircuito)) + " \"" + Html.fromHtml("<br/><br/>") +

@@ -2,6 +2,7 @@ package com.smartplace.assets;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.os.Environment;
 import android.util.Log;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -61,5 +62,15 @@ public class AssetsHandler {
             out.write(buffer, 0, read);
         }
     }
+
+        private static final String APP_SD_PATH = "/Android/data/com.smartplace.bombasmejorada";
+
+        public static boolean fileExistsInSD(String sFileName){
+            String sFolder = Environment.getExternalStorageDirectory().toString() +
+                    APP_SD_PATH ;
+            String sFile=sFolder+"/"+sFileName;
+            java.io.File file = new java.io.File(sFile);
+            return file.exists();
+        }
 }
 }

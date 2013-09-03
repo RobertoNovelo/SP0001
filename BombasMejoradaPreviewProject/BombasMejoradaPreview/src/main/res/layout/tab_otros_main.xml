@@ -77,6 +77,17 @@
 
             android:layout_weight="1"
             android:gravity="center">
+        <com.smartplace.effects.BounceScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:fillViewport="true"
+                android:isScrollContainer="true"
+                android:overScrollMode="always"
+                android:scrollbars="none">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
 
         <LinearLayout
                 android:orientation="vertical"
@@ -100,11 +111,10 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Datos de contacto"
                         android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
-                        android:textSize="20sp"/>
+                        android:layout_alignParentLeft="true"/>
 
                 <ImageView
                         android:layout_width="wrap_content"
@@ -122,15 +132,18 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:clickable="true">
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Servicio de Garantía al Producto"
                         android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
-                        android:textSize="20sp"/>
+                        android:layout_weight=".7"
+                        android:layout_alignParentLeft="true"/>
 
                 <ImageView
                         android:layout_width="wrap_content"
@@ -138,7 +151,9 @@
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="10dp"
+                        android:layout_gravity="center_vertical"
                         android:background="@drawable/arrow"/>
+                </LinearLayout>
 
             </RelativeLayout>
 
@@ -152,11 +167,10 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Ayuda"
                         android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
-                        android:textSize="20sp"/>
+                        android:layout_alignParentLeft="true"/>
 
                 <ImageView
                         android:layout_width="wrap_content"
@@ -178,11 +192,10 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Acerca de la App"
                         android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
-                        android:textSize="20sp"/>
+                        android:layout_alignParentLeft="true"/>
 
                 <ImageView
                         android:layout_width="wrap_content"
@@ -194,6 +207,9 @@
 
             </RelativeLayout>
         </LinearLayout>
+
+            </LinearLayout>
+        </com.smartplace.effects.BounceScrollView>
     </LinearLayout>
 
 </LinearLayout>

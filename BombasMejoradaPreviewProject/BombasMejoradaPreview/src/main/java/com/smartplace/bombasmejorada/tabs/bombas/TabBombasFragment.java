@@ -54,7 +54,7 @@ public class TabBombasFragment extends Fragment {
             DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
             if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
             {
-                Toast.makeText(getActivity(),"landscape",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(),"landscape",Toast.LENGTH_SHORT).show();
 
 
                 BombasFragment1 newFragment = new BombasFragment1();
@@ -142,7 +142,7 @@ public class TabBombasFragment extends Fragment {
                 DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
                 if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
                 {
-                    Toast.makeText(getActivity(),"landscape",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(),"landscape",Toast.LENGTH_SHORT).show();
 
 
                     BombasFragment1 newFragment = new BombasFragment1();
