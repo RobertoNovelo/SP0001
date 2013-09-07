@@ -1,11 +1,13 @@
 package com.smartplace.bombasmejorada.tabs;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.widget.RelativeLayout;
 
 /**
  * Created by RoNo on 25/07/13.
  */
-public class DataManager {
+public class DataManager implements Parcelable{
 
     public int lpm;
     public int psi;
@@ -58,6 +60,7 @@ public class DataManager {
     public String Correo;
     public String screenSize;
 
+    private int mData;
 
 
     public DataManager()
@@ -91,6 +94,9 @@ public class DataManager {
         iDiamPrincipal=0;
         iDiamCircuito=0;
 
+        EnergySource = "Monofasica 110 V";
+        Edificio = "Club";
+        Uso = "Asilo";
         EquipoModelo = null;
         NoDeSerie = null;
         Falla = null;
@@ -105,4 +111,25 @@ public class DataManager {
         screenSize = null;
     }
 
+    public int describeContents() {
+        return 0;
+    }
+    /** save object in parcel */
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeInt(mData);
+    }
+    public static final Parcelable.Creator<DataManager> CREATOR
+            = new Parcelable.Creator<DataManager>() {
+        public DataManager createFromParcel(Parcel in) {
+            return new DataManager(in);
+        }
+
+        public DataManager[] newArray(int size) {
+            return new DataManager[size];
+        }
+    };
+    /** recreate object from parcel */
+    private DataManager(Parcel in) {
+        mData = in.readInt();
+    }
 }

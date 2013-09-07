@@ -89,6 +89,7 @@ public class TabsMainActivity extends Activity{
             mTabHost.setOnTabChangedListener(listener);
             mTabHost.setup();
             int currentTab = savedInstanceState.getInt("CurrentTab");
+            dataManager = savedInstanceState.getParcelable("DataManager");
 //            Toast.makeText(getBaseContext(),"Current Tab:" + String.valueOf(currentTab),Toast.LENGTH_LONG).show();
             dataManager.screenSize = getScreenSize();
             initializeTab(currentTab);
@@ -120,6 +121,7 @@ public class TabsMainActivity extends Activity{
         //savedInstanceState.putBoolean("MyBoolean", true);
         //savedInstanceState.putDouble("myDouble", 1.9);
         savedInstanceState.putInt("CurrentTab", mTabHost.getCurrentTab());
+       savedInstanceState.putParcelable("DataManager",dataManager);
 
         // etc.
     }

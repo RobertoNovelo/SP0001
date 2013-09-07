@@ -1,7 +1,9 @@
 package com.smartplace.bombasmejorada.tabs.incendios;
 import android.app.ActionBar;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -20,7 +22,11 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.smartplace.bombasmejorada.R;
+import com.smartplace.bombasmejorada.tabs.DataManager;
+import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
 import com.smartplace.bombasmejorada.tabs.hidros.HidrosFragment1;
+import com.smartplace.bombasmejorada.tabs.hidros.HidrosFragment2;
+import com.smartplace.bombasmejorada.tabs.hidros.HidrosFragment3;
 
 public class TabIncendiosFragment extends Fragment {
 
@@ -44,21 +50,48 @@ public class TabIncendiosFragment extends Fragment {
     final GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
         public boolean onDoubleTap(MotionEvent e) {
 
-            // Create new fragment and transaction
-            IncendiosFragment1 newFragment = new IncendiosFragment1();
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
 
-            // Replace whatever is in the fragment_container view with this fragment,
-            // and add the transaction to the back stack
-            transaction.replace(android.R.id.tabcontent, newFragment);
-            transaction.addToBackStack(null);
+            if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
+            {
+                // Create new fragment and transaction
+                IncendiosFragment1 newFragment = new IncendiosFragment1();
+                IncendiosFragment2 newFragment2 = new IncendiosFragment2();
+                IncendiosFragment3 newFragment3 = new IncendiosFragment3();
+                FragmentManager fm = getFragmentManager();
 
-            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                FragmentTransaction transaction =fm.beginTransaction();
 
-            // Commit the transaction
-            transaction.commit();
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(android.R.id.tabcontent, newFragment,"incendios_fragment_1");
+                transaction.add(R.id.myfragment,newFragment3,"incendios_fragment_3");
 
-            return true;
+                transaction.add(R.id.myfragment,newFragment2,"incendios_fragment_2");
+                transaction.addToBackStack(null);
+
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                // Commit the transaction
+                transaction.commit();
+            }
+            else
+            {
+                // Create new fragment and transaction
+                IncendiosFragment1 newFragment = new IncendiosFragment1();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(android.R.id.tabcontent, newFragment);
+                transaction.addToBackStack(null);
+
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                // Commit the transaction
+                transaction.commit();
+            }
+                return true;
         }
     });
 
@@ -87,19 +120,44 @@ public class TabIncendiosFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.btn_accept:
 
-                // Create new fragment and transaction
-                IncendiosFragment1 newFragment = new IncendiosFragment1();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
 
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
-                transaction.replace(android.R.id.tabcontent, newFragment);
-                transaction.addToBackStack(null);
+                if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
+                {
+                    // Create new fragment and transaction
+                    IncendiosFragment1 newFragment = new IncendiosFragment1();
+                    IncendiosFragment2 newFragment2 = new IncendiosFragment2();
+                    IncendiosFragment3 newFragment3 = new IncendiosFragment3();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment,"incendios_fragment_1");
+                    transaction.add(R.id.myfragment,newFragment3,"incendios_fragment_3");
+                    transaction.add(R.id.myfragment,newFragment2,"incendios_fragment_2");
+                    transaction.addToBackStack(null);
 
-                // Commit the transaction
-                transaction.commit();
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                    // Commit the transaction
+                    transaction.commit();
+                }
+                else
+                {
+                    // Create new fragment and transaction
+                    IncendiosFragment1 newFragment = new IncendiosFragment1();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.addToBackStack(null);
+
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                    // Commit the transaction
+                    transaction.commit();
+                }
 
                 return true;
             default:
