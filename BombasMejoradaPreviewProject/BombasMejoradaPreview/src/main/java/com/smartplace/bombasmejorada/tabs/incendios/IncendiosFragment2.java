@@ -2,6 +2,7 @@ package com.smartplace.bombasmejorada.tabs.incendios;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -51,18 +52,35 @@ public class IncendiosFragment2 extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.tab_incendios_2, menu);
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
+        {
+
+           /*Do nothing it shall just select the value*/
+        }
+        else
+        {
+            inflater.inflate(R.menu.tab_incendios_2, menu);
+        }
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.btn_accept:
 
-               switchFragment();
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
+        {
+            return super.onOptionsItemSelected(item);
+           /*Do nothing it shall just select the value*/
+        }
+        else
+        {
+            switch (item.getItemId()) {
+                case R.id.btn_accept:
 
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+                   switchFragment();
+
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
         }
     }
 

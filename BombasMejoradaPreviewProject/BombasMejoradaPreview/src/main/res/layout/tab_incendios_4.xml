@@ -7,17 +7,18 @@
               android:showDividers="middle"
               android:divider="?android:dividerVertical"
               android:dividerPadding="10dp"
-              android:background="#FFFFFF">
+              android:background="#FFFFFF"
+              android:layout_weight="1">
 
 
     <RelativeLayout
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_width="fill_parent"
             android:layout_weight=".2">
 
         <com.smartplace.effects.BounceScrollView
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:overScrollMode="always"
                 android:isScrollContainer="true"
                 android:scrollbars="none">
@@ -307,7 +308,7 @@
 
     <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1">
 
         <Button

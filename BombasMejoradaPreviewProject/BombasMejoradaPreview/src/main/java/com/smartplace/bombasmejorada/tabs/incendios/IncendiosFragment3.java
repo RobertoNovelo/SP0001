@@ -1,7 +1,9 @@
 package com.smartplace.bombasmejorada.tabs.incendios;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -62,26 +64,61 @@ public class IncendiosFragment3 extends Fragment {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.btn_accept:
 
-                // Create new fragment and transaction
-                IncendiosFragment4 newFragment = new IncendiosFragment4();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
 
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
-                transaction.replace(android.R.id.tabcontent, newFragment);
-                transaction.addToBackStack(null);
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&dataManager.screenSize == "large")
+        {
+            switch (item.getItemId()) {
+                case R.id.btn_accept:
 
-                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                    // Create new fragment and transaction
+                    IncendiosFragment4 newFragment = new IncendiosFragment4();
+                    IncendiosFragment5 newFragment2 = new IncendiosFragment5();
+                    FragmentManager fragmentManager = getFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
 
-                // Commit the transaction
-                transaction.commit();
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment,"incendios_fragment_4");
+                    transaction.remove(fragmentManager.findFragmentByTag("incendios_fragment_2"));
+                    transaction.remove(fragmentManager.findFragmentByTag("incendios_fragment_3"));
+                    transaction.add(R.id.myfragment,newFragment2,"incendios_fragment_5");
+                    transaction.addToBackStack(null);
 
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                    // Commit the transaction
+                    transaction.commit();
+
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
+        }
+        else
+        {
+            switch (item.getItemId()) {
+                case R.id.btn_accept:
+
+                    // Create new fragment and transaction
+                    IncendiosFragment4 newFragment = new IncendiosFragment4();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.addToBackStack(null);
+
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                    // Commit the transaction
+                    transaction.commit();
+
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
         }
     }
 

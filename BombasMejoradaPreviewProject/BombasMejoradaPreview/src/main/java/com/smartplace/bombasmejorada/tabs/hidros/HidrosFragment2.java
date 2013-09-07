@@ -2,6 +2,7 @@ package com.smartplace.bombasmejorada.tabs.hidros;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -59,30 +60,48 @@ public class HidrosFragment2 extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.tab_hidros_2, menu);
+        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "xlarge" ||dataManager.screenSize == "large"))
+        {
+           /*Do nothing*/
+        }
+        else
+        {
+            inflater.inflate(R.menu.tab_hidros_2, menu);
+        }
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.btn_siguiente:
 
-                // Create new fragment and transaction
-                HidrosFragment3 newFragment = new HidrosFragment3();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize=="xlarge"))
+        {
+                    return super.onOptionsItemSelected(item);
 
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
-                transaction.replace(android.R.id.tabcontent, newFragment);
-                transaction.addToBackStack(null);
+        }
+        else
+        {
+            switch (item.getItemId()) {
+                case R.id.btn_siguiente:
 
-                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                    // Create new fragment and transaction
+                    HidrosFragment3 newFragment = new HidrosFragment3();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                // Commit the transaction
-                transaction.commit();
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.addToBackStack(null);
 
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                    // Commit the transaction
+                    transaction.commit();
+
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
         }
     }
 

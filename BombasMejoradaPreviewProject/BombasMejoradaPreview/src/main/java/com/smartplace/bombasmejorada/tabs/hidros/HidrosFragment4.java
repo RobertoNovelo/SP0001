@@ -3,6 +3,7 @@ package com.smartplace.bombasmejorada.tabs.hidros;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -118,7 +119,15 @@ public class HidrosFragment4 extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.tab_hidros_3, menu);
+        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize=="xlarge"))
+        {
+
+        }
+        else
+        {
+            inflater.inflate(R.menu.tab_hidros_3, menu);
+        }
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

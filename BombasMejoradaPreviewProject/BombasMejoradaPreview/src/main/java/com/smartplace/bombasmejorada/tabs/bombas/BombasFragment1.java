@@ -125,7 +125,7 @@ public class BombasFragment1 extends Fragment {
            /*Do nothing it shall just select the value*/
         }
         else
-            {
+        {
             // Create new fragment and transaction
             BombasFragment2 newFragment = new BombasFragment2();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();

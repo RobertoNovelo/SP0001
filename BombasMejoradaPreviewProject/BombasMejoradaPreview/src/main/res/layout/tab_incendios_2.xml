@@ -4,7 +4,8 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="#c20f14"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        android:layout_weight="1">
 
 
     <LinearLayout
@@ -38,7 +39,7 @@
 
             <com.smartplace.effects.BounceScrollView
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
                     android:fillViewport="true"
                     android:overScrollMode="always"
                     android:scrollbars="none"
@@ -48,14 +49,15 @@
                 <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="fill_parent"
                         >
 
                     <RelativeLayout
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:clickable="true">
+                            android:clickable="true"
+                            android:layout_weight="1">
 
                         <TextView
                                 android:layout_width="wrap_content"
@@ -83,7 +85,9 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:clickable="true">
+                            android:clickable="true"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1">
 
                         <TextView
                                 android:layout_width="wrap_content"
@@ -91,7 +95,6 @@
                                 android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:text='Hidrantes para\nmangueras de 2.5" '
                                 android:id="@+id/cuerpoBomberos"
-                                android:layout_centerVertical="true"
                                 android:layout_alignParentLeft="true"
                                 android:textSize="20sp"/>
                         <TextView
@@ -100,7 +103,7 @@
                                 android:text='\n(sólo para cuerpos de bomberos)'
                                 android:textSize="15dp"
                                 android:layout_below="@+id/cuerpoBomberos"
-                                android:paddingTop="20dp"
+                                android:paddingTop="5dp"
                                 android:layout_alignLeft="@+id/cuerpoBomberos"/>
 
 
@@ -121,7 +124,8 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:clickable="true">
+                            android:clickable="true"
+                            android:layout_weight="1">
 
                         <TextView
                                 android:layout_width="wrap_content"
@@ -149,7 +153,8 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:clickable="true">
+                            android:clickable="true"
+                            android:layout_weight="1">
 
                         <TextView
                                 android:layout_width="wrap_content"
