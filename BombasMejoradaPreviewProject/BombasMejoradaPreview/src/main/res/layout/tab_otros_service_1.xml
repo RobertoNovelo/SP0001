@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="#fffffc"
-        android:id="@+id/scrollView">
-<LinearLayout
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_weight="1"
         android:background="#fffffc">
 
     <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:text="@string/service_intro"
             android:id="@+id/text_service_intro"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:textSize="19dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textColor="#366e78"
+            android:layout_weight="1"
             android:textStyle="bold"/>
-
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#fffffc">
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,6 +53,13 @@
             android:paddingBottom="5dp"
             android:layout_marginRight="20dp"
             android:capitalize="sentences"/>
+    </LinearLayout>
+    <LinearLayout
+                  android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"
+                  android:layout_weight="1"
+                  android:background="#fffffc">
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,5 +87,5 @@
             android:layout_marginRight="20dp"
             android:capitalize="sentences"/>
 </LinearLayout>
-</ScrollView>
+</LinearLayout>
 

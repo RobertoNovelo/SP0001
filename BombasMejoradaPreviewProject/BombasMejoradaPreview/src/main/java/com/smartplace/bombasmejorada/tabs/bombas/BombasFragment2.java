@@ -62,19 +62,13 @@ public class BombasFragment2 extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
-        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&dataManager.screenSize == "xlarge")
-        {
-           /*Do nothing*/
-        }
-        else
-        {
-            inflater.inflate(R.menu.tab_bombas_2, menu);
-        }
+         inflater.inflate(R.menu.tab_bombas_2, menu);
+
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&dataManager.screenSize == "large")
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize.equalsIgnoreCase("xlarge")))
         {
             switch (item.getItemId()) {
                 case R.id.btn_siguiente:

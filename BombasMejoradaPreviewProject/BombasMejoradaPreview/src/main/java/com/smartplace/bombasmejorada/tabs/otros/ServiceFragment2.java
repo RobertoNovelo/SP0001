@@ -3,7 +3,9 @@ package com.smartplace.bombasmejorada.tabs.otros;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -42,6 +44,7 @@ import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
 public class ServiceFragment2 extends Fragment {
 
     EditText txt_falla;
+    DataManager dataManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,6 +54,7 @@ public class ServiceFragment2 extends Fragment {
         abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1A535A")));
         setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.tab_otros_service_2, container, false);
+        dataManager = ((TabsMainActivity)getActivity()).getDataManager();
         txt_falla = (EditText)view.findViewById(R.id.txt_service_3);
        return view;
     }
@@ -62,25 +66,52 @@ public class ServiceFragment2 extends Fragment {
         inflater.inflate(R.menu.tab_otros_servicio_2, menu);
     }
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId())
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
         {
-            case R.id.btn_next:
-                ServiceFragment3 newFragment = new ServiceFragment3();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
-                transaction.replace(android.R.id.tabcontent, newFragment);
-                transaction.addToBackStack(null);
+            switch(item.getItemId())
+            {
+                case R.id.btn_next:
+                    ServiceFragment3 newFragment = new ServiceFragment3();
+                    ServiceFragment4 newFragment4 = new ServiceFragment4();
+                    FragmentManager fragmentManager = getFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.remove(fragmentManager.findFragmentByTag("service_fragment_2"));
+                    transaction.add(R.id.myfragment, newFragment4, "service_fragment_4");
+                    transaction.addToBackStack(null);
 
-                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 
-                // Commit the transaction
-                transaction.commit();
-                break;
-            default:
-                Toast.makeText(getActivity().getBaseContext(),"No ID identificado",Toast.LENGTH_SHORT).show();
+                    // Commit the transaction
+                    transaction.commit();
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
         }
-        return  true;
+        else
+        {
+            switch(item.getItemId())
+            {
+                case R.id.btn_next:
+                    ServiceFragment3 newFragment = new ServiceFragment3();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.addToBackStack(null);
+
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                    // Commit the transaction
+                    transaction.commit();
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
+        }
 
     }
     @Override
@@ -88,7 +119,6 @@ public class ServiceFragment2 extends Fragment {
     {
         super.onResume();
 
-        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
         txt_falla.setText(dataManager.Falla);
 
     }
@@ -98,7 +128,6 @@ public class ServiceFragment2 extends Fragment {
     {
         super.onPause();
 
-        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
         dataManager.Falla = txt_falla.getText().toString();
 
     }

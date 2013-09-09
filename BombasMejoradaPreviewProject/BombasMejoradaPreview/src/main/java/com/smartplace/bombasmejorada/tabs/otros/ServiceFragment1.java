@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -46,6 +47,7 @@ public class ServiceFragment1 extends Fragment {
 
     EditText txt_equipo_modelo;
     EditText txt_no_de_serie;
+    DataManager dataManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,6 +57,7 @@ public class ServiceFragment1 extends Fragment {
         abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1A535A")));
         setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.tab_otros_service_1, container, false);
+        dataManager = ((TabsMainActivity)getActivity()).getDataManager();
         txt_equipo_modelo = (EditText)view.findViewById(R.id.txt_service_1);
         txt_no_de_serie = (EditText)view.findViewById(R.id.txt_service_2);
        return view;
@@ -63,29 +66,47 @@ public class ServiceFragment1 extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.tab_otros_servicio_1, menu);
+
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
+        {
+            /*Do nothing*/
+        }
+        else
+        {
+            inflater.inflate(R.menu.tab_otros_servicio_1, menu);
+        }
     }
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId())
+
+
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize.equalsIgnoreCase("large") || dataManager.screenSize.equalsIgnoreCase("xlarge")))
         {
-            case R.id.btn_next:
-                ServiceFragment2 newFragment = new ServiceFragment2();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                //getFragmentManager().saveFragmentInstanceState(this);
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
-                transaction.replace(android.R.id.tabcontent, newFragment);
-                transaction.addToBackStack(null);
-
-                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-
-                // Commit the transaction
-                transaction.commit();
-                break;
-            default:
-                Toast.makeText(getActivity().getBaseContext(),"No ID identificado",Toast.LENGTH_SHORT).show();
+            return super.onOptionsItemSelected(item);
+            /*Do nothing*/
         }
-        return  true;
+        else
+        {
+            switch(item.getItemId())
+            {
+                case R.id.btn_next:
+                    ServiceFragment2 newFragment = new ServiceFragment2();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    //getFragmentManager().saveFragmentInstanceState(this);
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.addToBackStack(null);
+
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                    // Commit the transaction
+                    transaction.commit();
+
+                    return  true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
+        }
 
     }
     @Override
@@ -93,7 +114,6 @@ public class ServiceFragment1 extends Fragment {
     {
         super.onResume();
 
-        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
         txt_equipo_modelo.setText(dataManager.EquipoModelo);
         txt_no_de_serie.setText(dataManager.NoDeSerie);
 
@@ -104,7 +124,6 @@ public class ServiceFragment1 extends Fragment {
     {
         super.onPause();
 
-        DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
         dataManager.EquipoModelo = txt_equipo_modelo.getText().toString();
         dataManager.NoDeSerie = txt_no_de_serie.getText().toString();
 
