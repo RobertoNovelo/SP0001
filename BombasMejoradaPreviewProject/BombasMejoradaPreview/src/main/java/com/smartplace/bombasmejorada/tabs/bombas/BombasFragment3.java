@@ -57,50 +57,12 @@ public class BombasFragment3 extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
-        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) && dataManager.screenSize == "xlarge")
-        {
-            inflater.inflate(R.menu.tab_bombas_land_3, menu);
-        }
-        else
-        {
              inflater.inflate(R.menu.tab_bombas_3, menu);
-        }
     }
 
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
-        {
-            switch (item.getItemId()) {
-                case R.id.btn_enviar:
 
-                    //DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
-                    Intent i = new Intent(Intent.ACTION_SEND);
-                    i.setType("message/rfc822");
-                    i.putExtra(Intent.EXTRA_EMAIL, new String[]{"enlinea@bombasmejorada.com"});
-                    i.putExtra(Intent.EXTRA_SUBJECT, Html.fromHtml("Solicito Informaci&oacute;n v&iacute;a Android").toString());
-                    i.putExtra(Intent.EXTRA_TEXT,
-                            "Bombas - Hoja de cálculo: " + Html.fromHtml("<br/><br/>") +
-                                    "1.Fuente de energía: " + Html.fromHtml("<br/>") + dataManager.EnergySource + Html.fromHtml("<br/><br/>") +
-                                    "2.Gasto pico máximo: " + Html.fromHtml("<br/>") + dataManager.lpm + " lpm" + Html.fromHtml("<br/><br/>") +
-                                    "3.Presión:           " + Html.fromHtml("<br/>") + dataManager.psi + " psi" + Html.fromHtml("<br/><br/>") +
-                                    "Enviado desde mi Android" );
-
-                    try {
-                        startActivity(Intent.createChooser(i, "Send mail..."));
-                    } catch (android.content.ActivityNotFoundException ex) {
-                        Toast.makeText(getActivity(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-                    }
-                    return true;
-                case R.id.btn_calcular:
-                    onResume();
-                    return true;
-                default:
-                    return super.onOptionsItemSelected(item);
-            }
-        }
-        else
-        {
             switch (item.getItemId()) {
                 case R.id.btn_enviar:
 
@@ -126,7 +88,7 @@ public class BombasFragment3 extends Fragment {
                 default:
                     return super.onOptionsItemSelected(item);
             }
-        }
+
     }
 
 
