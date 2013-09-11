@@ -1,6 +1,8 @@
 package com.smartplace.bombasmejorada.tabs.otros;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Color;
@@ -86,6 +88,14 @@ public class AboutFragment extends Fragment {
                 } catch (android.content.ActivityNotFoundException ex) {
                     Toast.makeText(getActivity(), "No hay clientes de correo disponibles", Toast.LENGTH_SHORT).show();
                 }
+                break;
+            case R.id.open_source:
+                Dialog dialog = new Dialog(getActivity()); //Read Update
+                dialog.setTitle("Licencias Open Source");
+                dialog.setContentView(R.layout.open_source_dialog);
+                dialog.show();
+               // alertDialog.setMessage("Una vez recibida su solicitud, nos comunicaremos con usted para agendar la fecha de visita.\nHe leído y estoy conforme con las condiciones de servicio");
+
                 break;
             default:
                 Toast.makeText(getActivity().getBaseContext(),"No ID identificado",Toast.LENGTH_SHORT).show();

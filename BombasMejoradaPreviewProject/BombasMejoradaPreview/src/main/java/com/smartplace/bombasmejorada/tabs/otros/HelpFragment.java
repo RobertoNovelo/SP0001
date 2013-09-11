@@ -60,7 +60,7 @@ public class HelpFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_about_fragment, menu);
+        inflater.inflate(R.menu.menu_help_fragment, menu);
     }
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId())

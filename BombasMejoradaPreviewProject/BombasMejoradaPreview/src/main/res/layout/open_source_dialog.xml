@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.smartplace.effects.BounceScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:isScrollContainer="true"
+        android:overScrollMode="always"
+        android:scrollbars="none">
+<LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="
+    android-support-v4.jar
+            "
+            android:id="@+id/textView"
+            android:layout_gravity="left"
+            android:textStyle="bold"/>
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background = "#d6d6d6"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="\n
+    /*\n
+     *  Copyright (C) 2006 The Android Open Source Project\n
+     *\n
+     *  Licensed under the Apache License, Version 2.0 (the ''License'');\n
+     *  you may not use this file except in compliance with the License.\n
+     *  You may obtain a copy of the License at\n
+     *\n
+     *  http://www.apache.org/licenses/LICENSE-2.0\n
+     *\n
+     *  Unless required by applicable law or agreed to in writing, software\n
+     *  distributed under the License is distributed on an ''AS IS'' BASIS,\n
+     *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n
+     *  See the License for the specific language governing permissions and\n
+     *  limitations under the License.\n
+     */\n
+"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_horizontal"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="
+    WheelView
+            "
+            android:id="@+id/textView"
+            android:layout_gravity="left"
+            android:textStyle="bold"/>
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background = "#D6D6D6"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="\n
+    /*\n
+     *  Copyright 2011 Yuri Kanivets\n
+     *\n
+     *  Licensed under the Apache License, Version 2.0 (the ''License'');\n
+     *  you may not use this file except in compliance with the License.\n
+     *  You may obtain a copy of the License at\n
+     *\n
+     *  http://www.apache.org/licenses/LICENSE-2.0\n
+     *\n
+     *  Unless required by applicable law or agreed to in writing, software\n
+     *  distributed under the License is distributed on an ''AS IS'' BASIS,\n
+     *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n
+     *  See the License for the specific language governing permissions and\n
+     *  limitations under the License.\n
+     */\n
+"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_horizontal"/>
+</LinearLayout>
+</com.smartplace.effects.BounceScrollView>
