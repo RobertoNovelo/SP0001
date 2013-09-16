@@ -67,8 +67,8 @@ public class IncendiosFragment3 extends Fragment {
 
         DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
 
-            if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&dataManager.screenSize == "large")
-            {
+        if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
+        {
             switch (item.getItemId()) {
                 case R.id.btn_accept:
 
