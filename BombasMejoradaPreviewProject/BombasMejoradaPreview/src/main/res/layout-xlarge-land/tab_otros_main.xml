@@ -99,7 +99,10 @@
                 android:dividerPadding="10dp"
                 android:baselineAligned="false"
                 android:padding="10dp"
-                android:layout_margin="10dp">
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
 
             <RelativeLayout
                     android:id="@+id/contactinfo"
@@ -111,7 +114,7 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Datos de contacto"
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"/>
@@ -139,7 +142,7 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Servicio de Garantía al Producto"
                         android:layout_centerVertical="true"
                         android:layout_weight=".7"
@@ -167,7 +170,7 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Ayuda"
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"/>
@@ -192,7 +195,7 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Acerca de la App"
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"/>

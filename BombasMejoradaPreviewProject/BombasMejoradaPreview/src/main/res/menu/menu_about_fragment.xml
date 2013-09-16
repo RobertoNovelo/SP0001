@@ -4,7 +4,7 @@
         android:orderInCategory="100"
         android:showAsAction="ifRoom" />
     <item android:id="@+id/open_source"
-          android:title="Open Source"
+          android:title="Licencias"
           android:orderInCategory="101"
           android:showAsAction="never" />
 </menu>
