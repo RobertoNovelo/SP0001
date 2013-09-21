@@ -21,7 +21,7 @@ import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
 
 public class TabOtrosFragment extends Fragment {
 
-
+    DataManager dataManager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -29,8 +29,10 @@ public class TabOtrosFragment extends Fragment {
         ActionBar abar = getActivity().getActionBar();
         abar.setTitle(R.string.tab_otros_title);
         abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#195259")));
-        setHasOptionsMenu(true);
+
         View view = inflater.inflate(R.layout.tab_otros_main, container, false);
+        dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+        setHasOptionsMenu(true);
         return view;
     }
     @Override
@@ -76,7 +78,7 @@ public class TabOtrosFragment extends Fragment {
         relLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DataManager dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+
 
                 if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) &&(dataManager.screenSize == "large" || dataManager.screenSize == "xlarge"))
                 {

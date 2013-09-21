@@ -55,11 +55,12 @@ public class ServiceFragment1 extends Fragment {
         ActionBar abar = getActivity().getActionBar();
         abar.setTitle("Servicio");
         abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1A535A")));
-        setHasOptionsMenu(true);
+
         View view = inflater.inflate(R.layout.tab_otros_service_1, container, false);
         dataManager = ((TabsMainActivity)getActivity()).getDataManager();
         txt_equipo_modelo = (EditText)view.findViewById(R.id.txt_service_1);
         txt_no_de_serie = (EditText)view.findViewById(R.id.txt_service_2);
+        setHasOptionsMenu(true);
        return view;
     }
     @Override

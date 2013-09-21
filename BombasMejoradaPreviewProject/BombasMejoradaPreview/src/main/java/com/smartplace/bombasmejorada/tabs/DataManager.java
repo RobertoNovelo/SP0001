@@ -86,7 +86,7 @@ public class DataManager implements Parcelable{
 
         iLongSalida=5;
         iDesnivel=5;
-        iPresion=0;
+        iPresion=65;
         iGastoPico=0;
         iPerdidas=0;
         iCargaDinamica=0;
@@ -97,6 +97,7 @@ public class DataManager implements Parcelable{
         EnergySource = "Monofasica 110 V";
         Edificio = "Club";
         Uso = "Asilo";
+        Grupo = "Riesgo Ligero";
         EquipoModelo = null;
         NoDeSerie = null;
         Falla = null;

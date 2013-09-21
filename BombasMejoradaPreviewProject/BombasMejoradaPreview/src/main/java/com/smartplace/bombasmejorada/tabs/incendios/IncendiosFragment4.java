@@ -42,7 +42,7 @@ public class IncendiosFragment4 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
+
         View view = inflater.inflate(R.layout.tab_incendios_4, container, false);
 
         txt_instalacion = (TextView)view.findViewById(R.id.iInstalacion);
@@ -56,6 +56,8 @@ public class IncendiosFragment4 extends Fragment {
         txt_diametro_principal = (TextView)view.findViewById(R.id.iDiametroPrincipal);
         txt_diametro_ciruito = (TextView)view.findViewById(R.id.iDiametroCircuito);
 
+        dataManager =  ((TabsMainActivity)getActivity()).getDataManager();
+        setHasOptionsMenu(true);
         return view;
 
     }
@@ -66,7 +68,6 @@ public class IncendiosFragment4 extends Fragment {
         super.onResume();
 
         Button btnEnviar = (Button) getActivity().findViewById(R.id.enviarbutton);
-        dataManager =  ((TabsMainActivity)getActivity()).getDataManager();
 
         calcIncendiosValues();
 

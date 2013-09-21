@@ -52,10 +52,11 @@ public class ServiceFragment2 extends Fragment {
         ActionBar abar = getActivity().getActionBar();
         abar.setTitle("Servicio");
         abar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1A535A")));
-        setHasOptionsMenu(true);
+
         View view = inflater.inflate(R.layout.tab_otros_service_2, container, false);
         dataManager = ((TabsMainActivity)getActivity()).getDataManager();
         txt_falla = (EditText)view.findViewById(R.id.txt_service_3);
+        setHasOptionsMenu(true);
        return view;
     }
 
@@ -77,7 +78,7 @@ public class ServiceFragment2 extends Fragment {
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     // Replace whatever is in the fragment_container view with this fragment,
                     // and add the transaction to the back stack
-                    transaction.replace(android.R.id.tabcontent, newFragment);
+                    transaction.replace(android.R.id.tabcontent, newFragment,"service_fragment_3");
                     transaction.remove(fragmentManager.findFragmentByTag("service_fragment_2"));
                     transaction.add(R.id.myfragment, newFragment4, "service_fragment_4");
                     transaction.addToBackStack(null);

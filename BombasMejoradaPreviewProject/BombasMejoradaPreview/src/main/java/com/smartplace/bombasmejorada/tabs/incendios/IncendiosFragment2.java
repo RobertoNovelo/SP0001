@@ -44,8 +44,10 @@ public class IncendiosFragment2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        View v = inflater.inflate(R.layout.tab_incendios_2, container, false);
+        dataManager = ((TabsMainActivity)getActivity()).getDataManager();
         setHasOptionsMenu(true);
-        return inflater.inflate(R.layout.tab_incendios_2, container, false);
+        return v;
     }
 
     @Override
@@ -84,7 +86,7 @@ public class IncendiosFragment2 extends Fragment {
         }
     }
 
-    @Override
+/*   @Override
     public void onPrepareOptionsMenu (Menu menu) {
         int currentapiVersion = android.os.Build.VERSION.SDK_INT;
         if (currentapiVersion >= Build.VERSION_CODES.ICE_CREAM_SANDWICH){
@@ -101,8 +103,9 @@ public class IncendiosFragment2 extends Fragment {
             }
         }
 
-    }
 
+    }
+*/
     @Override
     public void onResume ()
     {
@@ -173,8 +176,6 @@ public class IncendiosFragment2 extends Fragment {
 
     private void validateCheckBoxStatus()
     {
-
-
         if ((((CheckBox)getActivity().findViewById(R.id.checkBox1)).isChecked() == true) && (((CheckBox)getActivity().findViewById(R.id.checkBox2)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox3)).isChecked() == false) && (((CheckBox)getActivity().findViewById(R.id.checkBox4)).isChecked() == false))
         {
             dataManager.iProteccion = "Mangueras de 1.5\"";
@@ -488,7 +489,7 @@ public class IncendiosFragment2 extends Fragment {
         }
 
         dataManager.iGastoPico = dataManager.iGastoPico*3.785;
-
+/*
         int currentapiVersion = android.os.Build.VERSION.SDK_INT;
         if (currentapiVersion >= Build.VERSION_CODES.ICE_CREAM_SANDWICH){
             // Do something
@@ -496,7 +497,7 @@ public class IncendiosFragment2 extends Fragment {
 
             getActivity().invalidateOptionsMenu();
         }
-
+*/
     }
 
 

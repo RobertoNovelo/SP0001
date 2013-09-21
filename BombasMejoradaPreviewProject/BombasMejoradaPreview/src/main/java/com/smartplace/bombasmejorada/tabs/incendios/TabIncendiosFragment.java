@@ -58,15 +58,12 @@ public class TabIncendiosFragment extends Fragment {
                 IncendiosFragment1 newFragment = new IncendiosFragment1();
                 IncendiosFragment2 newFragment2 = new IncendiosFragment2();
                 IncendiosFragment3 newFragment3 = new IncendiosFragment3();
-                FragmentManager fm = getFragmentManager();
-
-                FragmentTransaction transaction =fm.beginTransaction();
+                FragmentTransaction transaction =getFragmentManager().beginTransaction();
 
                 // Replace whatever is in the fragment_container view with this fragment,
                 // and add the transaction to the back stack
                 transaction.replace(android.R.id.tabcontent, newFragment,"incendios_fragment_1");
                 transaction.add(R.id.myfragment,newFragment3,"incendios_fragment_3");
-
                 transaction.add(R.id.myfragment,newFragment2,"incendios_fragment_2");
                 transaction.addToBackStack(null);
 
