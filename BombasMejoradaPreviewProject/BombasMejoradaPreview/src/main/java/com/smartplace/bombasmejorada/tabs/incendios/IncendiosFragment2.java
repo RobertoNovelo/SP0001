@@ -103,39 +103,39 @@ public class IncendiosFragment2 extends Fragment {
 
         RelativeLayout RL_OptionRelLayout = (RelativeLayout)getActivity().findViewById(R.id.idHidrantes15);
 
-        if (dataManager.Grupo == "Riesgo Ligero")
-        {
+       // if (dataManager.Grupo == "Riesgo Ligero")
+       // {
 
             RL_OptionRelLayout.setVisibility(View.VISIBLE);
 
-        }
+       // }
         RL_OptionRelLayout = (RelativeLayout)getActivity().findViewById(R.id.idHidrantes25);
 
-        if (dataManager.Grupo == "Riesgo Ordinario 1")
-        {
+       // if (dataManager.Grupo == "Riesgo Ordinario 1")
+       // {
 
             RL_OptionRelLayout.setVisibility(View.VISIBLE);
 
-        }
+       // }
 
         RL_OptionRelLayout = (RelativeLayout)getActivity().findViewById(R.id.idRociadores);
 
-        if (dataManager.Grupo == "Riesgo Ordinario 2")
-        {
+       // if (dataManager.Grupo == "Riesgo Ordinario 2")
+       // {
 
             RL_OptionRelLayout.setVisibility(View.VISIBLE);
 
-        }
+       // }
 
 
         RL_OptionRelLayout = (RelativeLayout)getActivity().findViewById(R.id.idCanones);
 
-        if ((dataManager.Grupo == "Riesgo Extra 1") || (dataManager.Grupo == "Riesgo Extra 2"))
-        {
+       // if ((dataManager.Grupo == "Riesgo Extra 1") || (dataManager.Grupo == "Riesgo Extra 2"))
+       // {
 
             RL_OptionRelLayout.setVisibility(View.VISIBLE);
 
-        }
+       // }
 
 
         CheckBox chkBox;
