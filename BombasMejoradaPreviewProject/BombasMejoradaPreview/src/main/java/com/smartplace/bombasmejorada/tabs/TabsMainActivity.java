@@ -13,23 +13,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.smartplace.assets.AssetsHandler;
 import com.smartplace.bombasmejorada.R;
-import com.smartplace.bombasmejorada.tabs.bombas.BombasFragment1;
-import com.smartplace.bombasmejorada.tabs.bombas.BombasFragment2;
 import com.smartplace.bombasmejorada.tabs.bombas.TabBombasFragment;
 import com.smartplace.bombasmejorada.tabs.convertidor.TabCalculadoraFragment;
 import com.smartplace.bombasmejorada.tabs.hidros.TabHidrosFragment;
 import com.smartplace.bombasmejorada.tabs.incendios.TabIncendiosFragment;
-import com.smartplace.bombasmejorada.tabs.otros.ServiceFragment1;
-import com.smartplace.bombasmejorada.tabs.otros.ServiceFragment2;
-import com.smartplace.bombasmejorada.tabs.otros.ServiceFragment3;
-import com.smartplace.bombasmejorada.tabs.otros.ServiceFragment5;
 import com.smartplace.bombasmejorada.tabs.otros.TabOtrosFragment;
-
-import java.io.File;
 
 import static com.smartplace.assets.AssetsHandler.Operations.fileExistsInSD;
 
@@ -40,7 +31,7 @@ public class TabsMainActivity extends Activity{
     /* Tab identifiers */
     static String TAB_A = "Bombas";
     static String TAB_B = "Hidros";
-    static String TAB_C = "Incendios";
+    static String TAB_C = "Incendio";
     static String TAB_D = "Convertidor";
     static String TAB_E = "Otros";
     TabHost mTabHost;

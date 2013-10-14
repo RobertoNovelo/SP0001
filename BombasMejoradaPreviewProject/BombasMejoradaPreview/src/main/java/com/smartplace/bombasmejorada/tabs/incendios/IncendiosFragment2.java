@@ -1,33 +1,21 @@
 package com.smartplace.bombasmejorada.tabs.incendios;
 
-import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
 
 import com.smartplace.bombasmejorada.R;
 import com.smartplace.bombasmejorada.tabs.DataManager;
 import com.smartplace.bombasmejorada.tabs.TabsMainActivity;
-import com.smartplace.bombasmejorada.tabs.hidros.HidrosFragment3;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 
@@ -112,6 +100,42 @@ public class IncendiosFragment2 extends Fragment {
         super.onResume();
 
         dataManager = ((TabsMainActivity)getActivity()).getDataManager();
+
+        RelativeLayout RL_OptionRelLayout = (RelativeLayout)getActivity().findViewById(R.id.idHidrantes15);
+
+        if (dataManager.Grupo == "Riesgo Ligero")
+        {
+
+            RL_OptionRelLayout.setVisibility(View.VISIBLE);
+
+        }
+        RL_OptionRelLayout = (RelativeLayout)getActivity().findViewById(R.id.idHidrantes25);
+
+        if (dataManager.Grupo == "Riesgo Ordinario 1")
+        {
+
+            RL_OptionRelLayout.setVisibility(View.VISIBLE);
+
+        }
+
+        RL_OptionRelLayout = (RelativeLayout)getActivity().findViewById(R.id.idRociadores);
+
+        if (dataManager.Grupo == "Riesgo Ordinario 2")
+        {
+
+            RL_OptionRelLayout.setVisibility(View.VISIBLE);
+
+        }
+
+
+        RL_OptionRelLayout = (RelativeLayout)getActivity().findViewById(R.id.idCanones);
+
+        if ((dataManager.Grupo == "Riesgo Extra 1") || (dataManager.Grupo == "Riesgo Extra 2"))
+        {
+
+            RL_OptionRelLayout.setVisibility(View.VISIBLE);
+
+        }
 
 
         CheckBox chkBox;

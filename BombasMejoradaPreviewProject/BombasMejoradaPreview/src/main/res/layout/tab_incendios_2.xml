@@ -53,10 +53,12 @@
                         >
 
                     <RelativeLayout
+                            android:id="@+id/idHidrantes15"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:clickable="true"
+                            android:visibility="gone"
                             android:layout_weight="1">
 
                         <TextView
@@ -82,10 +84,12 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                            android:id="@+id/idHidrantes25"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:clickable="true"
+                            android:visibility="gone"
                             android:gravity="center_vertical"
                             android:layout_weight="1">
 
@@ -121,10 +125,12 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                            android:id="@+id/idRociadores"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:clickable="true"
+                            android:visibility="gone"
                             android:layout_weight="1">
 
                         <TextView
@@ -150,10 +156,12 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                            android:id="@+id/idCanones"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:clickable="true"
+                            android:visibility="gone"
                             android:layout_weight="1">
 
                         <TextView

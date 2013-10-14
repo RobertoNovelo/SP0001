@@ -11,6 +11,6 @@
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
             android:text="asdfads"
-            android:textSize="9sp"
+            android:textSize="8sp"
             />
 </LinearLayout>
